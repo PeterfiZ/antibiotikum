@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antibiotikum Oktató Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .module-card {
+            transition: all 0.3s ease;
+        }
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .search-input {
+            transition: all 0.2s ease;
+        }
+        .search-input:focus {
+            transform: scale(1.02);
+        }
+        .sortable {
+            cursor: pointer;
+            position: relative;
+        }
+        .sortable::after {
+            content: ' \2195'; /* up-down arrow */
+            opacity: 0.5;
+        }
+        .gfr-normal { background-color: #f0fdf4; } /* green-50 */
+        .gfr-moderate { background-color: #fefce8; } /* yellow-50 */
+        .gfr-severe { background-color: #fef2f2; } /* red-50 */
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b-4 border-blue-600">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800">Antibiotikum Oktató Program</h1>
+                    <p class="text-sm text-gray-600 mt-1">
+                        <span id="copyright">© 2025, Dr. Péterfi Zoltán | Verzió: 2.4.7</span>
+                    </p>
+                </div>
+                <div class="flex space-x-2">
+                    <button onclick="changeLanguage('hu')" class="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" id="lang-hu">HU</button>
+                    <button onclick="changeLanguage('en')" class="px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" id="lang-en">EN</button>
+                    <button onclick="changeLanguage('de')" class="px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors" id="lang-de">DE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Module Selection -->
+        <div id="module-selection" class="fade-in">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center" id="select-module">Válasszon modult</h2>
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-blue-300" onclick="showModule('pharmacological')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="pharm-title">Farmakológiai megközelítés</h3>
+                        <p class="text-gray-600" id="pharm-desc">Antibiotikumok tulajdonságai és hatásmechanizmusai</p>
+                    </div>
+                </div>
+
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-green-300" onclick="showModule('clinical')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="clin-title">Klinikai megközelítés</h3>
+                        <p class="text-gray-600" id="clin-desc">Betegségek és terápiás protokollok</p>
+                    </div>
+                </div>
+
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-purple-300" onclick="showModule('microbiological')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="micro-title">Mikrobiológiai megközelítés</h3>
+                        <p class="text-gray-600" id="micro-desc">Kórokozók és érzékenységi spektrum</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-orange-300" onclick="showModule('summary')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="summary-title">Összefoglaló táblázatok</h3>
+                        <p class="text-gray-600" id="summary-desc">Antibiotikumok tulajdonságainak áttekintő táblázata</p>
+                    </div>
+                </div>
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-yellow-300" onclick="showModule('quiz')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4c0-1.193.5-2.278 1.28-3.072zM12 18v.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="quiz-title">Tudásfelmérő</h3>
+                        <p class="text-gray-600" id="quiz-desc">Tesztelje tudását interaktív kvízekkel</p>
+                    </div>
+                </div>
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-red-300" onclick="showModule('renal')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1.615A5 5 0 016.618 15h6.764A5 5 0 0118 19.385V21zM12 4.354V15"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="renal-title">Vesekárosodás</h3>
+                        <p class="text-gray-600" id="renal-desc">Dózismódosítás vesekárosodás esetén</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pharmacological Module -->
+        <div id="pharmacological-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="pharm-module-title">Farmakológiai megközelítés</h2>
+                <div class="flex items-center">
+                    <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn">Vissza</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="search-name">Keresés név szerint:</label>
+                        <input type="text" id="pharm-search" placeholder="Antibiotikum neve..." class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="filter-group">Szűrés csoport szerint:</label>
+                        <select id="pharm-group-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="" id="all-groups">Minden csoport</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-lg p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="antibiotic-list">Antibiotikumok listája</h3>
+                        <div id="pharm-list" class="space-y-2 max-h-96 overflow-y-auto">
+                            <!-- Antibiotics will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div id="pharm-details" class="text-center text-gray-500">
+                            <p id="select-antibiotic">Válasszon egy antibiotikumot a részletek megtekintéséhez</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clinical Module -->
+        <div id="clinical-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="clin-module-title">Klinikai megközelítés</h2>
+                <div class="flex items-center">
+                    <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-2">Vissza</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="search-disease">Keresés betegség szerint:</label>
+                        <input type="text" id="clin-search" placeholder="Betegség neve..." class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="filter-system">Szűrés szervrendszer szerint:</label>
+                        <select id="clin-category-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="" id="all-systems">Minden szervrendszer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-lg p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="disease-list">Betegségek listája</h3>
+                        <div id="clin-list" class="space-y-2 max-h-96 overflow-y-auto">
+                            <!-- Diseases will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div id="clin-details">
+                            <p id="select-disease">Válasszon egy betegséget a részletek megtekintéséhez</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Microbiological Module -->
+        <div id="microbiological-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="micro-module-title">Mikrobiológiai megközelítés</h2>
+                <div class="flex items-center">
+                    <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-3">Vissza</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="search-pathogen">Keresés kórokozó szerint:</label>
+                        <input type="text" id="micro-search" placeholder="Kórokozó neve..." class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="filter-type">Szűrés típus szerint:</label>
+                        <select id="micro-type-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            <option value="" id="all-types">Minden típus</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-lg p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="pathogen-list">Kórokozók listája</h3>
+                        <div id="micro-list" class="space-y-2 max-h-96 overflow-y-auto">
+                            <!-- Pathogens will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div id="micro-details" class="text-center text-gray-500">
+                            <p id="select-pathogen">Válasszon egy kórokozót a részletek megtekintéséhez</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Tables Module -->
+        <div id="summary-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="summary-module-title">Összefoglaló táblázatok</h2>
+                <div class="flex items-center space-x-3">
+                    <button onclick="exportToPDF('summary')" class="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors flex items-center space-x-2" id="export-summary-pdf-btn">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span id="export-summary-pdf-btn-text">Összefoglaló PDF</span>
+                    </button>
+                    <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-4">Vissza</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800" id="summary-table-title">Antibiotikumok összefoglaló táblázata</h3>
+                    <p class="text-sm text-gray-600 mt-1" id="summary-table-desc">Csoportok szerinti áttekintés a főbb tulajdonságokkal</p>
+                </div>
+                
+                <div id="summary-table-container" class="overflow-x-auto">
+                    <table id="summary-table" class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" id="th-group">Csoport</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" id="th-effect">Hatás</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" id="th-mechanism">Hatásmechanizmus</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" id="th-spectrum">Spektrum</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" id="th-examples">Példák</th>
+                            </tr>
+                        </thead>
+                        <tbody id="summary-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Table content will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Module -->
+        <div id="quiz-module" class="hidden fade-in">
+            <!-- Setup Screen -->
+            <div id="quiz-setup">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800" id="quiz-module-title">Tudásfelmérő</h2>
+                    <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-5">Vissza</button>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                    <h3 class="text-xl font-semibold text-center mb-6" id="quiz-setup-title">Kvíz beállításai</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="quiz-topic" class="block text-sm font-medium text-gray-700" id="quiz-topic-label">Témakör:</label>
+                            <select id="quiz-topic" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="pharmacological" id="topic-pharm">Farmakológiai</option>
+                                <option value="clinical" id="topic-clin">Klinikai</option>
+                                <option value="microbiological" id="topic-micro">Mikrobiológiai</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quiz-questions" class="block text-sm font-medium text-gray-700" id="quiz-questions-label">Kérdések száma:</label>
+                            <select id="quiz-questions" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quiz-difficulty" class="block text-sm font-medium text-gray-700" id="quiz-difficulty-label">Nehézség:</label>
+                            <select id="quiz-difficulty" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="easy" id="difficulty-easy">Könnyű</option>
+                                <option value="hard" id="difficulty-hard">Nehéz</option>
+                                <option value="auto-generated" id="difficulty-auto">Automatikus</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="startQuiz()" class="w-full px-6 py-3 bg-yellow-500 text-white font-bold rounded-lg hover:bg-yellow-600 transition-colors text-lg" id="start-quiz-btn">Kvíz indítása</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Area -->
+            <div id="quiz-area" class="hidden bg-white rounded-xl shadow-lg p-8 max-w-3xl mx-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <div id="quiz-progress" class="text-sm font-semibold text-gray-600"></div>
+                    <div id="quiz-score" class="text-sm font-semibold text-gray-600"></div>
+                </div>
+                <div id="question-container" class="mb-6 min-h-[6rem] flex items-center"><p class="text-xl font-medium text-gray-800" id="question-text"></p></div>
+                <div id="answers-container" class="space-y-3"></div>
+                <div id="feedback-container" class="mt-4 text-center font-bold min-h-[1.5rem]"></div>
+                <div class="mt-8 flex justify-end"><button id="next-question-btn" onclick="nextQuestion()" class="hidden px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">Következő</button></div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="quiz-results" class="hidden text-center bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4" id="results-title">Eredmény</h3>
+                <p class="text-4xl font-bold text-green-600 mb-2" id="final-score"></p>
+                <p class="text-gray-600 mb-6" id="score-text"></p>
+                <button onclick="restartQuiz()" class="px-6 py-3 bg-yellow-500 text-white font-bold rounded-lg hover:bg-yellow-600 transition-colors" id="restart-quiz-btn">Új kvíz</button>
+            </div>
+        </div>
+
+        <!-- Renal Dose Module -->
+        <div id="renal-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="renal-module-title">Dózismódosítás vesekárosodás esetén</h2>
+                <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-6">Vissza</button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800" id="renal-table-title">Antibiotikum dózisok vesefunkció szerint</h3>
+                    <p class="text-sm text-gray-600 mt-1" id="renal-table-desc">Áttekintés a GFR értékek alapján</p>
+                    <div class="mt-4">
+                        <label for="renal-search" class="block text-sm font-medium text-gray-700 mb-2" id="search-renal-antibiotic">Keresés antibiotikum szerint:</label>
+                        <input type="text" id="renal-search" placeholder="Antibiotikum neve..." class="search-input w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                    </div>
+                </div>
+                
+                <div id="renal-table-container" class="overflow-x-auto">
+                    <table id="renal-table" class="w-full">
+                        <thead class="bg-gray-100 border-b-2 border-gray-300">
+                            <tr id="renal-table-header">
+                                <th id="th-renal-antibiotic" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Antibiotikum</th>
+                                <th id="th-renal-gfr50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-normal">GFR > 50 ml/min</th>
+                                <th id="th-renal-gfr10-50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 10-50 ml/min</th>
+                                <th id="th-renal-gfr-lt10" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-severe">GFR &lt; 10 ml/min</th>
+                                <th id="th-renal-hd" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">HD</th>
+                                <th id="th-renal-crrt" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">CRRT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="renal-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Renal dose table content will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<script src="antibiotics_hu.js"></script>
+<script src="antibiotics_en.js"></script>
+<script src="antibiotics_de.js"></script>
+<script src="diseases_hu.js"></script>
+<script src="diseases_en.js"></script>
+<script src="diseases_de.js"></script>
+<script src="pathogens_hu.js"></script>
+<script src="pathogens_en.js"></script>
+<script src="pathogens_de.js"></script>
+<script src="test_hu.js"></script>
+<script src="test_en.js"></script>
+<script src="test_de.js"></script>
+<script src="renal_dose_hu.js"></script>
+<script src="renal_dose_en.js"></script>
+<script src="renal_dose_de.js"></script>
+
+<script>
+console.log("antibiotics_hu:", window.antibiotics_hu);
+console.log("diseases_hu:", window.diseases_hu);
+console.log("pathogens_hu:", window.pathogens_hu);
+console.log("renal_dose_hu:", window.renal_dose_hu);
+</script>
+
+<script>
+    let currentLanguage = 'hu';
+    let antibiotics = window.antibiotics_hu;
+    let diseases = window.diseases_hu;
+    let pathogens = window.pathogens_hu;
+    let testQuestions = window.test_hu || [];
+    let renalDoses = window.renal_dose_hu || [];
+
+    // Sort state
+    let renalSortState = { column: 'antibiotic_name', direction: 'asc' };
+
+    // Quiz state
+    let currentQuestions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+        const translations = {
+            hu: {
+                'select-module': 'Válasszon modult',
+                'pharm-title': 'Farmakológiai megközelítés',
+                'pharm-desc': 'Antibiotikumok tulajdonságai és hatásmechanizmusai',
+                'clin-title': 'Klinikai megközelítés',
+                'clin-desc': 'Betegségek és terápiás protokollok',
+                'micro-title': 'Mikrobiológiai megközelítés',
+                'micro-desc': 'Kórokozók és érzékenységi spektrum',
+                'summary-title': 'Összefoglaló táblázatok',
+                'summary-desc': 'Antibiotikumok tulajdonságainak áttekintő táblázata',
+                'renal-title': 'Vesekárosodás',
+                'renal-desc': 'Dózismódosítás vesekárosodás esetén',
+                'quiz-title': 'Tudásfelmérő',
+                'quiz-desc': 'Tesztelje tudását interaktív kvízekkel',
+                'renal-module-title': 'Dózismódosítás vesekárosodás esetén',
+                'renal-table-title': 'Antibiotikum dózisok vesefunkció szerint',
+                'quiz-module-title': 'Tudásfelmérő',
+                'quiz-setup-title': 'Kvíz beállításai',
+                'quiz-topic-label': 'Témakör:',
+                'topic-pharm': 'Farmakológiai',
+                'topic-clin': 'Klinikai',
+                'topic-micro': 'Mikrobiológiai',
+                'quiz-questions-label': 'Kérdések száma:',
+                'quiz-difficulty-label': 'Nehézség:',
+                'difficulty-easy': 'Könnyű',
+                'difficulty-hard': 'Nehéz',
+                'difficulty-auto': 'Automatikus',
+                'start-quiz-btn': 'Kvíz indítása',
+                'pharm-module-title': 'Farmakológiai megközelítés',
+                'clin-module-title': 'Klinikai megközelítés',
+                'micro-module-title': 'Mikrobiológiai megközelítés',
+                'summary-module-title': 'Összefoglaló táblázatok',
+                'back-btn': 'Vissza',
+                'search-name': 'Keresés név szerint:',
+                'search-disease': 'Keresés betegség szerint:',
+                'search-pathogen': 'Keresés kórokozó szerint:',
+                'filter-group': 'Szűrés csoport szerint:',
+                'filter-system': 'Szűrés szervrendszer szerint:',
+                'filter-type': 'Szűrés típus szerint:',
+                'all-groups': 'Minden csoport',
+                'all-systems': 'Minden szervrendszer',
+                'all-types': 'Minden típus',
+                'antibiotic-list': 'Antibiotikumok listája',
+                'disease-list': 'Betegségek listája',
+                'pathogen-list': 'Kórokozók listája',
+                'select-antibiotic': 'Válasszon egy antibiotikumot a részletek megtekintéséhez',
+                'select-disease': 'Válasszon egy betegséget a részletek megtekintéséhez',
+                'select-pathogen': 'Válasszon egy kórokozót a részletek megtekintéséhez',
+                'summary-table-title': 'Antibiotikumok összefoglaló táblázata',
+                'summary-table-desc': 'Csoportok szerinti áttekintés a főbb tulajdonságokkal',
+                'th-group': 'Csoport',
+                'th-effect': 'Hatás',
+                'th-mechanism': 'Hatásmechanizmus',
+                'th-spectrum': 'Spektrum',
+                'th-examples': 'Példák', 
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Verzió: 3.2.0',
+                'th-renal-antibiotic': 'Antibiotikum',
+                'th-renal-gfr50': 'GFR > 50 ml/min',
+                'th-renal-gfr10-50': 'GFR 10-50 ml/min',
+                'th-renal-gfr-lt10': 'GFR < 10 ml/min',
+                'th-renal-hd': 'HD',
+                'search-renal-antibiotic': 'Keresés antibiotikum szerint:',
+                'th-renal-crrt': 'CRRT',
+                'export-summary-pdf-btn-text': 'Összefoglaló PDF',
+                'export-detailed-pdf-btn-text': 'Részletes PDF',
+                'export-diseases-pdf-btn-text': 'Részletes PDF',
+                'export-pathogens-pdf-btn-text': 'Részletes PDF',
+                'category': 'Kategória',
+                'commonPathogens': 'Gyakori kórokozók',
+                'empiricalTherapy': 'Empirikus terápia',
+                'firstLine': 'Első vonalbeli',
+                'alternative': 'Alternatíva',
+                'duration': 'Időtartam',
+                'identifiers': 'Azonosítók',
+                'type': 'Típus',
+                'morphology': 'Morfológia',
+                'characteristics': 'Jellemzők',
+                'commonInfections': 'Gyakori fertőzések',
+                'therapy': 'Terápia',
+                'firstChoice': 'Első választás',
+                'resistant': 'Rezisztens',
+                'targetedTherapy': 'Célzott terápia',
+                'notes': 'Megjegyzések',
+                'basicData': 'Alapadatok',
+                'group': 'Csoport',
+                'subgroup': 'Alcsoport',
+                'effect': 'Hatás',
+                'halfLife': 'Felezési idő',
+                'pae': 'PAE',
+                'mechanism': 'Hatásmechanizmus',
+                'dosage': 'Adagolás',
+                'standard': 'Standard',
+                'high': 'Magas dózis',
+                'oral': 'Orális',
+                'routes': 'Alkalmazási módok',
+                'spectrum': 'Spektrum',
+                'gramPositive': 'Gram-pozitív',
+                'gramNegative': 'Gram-negatív',
+                'anaerobe': 'Anaerob',
+                'atypical': 'Atypusos',
+                'pseudomonas': 'Pseudomonas',
+                'other': 'Egyéb',
+                'sideEffects': 'Mellékhatások',
+                'question': 'Kérdés',
+                'of': '/',
+                'score': 'Pontszám',
+                'next-btn': 'Következő',
+                'results-title': 'Eredmény',
+                'score-text': 'a pontszámod',
+                'restart-quiz-btn': 'Új kvíz',
+                'correct-answer': 'Helyes!',
+                'wrong-answer': 'Hibás! A helyes válasz:'
+            },
+            en: {
+                'select-module': 'Select Module',
+                'pharm-title': 'Pharmacological Approach',
+                'pharm-desc': 'Antibiotic properties and mechanisms of action',
+                'clin-title': 'Clinical Approach',
+                'clin-desc': 'Diseases and therapeutic protocols',
+                'micro-title': 'Microbiological Approach',
+                'micro-desc': 'Pathogens and sensitivity spectrum',
+                'summary-title': 'Summary Tables',
+                'summary-desc': 'Overview table of antibiotic properties',
+                'renal-title': 'Renal Impairment',
+                'renal-desc': 'Dosage adjustment in renal impairment',
+                                'quiz-title': 'Quiz',
+                'quiz-desc': 'Test your knowledge with interactive quizzes',
+                'renal-module-title': 'Dosage in Renal Impairment',
+                'renal-table-title': 'Antibiotic Doses by Renal Function',
+                'quiz-module-title': 'Quiz',
+                'quiz-setup-title': 'Quiz Settings',
+                'quiz-topic-label': 'Topic:',
+                'topic-pharm': 'Pharmacological',
+                'topic-clin': 'Clinical',
+                'topic-micro': 'Microbiological',
+                'quiz-questions-label': 'Number of questions:',
+                'quiz-difficulty-label': 'Difficulty:',
+                'difficulty-easy': 'Easy',
+                'difficulty-hard': 'Hard',
+                'difficulty-auto': 'Automatic',
+                'start-quiz-btn': 'Start Quiz',
+                'pharm-module-title': 'Pharmacological Approach',
+                'clin-module-title': 'Clinical Approach',
+                'micro-module-title': 'Microbiological Approach',
+                'summary-module-title': 'Summary Tables',
+                'back-btn': 'Back',
+                'search-name': 'Search by name:',
+                'search-disease': 'Search by disease:',
+                'search-pathogen': 'Search by pathogen:',
+                'filter-group': 'Filter by group:',
+                'filter-system': 'Filter by organ system:',
+                'filter-type': 'Filter by type:',
+                'all-groups': 'All groups',
+                'all-systems': 'All organ systems',
+                'all-types': 'All types',
+                'antibiotic-list': 'Antibiotic List',
+                'disease-list': 'Disease List',
+                'pathogen-list': 'Pathogen List',
+                'select-antibiotic': 'Select an antibiotic to view details',
+                'select-disease': 'Select a disease to view details',
+                'select-pathogen': 'Select a pathogen to view details',
+                'summary-table-title': 'Antibiotic Summary Table',
+                'summary-table-desc': 'Group-based overview with key properties',
+                'th-group': 'Group',
+                'th-effect': 'Effect',
+                'th-mechanism': 'Mechanism',
+                'th-spectrum': 'Spectrum',
+                'th-examples': 'Examples', 
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 3.2.0',
+                'th-renal-antibiotic': 'Antibiotic',
+                'th-renal-gfr50': 'GFR > 50 ml/min',
+                'th-renal-gfr10-50': 'GFR 10-50 ml/min',
+                'th-renal-gfr-lt10': 'GFR < 10 ml/min',
+                'th-renal-hd': 'HD',
+                'search-renal-antibiotic': 'Search by antibiotic:',
+                'th-renal-crrt': 'CRRT',
+                'export-summary-pdf-btn-text': 'Summary PDF',
+                'export-detailed-pdf-btn-text': 'Detailed PDF',
+                'export-diseases-pdf-btn-text': 'Detailed PDF',
+                'export-pathogens-pdf-btn-text': 'Detailed PDF',
+                'category': 'Category',
+                'commonPathogens': 'Common Pathogens',
+                'empiricalTherapy': 'Empirical Therapy',
+                'firstLine': 'First Line',
+                'alternative': 'Alternative',
+                'duration': 'Duration',
+                'identifiers': 'Identifiers',
+                'type': 'Type',
+                'morphology': 'Morphology',
+                'characteristics': 'Characteristics',
+                'commonInfections': 'Common Infections',
+                'therapy': 'Therapy',
+                'firstChoice': 'First Choice',
+                'resistant': 'Resistant',
+                'targetedTherapy': 'Targeted Therapy',
+                'notes': 'Notes',
+                'basicData': 'Basic Data',
+                'group': 'Group',
+                'subgroup': 'Subgroup',
+                'effect': 'Effect',
+                'halfLife': 'Half-life',
+                'pae': 'PAE',
+                'mechanism': 'Mechanism of Action',
+                'dosage': 'Dosage',
+                'standard': 'Standard',
+                'high': 'High Dose',
+                'oral': 'Oral',
+                'routes': 'Routes of Administration',
+                'spectrum': 'Spectrum',
+                'gramPositive': 'Gram-positive',
+                'gramNegative': 'Gram-negative',
+                'anaerobe': 'Anaerobe',
+                'atypical': 'Atypical',
+                'pseudomonas': 'Pseudomonas',
+                'other': 'Other',
+                'sideEffects': 'Side Effects',
+                'question': 'Question',
+                'of': 'of',
+                'score': 'Score',
+                'next-btn': 'Next',
+                'results-title': 'Results',
+                'score-text': 'is your score.',
+                'restart-quiz-btn': 'New Quiz',
+                'correct-answer': 'Correct!',
+                'wrong-answer': 'Wrong! The correct answer was:'
+            },
+            de: {
+                'select-module': 'Modul auswählen',
+                'pharm-title': 'Pharmakologischer Ansatz',
+                'pharm-desc': 'Antibiotika-Eigenschaften und Wirkmechanismen',
+                'clin-title': 'Klinischer Ansatz',
+                'clin-desc': 'Krankheiten und therapeutische Protokolle',
+                'micro-title': 'Mikrobiologischer Ansatz',
+                'micro-desc': 'Erreger und Empfindlichkeitsspektrum',
+                'summary-title': 'Zusammenfassungstabellen',
+                'summary-desc': 'Übersichtstabelle der Antibiotika-Eigenschaften',
+                'renal-title': 'Niereninsuffizienz',
+                'renal-desc': 'Dosisanpassung bei Niereninsuffizienz',
+                'quiz-title': 'Quiz',
+                'quiz-desc': 'Testen Sie Ihr Wissen mit interaktiven Quizfragen',
+                'renal-module-title': 'Dosisanpassung bei Niereninsuffizienz',
+                'renal-table-title': 'Antibiotikadosen nach Nierenfunktion',
+                'quiz-module-title': 'Quiz',
+                'quiz-setup-title': 'Quiz-Einstellungen',
+                'quiz-topic-label': 'Thema:',
+                'topic-pharm': 'Pharmakologisch',
+                'topic-clin': 'Klinisch',
+                'topic-micro': 'Mikrobiologisch',
+                'quiz-questions-label': 'Anzahl der Fragen:',
+                'quiz-difficulty-label': 'Schwierigkeit:',
+                'difficulty-easy': 'Leicht',
+                'difficulty-hard': 'Schwer',
+                'difficulty-auto': 'Automatisch',
+                'start-quiz-btn': 'Quiz starten',
+                'pharm-module-title': 'Pharmakologischer Ansatz',
+                'clin-module-title': 'Klinischer Ansatz',
+                'micro-module-title': 'Mikrobiologischer Ansatz',
+                'summary-module-title': 'Zusammenfassungstabellen',
+                'back-btn': 'Zurück',
+                'search-name': 'Nach Name suchen:',
+                'search-disease': 'Nach Krankheit suchen:',
+                'search-pathogen': 'Nach Erreger suchen:',
+                'filter-group': 'Nach Gruppe filtern:',
+                'filter-system': 'Nach Organsystem filtern:',
+                'filter-type': 'Nach Typ filtern:',
+                'all-groups': 'Alle Gruppen',
+                'all-systems': 'Alle Organsysteme',
+                'all-types': 'Alle Typen',
+                'antibiotic-list': 'Antibiotika-Liste',
+                'disease-list': 'Krankheitsliste',
+                'pathogen-list': 'Erregerliste',
+                'select-antibiotic': 'Wählen Sie ein Antibiotikum für Details aus',
+                'select-disease': 'Wählen Sie eine Krankheit für Details aus',
+                'select-pathogen': 'Wählen Sie einen Erreger für Details aus',
+                'summary-table-title': 'Antibiotika-Zusammenfassungstabelle',
+                'summary-table-desc': 'Gruppenbasierte Übersicht mit wichtigsten Eigenschaften',
+                'th-group': 'Gruppe',
+                'th-effect': 'Wirkung',
+                'th-mechanism': 'Mechanismus',
+                'th-spectrum': 'Spektrum',
+                'th-examples': 'Beispiele', 
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 3.2.0',
+                'th-renal-antibiotic': 'Antibiotikum',
+                'th-renal-gfr50': 'GFR > 50 ml/min',
+                'th-renal-gfr10-50': 'GFR 10-50 ml/min',
+                'th-renal-gfr-lt10': 'GFR < 10 ml/min',
+                'th-renal-hd': 'HD',
+                'search-renal-antibiotic': 'Nach Antibiotikum suchen:',
+                'th-renal-crrt': 'CRRT',
+                'export-summary-pdf-btn-text': 'Zusammenfassungs-PDF',
+                'export-detailed-pdf-btn-text': 'Detailliertes PDF',
+                'export-diseases-pdf-btn-text': 'Detailliertes PDF',
+                'export-pathogens-pdf-btn-text': 'Detailliertes PDF',
+                'category': 'Kategorie',
+                'commonPathogens': 'Häufige Erreger',
+                'empiricalTherapy': 'Empirische Therapie',
+                'firstLine': 'Erste Wahl',
+                'alternative': 'Alternative',
+                'duration': 'Dauer',
+                'identifiers': 'Identifikatoren',
+                'type': 'Typ',
+                'morphology': 'Morphologie',
+                'characteristics': 'Eigenschaften',
+                'commonInfections': 'Häufige Infektionen',
+                'therapy': 'Therapie',
+                'firstChoice': 'Erste Wahl',
+                'resistant': 'Resistent',
+                'targetedTherapy': 'Gezielte Therapie',
+                'notes': 'Anmerkungen',
+                'basicData': 'Grunddaten',
+                'group': 'Gruppe',
+                'subgroup': 'Untergruppe',
+                'effect': 'Wirkung',
+                'halfLife': 'Halbwertszeit',
+                'pae': 'PAE',
+                'mechanism': 'Wirkmechanismus',
+                'dosage': 'Dosierung',
+                'standard': 'Standard',
+                'high': 'Hohe Dosis',
+                'oral': 'Oral',
+                'routes': 'Verabreichungswege',
+                'spectrum': 'Spektrum',
+                'gramPositive': 'Gram-positiv',
+                'gramNegative': 'Gram-negativ',
+                'anaerobe': 'Anaerobier',
+                'atypical': 'Atypisch',
+                'pseudomonas': 'Pseudomonas',
+                'other': 'Andere',
+                'sideEffects': 'Nebenwirkungen',
+                'question': 'Frage',
+                'of': 'von',
+                'score': 'Punktestand',
+                'next-btn': 'Nächste',
+                'results-title': 'Ergebnisse',
+                'score-text': 'ist Ihre Punktzahl.',
+                'restart-quiz-btn': 'Neues Quiz',
+                'correct-answer': 'Richtig!',
+                'wrong-answer': 'Falsch! Die richtige Antwort war:'
+            }
+        };
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            
+            document.querySelectorAll('[id^="lang-"]').forEach(btn => {
+                btn.className = 'px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors';
+            });
+            document.getElementById(`lang-${lang}`).className = 'px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors';
+            
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            if (lang === 'hu') {
+        antibiotics = window.antibiotics_hu || [];
+        diseases = window.diseases_hu || [];
+        pathogens = window.pathogens_hu || [];
+        testQuestions = window.test_hu || [];
+        renalDoses = window.renal_dose_hu || [];
+    } else if (lang === 'en') {
+        antibiotics = window.antibiotics_en || [];
+        diseases = window.diseases_en || [];
+        pathogens = window.pathogens_en || [];
+        testQuestions = window.test_en || [];
+        renalDoses = window.renal_dose_en || [];
+    } else if (lang === 'de') {
+        antibiotics = window.antibiotics_de || [];
+        diseases = window.diseases_de || [];
+        pathogens = window.pathogens_de || [];
+        testQuestions = window.test_de || [];
+        renalDoses = window.renal_dose_de || [];
+    }
+
+            document.getElementById('back-btn-2').textContent = translations[lang]['back-btn'];
+            document.getElementById('back-btn-3').textContent = translations[lang]['back-btn'];
+            document.getElementById('back-btn-4').textContent = translations[lang]['back-btn'];
+            document.getElementById('back-btn-5').textContent = translations[lang]['back-btn'];
+            document.getElementById('back-btn-6').textContent = translations[lang]['back-btn'];
+            
+            refreshCurrentModule();
+        }
+
+        function showModule(moduleType) {
+            document.getElementById('module-selection').classList.add('hidden');
+            document.getElementById(`${moduleType}-module`).classList.remove('hidden');
+            
+            if (moduleType === 'pharmacological') {
+                initPharmacologicalModule();
+            } else if (moduleType === 'clinical') {
+                initClinicalModule();
+            } else if (moduleType === 'microbiological') {
+                initMicrobiologicalModule();
+            } else if (moduleType === 'summary') {
+                initSummaryModule();
+            } else if (moduleType === 'quiz') {
+                initQuizModule();
+            } else if (moduleType === 'renal') {
+                initRenalModule();
+            }
+        }
+
+        function showModuleSelection() {
+            document.querySelectorAll('[id$="-module"]').forEach(module => {
+                module.classList.add('hidden');
+            });
+            document.getElementById('module-selection').classList.remove('hidden');
+        }
+
+        function initPharmacologicalModule() {
+            populatePharmGroups();
+            displayPharmList(antibiotics);
+            setupPharmSearch();
+        }
+
+        function initClinicalModule() {
+            populateClinCategories();
+            displayClinList(diseases);
+            setupClinSearch();
+        }
+
+        function initMicrobiologicalModule() {
+            populateMicroTypes();
+            displayMicroList(pathogens);
+            setupMicroSearch();
+        }
+
+        function initSummaryModule() {
+            generateSummaryTable();
+        }
+
+        function initQuizModule() {
+            // The setup screen is shown by default, nothing else to do here.
+        }
+
+        function initRenalModule() {
+            displayRenalDoseTable(renalDoses);
+            setupRenalSearch();
+        }
+
+        function setupRenalSort() {
+            const header = document.getElementById('th-renal-antibiotic');
+            header.classList.add('sortable');
+            header.onclick = () => {
+                renalSortState.direction = renalSortState.direction === 'asc' ? 'desc' : 'asc';
+                displayRenalDoseTable(renalDoses);
+            };
+        }
+        function populatePharmGroups() {
+            const groupFilter = document.getElementById('pharm-group-filter');
+            const groups = [...new Set(antibiotics.map(ab => ab.group[currentLanguage]))];
+            
+            groupFilter.innerHTML = `<option value="">${translations[currentLanguage]['all-groups']}</option>`;
+            groups.sort().forEach(group => {
+                groupFilter.innerHTML += `<option value="${group}">${group}</option>`;
+            });
+        }
+
+        function populateClinCategories() {
+            const categoryFilter = document.getElementById('clin-category-filter');
+            
+            const currentValue = categoryFilter.value;
+
+            while (categoryFilter.options.length > 1) {
+                categoryFilter.remove(1);
+            }
+
+            const categories = [...new Set(diseases.map(d => d.category))];
+            
+            const categoryTranslations = {
+                "CNS": { hu: "Központi idegrendszer", en: "Central Nervous System", de: "Zentralnervensystem" },
+                "Respiratory": { hu: "Légzőrendszer", en: "Respiratory System", de: "Atmungssystem" },
+                "Cardiovascular": { hu: "Szív- és érrendszer", en: "Cardiovascular System", de: "Herz-Kreislauf-System" },
+                "Urogenital": { hu: "Urogenitális rendszer", en: "Urogenital System", de: "Urogenitalsystem" },
+                "Skin": { hu: "Bőr és lágyrészek", en: "Skin and Soft Tissues", de: "Haut und Weichteile" },
+                "Sepsis": { hu: "Szepszis", en: "Sepsis", de: "Sepsis" },
+                "Gastrointestinal": { hu: "Gastrointestinális rendszer", en: "Gastrointestinal System", de: "Magen-Darm-System" },
+                "Orthopedic": { hu: "Ortopédiai", en: "Orthopedic", de: "Orthopädisch" }
+            };
+
+            categories.sort((a, b) => (categoryTranslations[a] ? categoryTranslations[a][currentLanguage] : a).localeCompare(categoryTranslations[b] ? categoryTranslations[b][currentLanguage] : b));
+
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = categoryTranslations[category] ? categoryTranslations[category][currentLanguage] : category;
+                option.dataset.key = category;
+                categoryFilter.appendChild(option);
+            });
+
+            categoryFilter.value = currentValue;
+        }
+
+        function populateMicroTypes() {
+            const typeFilter = document.getElementById('micro-type-filter');
+            const types = [...new Set(pathogens.map(p => p.type[currentLanguage]))];
+            
+            typeFilter.innerHTML = `<option value="">${translations[currentLanguage]['all-types']}</option>`;
+            types.sort().forEach(type => {
+                typeFilter.innerHTML += `<option value="${type}">${type}</option>`;
+            });
+        }
+
+        function displayPharmList(list) {
+            const pharmList = document.getElementById('pharm-list');
+            pharmList.innerHTML = '';
+            if (!list) return;
+            list.sort((a, b) => a.name[currentLanguage].localeCompare(b.name[currentLanguage]));
+            list.forEach(ab => {
+                const div = document.createElement('div');
+                div.textContent = ab.name[currentLanguage];
+                div.className = 'p-2 cursor-pointer hover:bg-blue-100 rounded';
+                div.onclick = () => showPharmDetails(ab);
+                pharmList.appendChild(div);
+            });
+        }
+
+        function displayClinList(list) {
+            const clinList = document.getElementById('clin-list');
+            clinList.innerHTML = '';
+            if (!list) return;
+            list.sort((a, b) => a.name[currentLanguage].localeCompare(b.name[currentLanguage]));
+            list.forEach(disease => {
+                const div = document.createElement('div');
+                div.textContent = disease.name[currentLanguage];
+                div.className = 'p-2 cursor-pointer hover:bg-green-100 rounded';
+                div.onclick = () => showClinDetails(disease);
+                clinList.appendChild(div);
+            });
+        }
+
+        function displayMicroList(list) {
+            const microList = document.getElementById('micro-list');
+            microList.innerHTML = '';
+            if (!list) return;
+            list.sort((a, b) => a.name.localeCompare(b.name));
+            list.forEach(p => {
+                const div = document.createElement('div');
+                div.innerHTML = `<i>${p.name}</i>`;
+                div.className = 'p-2 cursor-pointer hover:bg-purple-100 rounded';
+                div.onclick = () => showMicroDetails(p);
+                microList.appendChild(div);
+            });
+        }
+
+        function showPharmDetails(antibiotic) {
+            const details = document.getElementById('pharm-details');
+            const lang = currentLanguage;
+            
+            const spectrumIcons = {
+                gramPos: antibiotic.spectrum.gramPos ? '✅' : '❌',
+                gramNeg: antibiotic.spectrum.gramNeg ? '✅' : '❌',
+                anaerob: antibiotic.spectrum.anaerob ? '✅' : '❌',
+                atypical: antibiotic.spectrum.atypical ? '✅' : '❌',
+                pseudomonas: antibiotic.spectrum.pseudomonas ? '✅' : '❌'
+            };
+            
+            details.innerHTML = `
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">${antibiotic.name[lang]}</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">${translations[lang]['basicData']}</h4>
+                                <p><strong>${translations[lang]['group']}:</strong> ${antibiotic.group[lang]}</p>
+                                <p><strong>${translations[lang]['subgroup']}:</strong> ${antibiotic.subgroup ? antibiotic.subgroup[lang] : ''}</p>
+                                <p><strong>${translations[lang]['effect']}:</strong> ${antibiotic.effect[lang]}</p>
+                                <p><strong>${translations[lang]['halfLife']}:</strong> ${antibiotic.halfLife[lang]}</p>
+                                <p><strong>${translations[lang]['pae']}:</strong> ${antibiotic.pae[lang]}</p>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">${translations[lang]['mechanism']}</h4>
+                                <p>${antibiotic.mechanism[lang]}</p>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">${translations[lang]['dosage']}</h4>
+                                <p><strong>${translations[lang]['standard']}:</strong> ${antibiotic.dosage.standard[lang]}</p>
+                                <p><strong>${translations[lang]['high']}:</strong> ${antibiotic.dosage.high[lang]}</p>
+                                <p><strong>${translations[lang]['oral']}:</strong> ${antibiotic.dosage.oral[lang]}</p>
+                                <p><strong>${translations[lang]['routes']}:</strong> ${antibiotic.routes.join(', ')}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 mb-2">${translations[lang]['spectrum']}</h4>
+                                <div class="space-y-2">
+                                    <p>${spectrumIcons.gramPos} ${translations[lang]['gramPositive']}</p>
+                                    <p>${spectrumIcons.gramNeg} ${translations[lang]['gramNegative']}</p>
+                                    <p>${spectrumIcons.anaerob} ${translations[lang]['anaerobe']}</p>
+                                    <p>${spectrumIcons.atypical} ${translations[lang]['atypical']}</p>
+                                    <p>${spectrumIcons.pseudomonas} ${translations[lang]['pseudomonas']}</p>
+                                    <p><strong>${translations[lang]['other']}:</strong> ${antibiotic.spectrum.other[lang]}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800 mb-2">${translations[lang]['sideEffects']}</h4>
+                                <p class="text-sm">${antibiotic.sideEffects[lang]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showClinDetails(disease) {
+            const detailsView = document.getElementById('clin-details');
+            detailsView.classList.remove('text-center');
+            const lang = currentLanguage;
+
+            const categoryTranslations = {
+                "CNS": { hu: "Központi idegrendszer", en: "Central Nervous System", de: "Zentralnervensystem" },
+                "Respiratory": { hu: "Légzőrendszer", en: "Respiratory System", de: "Atmungssystem" },
+                "Cardiovascular": { hu: "Szív- és érrendszer", en: "Cardiovascular System", de: "Herz-Kreislauf-System" },
+                "Urogenital": { hu: "Urogenitális rendszer", en: "Urogenital System", de: "Urogenitalsystem" },
+                "Skin": { hu: "Bőr és lágyrészek", en: "Skin and Soft Tissues", de: "Haut und Weichteile" },
+                "Sepsis": { hu: "Szepszis", en: "Sepsis", de: "Sepsis" },
+                "Gastrointestinal": { hu: "Gastrointestinális rendszer", en: "Gastrointestinal System", de: "Magen-Darm-System" },
+                "Orthopedic": { hu: "Ortopédiai", en: "Orthopedic", de: "Orthopädisch" }
+            };
+
+            const getCategoryName = (category) => categoryTranslations[category] ? categoryTranslations[category][lang] : category;
+
+            let detailsHtml = `
+                <div class="fade-in text-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">${disease.name[lang]}</h3>
+                    <p class="text-sm text-gray-600 mb-4"><strong>${translations[lang]['category'] || 'Category'}:</strong> ${getCategoryName(disease.category)}</p>
+
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 text-lg mb-2">${translations[lang]['commonPathogens'] || 'Common Pathogens'}:</h4>
+                            <ul class="list-disc list-inside text-gray-600 italic">
+                                ${disease.commonPathogens.map(p => `<li>${p}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 text-lg mb-2">${translations[lang]['empiricalTherapy'] || 'Empirical Therapy'}:</h4>
+                            <div>
+                                <p><strong>${translations[lang]['firstLine'] || 'First Line'}:</strong> ${disease.empiricalTherapy.firstLine[lang]}</p>
+                                <p><strong>${translations[lang]['alternative'] || 'Alternative'}:</strong> ${disease.empiricalTherapy.alternative[lang]}</p>
+                                <p><strong>${translations[lang]['duration'] || 'Duration'}:</strong> ${disease.empiricalTherapy.duration[lang]}</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 text-lg mb-2">${translations[lang]['targetedTherapy'] || 'Targeted Therapy'}:</h4>
+                            <div class="space-y-1">
+                                ${Object.entries(disease.targetedTherapy).map(([key, value]) => `<p><strong class="italic">${key}:</strong> ${value[lang]}</p>`).join('')}
+                            </div>
+                        </div>
+                        
+                        ${disease.notes && disease.notes[lang] ? `
+                        <div>
+                            <h4 class="font-semibold text-gray-700 text-lg mb-2">${translations[lang]['notes'] || 'Notes'}:</h4>
+                            <p class="text-gray-600 italic">${disease.notes[lang]}</p>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+            detailsView.innerHTML = detailsHtml;
+        }
+
+        function showMicroDetails(pathogen) {
+            const details = document.getElementById('micro-details');
+            const lang = currentLanguage;
+
+            details.innerHTML = `
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 italic">${pathogen.name}</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">${translations[lang]['identifiers']}</h4>
+                                <p><strong>${translations[lang]['type']}:</strong> ${pathogen.type[lang]}</p>
+                                <p><strong>${translations[lang]['morphology']}:</strong> ${pathogen.morphology[lang]}</p>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-indigo-800 mb-2">${translations[lang]['characteristics']}</h4>
+                                <ul class="list-disc list-inside">
+                                    ${pathogen.characteristics[lang].map(c => `<li>${c}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <div class="bg-teal-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-teal-800 mb-2">${translations[lang]['commonInfections']}</h4>
+                                <ul class="list-disc list-inside">
+                                     ${pathogen.commonInfections[lang].map(i => `<li>${i}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">${translations[lang]['therapy']}</h4>
+                                <p><strong>${translations[lang]['firstChoice']}:</strong> ${pathogen.firstChoice.join(', ')}</p>
+                                <p class="mt-2"><strong>${translations[lang]['alternative']}:</strong> ${pathogen.alternative.join(', ')}</p>
+                                <p class="mt-2"><strong>${translations[lang]['resistant']}:</strong> ${pathogen.resistant.join(', ')}</p>
+                            </div>
+                            
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-2">${translations[lang]['notes']}</h4>
+                                <p class="text-sm">${pathogen.notes[lang]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setupPharmSearch() {
+            const searchInput = document.getElementById('pharm-search');
+            const groupFilter = document.getElementById('pharm-group-filter');
+
+            function filterAndDisplay() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedGroup = groupFilter.value;
+
+                const filteredAntibiotics = antibiotics.filter(ab => {
+                    const nameMatch = ab.name[currentLanguage].toLowerCase().includes(searchTerm);
+                    const groupMatch = !selectedGroup || ab.group[currentLanguage] === selectedGroup;
+                    return nameMatch && groupMatch;
+                });
+
+                displayPharmList(filteredAntibiotics);
+            }
+
+            searchInput.addEventListener('input', filterAndDisplay);
+            groupFilter.addEventListener('change', filterAndDisplay);
+        }
+
+        function setupClinSearch() {
+            const searchInput = document.getElementById('clin-search');
+            const categoryFilter = document.getElementById('clin-category-filter');
+
+            function filterAndDisplay() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+
+                const filteredDiseases = diseases.filter(disease => {
+                    const nameMatch = disease.name[currentLanguage].toLowerCase().includes(searchTerm);
+                    const categoryMatch = !selectedCategory || disease.category === selectedCategory;
+                    return nameMatch && categoryMatch;
+                });
+
+                displayClinList(filteredDiseases);
+            }
+
+            searchInput.addEventListener('input', filterAndDisplay);
+            categoryFilter.addEventListener('change', filterAndDisplay);
+        }
+
+        function setupMicroSearch() {
+            const searchInput = document.getElementById('micro-search');
+            const typeFilter = document.getElementById('micro-type-filter');
+
+            function filterAndDisplay() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedType = typeFilter.value;
+
+                const filteredPathogens = pathogens.filter(p => {
+                    const nameMatch = p.name.toLowerCase().includes(searchTerm);
+                    const typeMatch = !selectedType || p.type[currentLanguage] === selectedType;
+                    return nameMatch && typeMatch;
+                });
+
+                displayMicroList(filteredPathogens);
+            }
+
+            searchInput.addEventListener('input', filterAndDisplay);
+            typeFilter.addEventListener('change', filterAndDisplay);
+        }
+
+        function refreshCurrentModule() {
+            if (!document.getElementById('pharmacological-module').classList.contains('hidden')) {
+                document.getElementById('pharm-search').value = '';
+                document.getElementById('pharm-group-filter').value = '';
+                populatePharmGroups();
+                displayPharmList(antibiotics);
+            } else if (!document.getElementById('clinical-module').classList.contains('hidden')) {
+                document.getElementById('clin-search').value = '';
+                document.getElementById('clin-category-filter').value = '';
+                populateClinCategories();
+                displayClinList(diseases);
+            } else if (!document.getElementById('microbiological-module').classList.contains('hidden')) {
+                document.getElementById('micro-search').value = '';
+                document.getElementById('micro-type-filter').value = '';
+                populateMicroTypes();
+                displayMicroList(pathogens);
+            } else if (!document.getElementById('summary-module').classList.contains('hidden')) {
+                generateSummaryTable();
+            } else if (!document.getElementById('quiz-module').classList.contains('hidden')) {
+                // No refresh needed for quiz setup, it's static
+            } else if (!document.getElementById('renal-module').classList.contains('hidden')) {
+                document.getElementById('renal-search').value = '';
+                displayRenalDoseTable(renalDoses);
+            }
+        }
+
+        function generateSummaryTable() {
+            const tableBody = document.getElementById('summary-table-body');
+            if (!tableBody) return;
+            
+            const groupedAntibiotics = {};
+            if (antibiotics) {
+                antibiotics.forEach(ab => {
+                    if (!ab.group) return; // Skip if group is missing
+                    const subgroupText = ab.subgroup ? ab.subgroup[currentLanguage] : '';
+                    const groupKey = `${ab.group[currentLanguage]}_${subgroupText}`;
+                    if (!groupedAntibiotics[groupKey]) {
+                        groupedAntibiotics[groupKey] = [];
+                    }
+                    groupedAntibiotics[groupKey].push(ab);
+                });
+            }
+            
+            tableBody.innerHTML = '';
+            
+            Object.keys(groupedAntibiotics).sort().forEach(groupKey => {
+                const antibioticsInGroup = groupedAntibiotics[groupKey];
+                const firstAntibiotic = antibioticsInGroup[0];
+                if (!firstAntibiotic) return;
+                
+                const spectrumSummary = [];
+                if (firstAntibiotic.spectrum.gramPos) spectrumSummary.push('Gram+');
+                if (firstAntibiotic.spectrum.gramNeg) spectrumSummary.push('Gram-');
+                if (firstAntibiotic.spectrum.anaerob) spectrumSummary.push('Anaerob');
+                if (firstAntibiotic.spectrum.atypical) spectrumSummary.push('Atypusos');
+                if (firstAntibiotic.spectrum.pseudomonas) spectrumSummary.push('Pseudomonas');
+                
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${firstAntibiotic.group[currentLanguage]}</div>
+                        <div class="text-sm text-gray-500">${firstAntibiotic.subgroup ? firstAntibiotic.subgroup[currentLanguage] : ''}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${firstAntibiotic.effect[currentLanguage] === 'Bactericid' || firstAntibiotic.effect[currentLanguage] === 'Bactericidal' || firstAntibiotic.effect[currentLanguage] === 'Bakterizid' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}">
+                            ${firstAntibiotic.effect[currentLanguage]}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-900">${firstAntibiotic.mechanism[currentLanguage]}</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-900">${spectrumSummary.join(', ')}</div>
+                        ${firstAntibiotic.spectrum.other[currentLanguage] ? `<div class="text-xs text-gray-500 mt-1">${firstAntibiotic.spectrum.other[currentLanguage]}</div>` : ''}
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-900">${antibioticsInGroup.map(ab => ab.name[currentLanguage]).join(', ')}</div>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        function setupRenalSearch() {
+            const searchInput = document.getElementById('renal-search');
+
+            function filterAndDisplay() {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                const filteredDoses = renalDoses.filter(dose => {
+                    return dose.antibiotic_name.toLowerCase().includes(searchTerm);
+                });
+
+                displayRenalDoseTable(filteredDoses);
+            }
+
+            searchInput.addEventListener('input', filterAndDisplay);
+        }
+
+        function displayRenalDoseTable(list) {
+            const tableBody = document.getElementById('renal-table-body');
+            if (!tableBody) return;
+            tableBody.innerHTML = '';
+
+            if (!list || list.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="6" class="text-center p-4">${translations[currentLanguage]['no-data'] || 'Nincsenek adatok.'}</td></tr>`;
+                return;
+            }
+
+            // Sort the list
+            list.sort((a, b) => {
+                const nameA = a.antibiotic_name.toLowerCase();
+                const nameB = b.antibiotic_name.toLowerCase();
+                const comparison = nameA.localeCompare(nameB);
+                return renalSortState.direction === 'asc' ? comparison : -comparison;
+            });
+
+            list.forEach(dose => {
+                let nameHtml = `<div class="text-sm font-medium text-gray-900">${dose.antibiotic_name}</div>`;
+                
+                // Add serum level info for specific antibiotics
+                const serumLevelText = {
+                    'Vancomycin': {
+                        hu: 'Völgy: 15-20 mg/L',
+                        en: 'Trough: 15-20 mg/L',
+                        de: 'Talspiegel: 15-20 mg/L'
+                    },
+                    'Gentamicin': {
+                        hu: 'Csúcs: <10, Völgy: <1 mg/L',
+                        en: 'Peak: <10, Trough: <1 mg/L',
+                        de: 'Spitze: <10, Tal: <1 mg/L'
+                    },
+                    'Amikacin': {
+                        hu: 'Csúcs: 20-30, Völgy: <5 mg/L',
+                        en: 'Peak: 20-30, Trough: <5 mg/L',
+                        de: 'Spitze: 20-30, Tal: <5 mg/L'
+                    }
+                };
+
+                if (serumLevelText[dose.antibiotic_name]) {
+                    nameHtml += `<div class="text-xs text-gray-500">${serumLevelText[dose.antibiotic_name][currentLanguage]}</div>`;
+                }
+
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${nameHtml}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 gfr-normal">${dose.gfr_gt_50 || ''}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 gfr-moderate">${dose.gfr_10_50 || ''}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 gfr-severe">${dose.gfr_lt_10 || ''}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700">${dose.hd || ''}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700">${dose.crrt || ''}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function exportToPDF(type = 'summary') {
+            const printWindow = window.open('', '_blank');
+            let table;
+            let title;
+            let description;
+
+            if (type === 'detailed') {
+                title = translations[currentLanguage]['pharm-module-title'];
+                description = translations[currentLanguage]['pharm-desc'];
+                table = generateDetailedAntibioticsTable();
+            } else {
+                title = translations[currentLanguage]['summary-table-title'];
+                description = translations[currentLanguage]['summary-table-desc'];
+                table = document.getElementById('summary-table-container').innerHTML;
+            }
+
+            function generateDetailedAntibioticsTable() {
+                const lang = currentLanguage;
+                let tableHtml = '<table class="detailed-table">';
+                
+                if (!antibiotics || antibiotics.length === 0) {
+                    return '<p>Nincsenek adatok.</p>';
+                }
+
+                antibiotics.forEach(ab => {
+                    const spectrumIcons = {
+                        gramPos: ab.spectrum.gramPos ? '✅' : '❌',
+                        gramNeg: ab.spectrum.gramNeg ? '✅' : '❌',
+                        anaerob: ab.spectrum.anaerob ? '✅' : '❌',
+                        atypical: ab.spectrum.atypical ? '✅' : '❌',
+                        pseudomonas: ab.spectrum.pseudomonas ? '✅' : '❌'
+                    };
+
+                    tableHtml += `
+                        <thead>
+                            <tr><th colspan="2" class="antibiotic-name">${ab.name[lang]}</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="category" colspan="2">${translations[lang]['basicData']}</td></tr>
+                            <tr><td>${translations[lang]['group']}</td><td>${ab.group[lang]}</td></tr>
+                            <tr><td>${translations[lang]['subgroup']}</td><td>${ab.subgroup ? ab.subgroup[lang] : ''}</td></tr>
+                            <tr><td>${translations[lang]['effect']}</td><td>${ab.effect[lang]}</td></tr>
+                            <tr><td>${translations[lang]['halfLife']}</td><td>${ab.halfLife[lang]}</td></tr>
+                            <tr><td>${translations[lang]['pae']}</td><td>${ab.pae[lang]}</td></tr>
+                            
+                            <tr><td class="category" colspan="2">${translations[lang]['mechanism']}</td></tr>
+                            <tr><td colspan="2">${ab.mechanism[lang]}</td></tr>
+
+                            <tr><td class="category" colspan="2">${translations[lang]['dosage']}</td></tr>
+                            <tr><td>${translations[lang]['standard']}</td><td>${ab.dosage.standard[lang]}</td></tr>
+                            <tr><td>${translations[lang]['high']}</td><td>${ab.dosage.high[lang]}</td></tr>
+                            <tr><td>${translations[lang]['oral']}</td><td>${ab.dosage.oral[lang]}</td></tr>
+                            <tr><td>${translations[lang]['routes']}</td><td>${ab.routes.join(', ')}</td></tr>
+
+                            <tr><td class="category" colspan="2">${translations[lang]['spectrum']}</td></tr>
+                            <tr><td>${translations[lang]['gramPositive']}</td><td>${spectrumIcons.gramPos}</td></tr>
+                            <tr><td>${translations[lang]['gramNegative']}</td><td>${spectrumIcons.gramNeg}</td></tr>
+                            <tr><td>${translations[lang]['anaerobe']}</td><td>${spectrumIcons.anaerob}</td></tr>
+                            <tr><td>${translations[lang]['atypical']}</td><td>${spectrumIcons.atypical}</td></tr>
+                            <tr><td>${translations[lang]['pseudomonas']}</td><td>${spectrumIcons.pseudomonas}</td></tr>
+                            <tr><td>${translations[lang]['other']}</td><td>${ab.spectrum.other[lang]}</td></tr>
+
+                            <tr><td class="category" colspan="2">${translations[lang]['sideEffects']}</td></tr>
+                            <tr><td colspan="2">${ab.sideEffects[lang]}</td></tr>
+                        </tbody>
+                    `;
+                });
+
+                tableHtml += '</table>';
+                return tableHtml;
+            }
+
+            const printContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Antibiotikum Összefoglaló Táblázat</title>
+                    <meta charset="UTF-8">
+                    <style>
+                        body { 
+                            font-family: Arial, sans-serif; 
+                            margin: 20px;
+                            font-size: 12px;
+                        }
+                        .header {
+                            text-align: center;
+                            margin-bottom: 30px;
+                            border-bottom: 2px solid #333;
+                            padding-bottom: 10px;
+                        }
+                        .header h1 { margin: 0; color: #333; }
+                        .header p { margin: 5px 0; color: #666; }
+                        
+                        /* Summary Table Styles */
+                        .header h1 {
+                            margin: 0;
+                            color: #333;
+                        }
+                        .header p {
+                            margin: 5px 0;
+                            color: #666;
+                        }
+                        table { 
+                            width: 100%; 
+                            border-collapse: collapse; 
+                            margin-top: 20px;
+                        }
+                        th, td { 
+                            border: 1px solid #ddd; 
+                            padding: 8px; 
+                            text-align: left;
+                            vertical-align: top;
+                        }
+                        th { 
+                            background-color: #f8f9fa; 
+                            font-weight: bold;
+                            color: #333;
+                        }
+                        tr:nth-child(even) { 
+                            background-color: #f9f9f9; 
+                        }
+                        .badge {
+                            display: inline-block;
+                            padding: 2px 6px;
+                            border-radius: 12px;
+                            font-size: 10px;
+                            font-weight: bold;
+                        }
+                        .badge-red {
+                            background-color: #fee2e2;
+                            color: #991b1b;
+                        }
+                        .badge-blue {
+                            background-color: #dbeafe;
+                            color: #1e40af;
+                        }
+
+                        /* Detailed Table Styles */
+                        .detailed-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 20px;
+                            page-break-inside: auto;
+                        }
+                        .detailed-table th, .detailed-table td {
+                            border: 1px solid #ccc;
+                            padding: 8px;
+                            text-align: left;
+                        }
+                        .detailed-table thead { page-break-before: always; }
+                        .detailed-table tbody { page-break-inside: avoid; }
+                        .detailed-table .antibiotic-name { background-color: #333; color: white; font-size: 1.2em; text-align: center; }
+                        .detailed-table .category { background-color: #e9ecef; font-weight: bold; text-align: center; }
+                        .detailed-table td:first-child { font-weight: bold; width: 30%; }
+                        }
+                        @media print {
+                            body { margin: 0; }
+                            .no-print { display: none; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>${title}</h1>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 2.4.7</p>
+                        <p>${description}</p>
+                    </div>
+                    ${table}
+                    <div style="margin-top: 30px; text-align: center; color: #666; font-size: 10px;">
+                        ${new Date().toLocaleDateString()} - Antibiotikum Oktató Program
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
+        }
+
+        function exportDiseasesToPDF() {
+            const printWindow = window.open('', '_blank');
+            const lang = currentLanguage;
+
+            const categoryTranslations = {
+                "CNS": { hu: "Központi idegrendszer", en: "Central Nervous System", de: "Zentralnervensystem" },
+                "Respiratory": { hu: "Légzőrendszer", en: "Respiratory System", de: "Atmungssystem" },
+                "Cardiovascular": { hu: "Szív- és érrendszer", en: "Cardiovascular System", de: "Herz-Kreislauf-System" },
+                "Urogenital": { hu: "Urogenitális rendszer", en: "Urogenital System", de: "Urogenitalsystem" },
+                "Skin": { hu: "Bőr és lágyrészek", en: "Skin and Soft Tissues", de: "Haut und Weichteile" },
+                "Sepsis": { hu: "Szepszis", en: "Sepsis", de: "Sepsis" },
+                "Gastrointestinal": { hu: "Gastrointestinális rendszer", en: "Gastrointestinal System", de: "Magen-Darm-System" },
+                "Orthopedic": { hu: "Ortopédiai", en: "Orthopedic", de: "Orthopädisch" }
+            };
+            const getCategoryName = (category) => categoryTranslations[category] ? categoryTranslations[category][lang] : category;
+
+            function generateDetailedDiseasesTable() {
+                let tableHtml = '<div class="diseases-container">';
+                
+                if (!diseases || diseases.length === 0) {
+                    return '<p>Nincsenek adatok.</p>';
+                }
+
+                diseases.forEach(disease => {
+                    tableHtml += `
+                        <div class="disease-block">
+                            <h3 class="disease-name">${disease.name[lang]}</h3>
+                            <p class="disease-category"><strong>${translations[lang]['category']}:</strong> ${getCategoryName(disease.category)}</p>
+                            
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['commonPathogens']}</h4>
+                                <p>${disease.commonPathogens.join(', ')}</p>
+                            </div>
+
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['empiricalTherapy']}</h4>
+                                <p><strong>${translations[lang]['firstLine']}:</strong> ${disease.empiricalTherapy.firstLine[lang]}</p>
+                                <p><strong>${translations[lang]['alternative']}:</strong> ${disease.empiricalTherapy.alternative[lang]}</p>
+                                <p><strong>${translations[lang]['duration']}:</strong> ${disease.empiricalTherapy.duration[lang]}</p>
+                            </div>
+
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['targetedTherapy']}</h4>
+                                ${Object.entries(disease.targetedTherapy).map(([key, value]) => `<p><strong>${key}:</strong> ${value[lang]}</p>`).join('')}
+                            </div>
+
+                            ${disease.notes && disease.notes[lang] ? `
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['notes']}</h4>
+                                <p>${disease.notes[lang]}</p>
+                            </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+
+                tableHtml += '</div>';
+                return tableHtml;
+            }
+
+            const printContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>${translations[lang]['clin-module-title']}</title>
+                    <meta charset="UTF-8">
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; font-size: 12px; }
+                        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+                        .header h1 { margin: 0; color: #333; }
+                        .header p { margin: 5px 0; color: #666; }
+                        .diseases-container { display: flex; flex-direction: column; gap: 20px; }
+                        .disease-block { border: 1px solid #ccc; border-radius: 8px; padding: 15px; page-break-inside: avoid; }
+                        .disease-name { font-size: 1.3em; font-weight: bold; color: #333; margin-top: 0; margin-bottom: 5px; }
+                        .disease-category { font-size: 0.9em; color: #555; margin-bottom: 15px; }
+                        .section { margin-bottom: 10px; }
+                        .section-title { font-weight: bold; color: #444; border-bottom: 1px solid #eee; padding-bottom: 3px; margin-bottom: 5px; }
+                        .section p { margin: 2px 0; }
+                        .section p strong { color: #111; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>${translations[lang]['clin-module-title']}</h1>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 2.4.7</p>
+                    </div>
+                    ${generateDetailedDiseasesTable()}
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            setTimeout(() => { printWindow.print(); }, 500);
+        }
+
+        function exportPathogensToPDF() {
+            const printWindow = window.open('', '_blank');
+            const lang = currentLanguage;
+
+            function generateDetailedPathogensTable() {
+                let tableHtml = '<div class="pathogens-container">';
+                
+                if (!pathogens || pathogens.length === 0) {
+                    return '<p>Nincsenek adatok.</p>';
+                }
+
+                pathogens.forEach(pathogen => {
+                    tableHtml += `
+                        <div class="pathogen-block">
+                            <h3 class="pathogen-name"><i>${pathogen.name}</i></h3>
+                            
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['identifiers']}</h4>
+                                <p><strong>${translations[lang]['type']}:</strong> ${pathogen.type[lang]}</p>
+                                <p><strong>${translations[lang]['morphology']}:</strong> ${pathogen.morphology[lang]}</p>
+                            </div>
+
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['characteristics']}</h4>
+                                <ul class="list-disc list-inside">${pathogen.characteristics[lang].map(c => `<li>${c}</li>`).join('')}</ul>
+                            </div>
+
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['commonInfections']}</h4>
+                                <ul class="list-disc list-inside">${pathogen.commonInfections[lang].map(i => `<li>${i}</li>`).join('')}</ul>
+                            </div>
+
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['therapy']}</h4>
+                                <p><strong>${translations[lang]['firstChoice']}:</strong> ${pathogen.firstChoice.join(', ')}</p>
+                                <p><strong>${translations[lang]['alternative']}:</strong> ${pathogen.alternative.join(', ')}</p>
+                                <p><strong>${translations[lang]['resistant']}:</strong> ${pathogen.resistant.join(', ')}</p>
+                            </div>
+
+                            ${pathogen.notes && pathogen.notes[lang] ? `
+                            <div class="section">
+                                <h4 class="section-title">${translations[lang]['notes']}</h4>
+                                <p>${pathogen.notes[lang]}</p>
+                            </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+
+                tableHtml += '</div>';
+                return tableHtml;
+            }
+
+            const printContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>${translations[lang]['micro-module-title']}</title>
+                    <meta charset="UTF-8">
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; font-size: 12px; }
+                        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+                        .header h1 { margin: 0; color: #333; }
+                        .header p { margin: 5px 0; color: #666; }
+                        .pathogens-container { display: flex; flex-direction: column; gap: 20px; }
+                        .pathogen-block { border: 1px solid #ccc; border-radius: 8px; padding: 15px; page-break-inside: avoid; }
+                        .pathogen-name { font-size: 1.3em; font-weight: bold; color: #333; margin-top: 0; margin-bottom: 15px; }
+                        .section { margin-bottom: 10px; }
+                        .section-title { font-weight: bold; color: #444; border-bottom: 1px solid #eee; padding-bottom: 3px; margin-bottom: 5px; }
+                        .section p, .section ul { margin: 2px 0; }
+                        .section p strong { color: #111; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>${translations[lang]['micro-module-title']}</h1>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 2.4.7</p>
+                    </div>
+                    ${generateDetailedPathogensTable()}
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            setTimeout(() => { printWindow.print(); }, 500);
+        }
+
+        // --- QUIZ LOGIC ---
+
+        function startQuiz() {
+            const topic = document.getElementById('quiz-topic').value;
+            const count = parseInt(document.getElementById('quiz-questions').value);
+            const difficulty = document.getElementById('quiz-difficulty').value;
+
+            currentQuestions = generateQuestions(topic, count, difficulty);
+            currentQuestionIndex = 0;
+            score = 0;
+
+            document.getElementById('quiz-setup').classList.add('hidden');
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-area').classList.remove('hidden');
+
+            displayQuestion();
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-area').classList.add('hidden');
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-setup').classList.remove('hidden');
+        }
+
+        function displayQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            document.getElementById('question-text').innerHTML = question.question;
+            
+            const answersContainer = document.getElementById('answers-container');
+            answersContainer.innerHTML = '';
+            question.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerHTML = answer.text;
+                button.className = 'block w-full text-left p-4 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors';
+                button.onclick = () => checkAnswer(button, answer.correct);
+                answersContainer.appendChild(button);
+            });
+
+            document.getElementById('feedback-container').innerHTML = '';
+            const nextBtn = document.getElementById('next-question-btn');
+            nextBtn.classList.add('hidden');
+            nextBtn.textContent = translations[currentLanguage]['next-btn'];
+            
+            document.getElementById('quiz-progress').textContent = `${translations[currentLanguage]['question']} ${currentQuestionIndex + 1} ${translations[currentLanguage]['of']} ${currentQuestions.length}`;
+            document.getElementById('quiz-score').textContent = `${translations[currentLanguage]['score']}: ${score}`;
+        }
+
+        function checkAnswer(button, isCorrect) {
+            Array.from(document.getElementById('answers-container').children).forEach(btn => {
+                btn.disabled = true;
+                const correspondingAnswer = currentQuestions[currentQuestionIndex].answers.find(a => a.text === btn.innerHTML);
+                if (correspondingAnswer.correct) {
+                    btn.className = 'block w-full text-left p-4 bg-green-200 text-green-800 rounded-lg';
+                }
+            });
+
+            const feedbackContainer = document.getElementById('feedback-container');
+            if (isCorrect) {
+                score++;
+                button.className = 'block w-full text-left p-4 bg-green-200 text-green-800 rounded-lg';
+                feedbackContainer.textContent = translations[currentLanguage]['correct-answer'];
+                feedbackContainer.className = 'mt-4 text-center font-bold text-green-600';
+            } else {
+                button.className = 'block w-full text-left p-4 bg-red-200 text-red-800 rounded-lg';
+                const correctAnswer = currentQuestions[currentQuestionIndex].answers.find(a => a.correct).text;
+                feedbackContainer.innerHTML = `${translations[currentLanguage]['wrong-answer']} <br><i>${correctAnswer}</i>`;
+                feedbackContainer.className = 'mt-4 text-center font-bold text-red-600';
+            }
+
+            document.getElementById('quiz-score').textContent = `${translations[currentLanguage]['score']}: ${score}`;
+            document.getElementById('next-question-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuestions.length) {
+                displayQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-area').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+            document.getElementById('final-score').textContent = `${score} / ${currentQuestions.length}`;
+            document.getElementById('score-text').textContent = translations[currentLanguage]['score-text'];
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function generateQuestions(topic, count, difficulty) {
+            if (!testQuestions || testQuestions.length === 0) {
+                console.error("A tesztkérdések nincsenek betöltve a(z) " + currentLanguage + " nyelven.");
+                alert("Hiba: A tesztkérdések nem töltődtek be. Kérlek, frissítsd az oldalt.");
+                return [];
+            }
+            
+            const availableQuestions = testQuestions.filter(q => 
+                q.topic === topic && q.difficulty === difficulty
+            );
+
+            const shuffled = shuffleArray(availableQuestions);
+            return shuffled.slice(0, count);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Betöltés magyarul induláskor
+            antibiotics = window.antibiotics_hu || [];
+            diseases = window.diseases_hu || [];
+            pathogens = window.pathogens_hu || [];
+            testQuestions = window.test_hu || [];
+            changeLanguage('hu');
+});
+    </script>
+</body>
+</html>
