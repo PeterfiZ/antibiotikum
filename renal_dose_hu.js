@@ -2,93 +2,93 @@
 window.renal_dose_hu = [
     {
         "antibiotic_name": "Penicillin G",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "75%-a a normál dózisnak, 8-12 óránként.",
-        "gfr_lt_10": "50%-a a normál dózisnak, 12-18 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Dózismódosítás szükséges, plazmaszint monitorozás javasolt."
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 10-30: 1-3 millió egység IV 6-8 óránként.",
+        "gfr_lt_10": "1-2 millió egység IV 8-12 óránként.",
+        "hd": "1-2 millió egység IV 8-12 óránként, pótdózis dialízis után.",
+        "crrt": "2-4 millió egység IV 6 óránként."
     },
     {
         "antibiotic_name": "Amoxicillin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "500mg 12 óránként.",
-        "gfr_lt_10": "500mg 24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 10-30: 250-500 mg 12 óránként.",
+        "gfr_lt_10": "250-500 mg 24 óránként.",
+        "hd": "250-500 mg 24 óránként, pótdózis dialízis után.",
+        "crrt": "500-1000 mg 8-12 óránként."
     },
     {
         "antibiotic_name": "Piperacillin-tazobactam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "4.5g 8 óránként.",
-        "gfr_lt_10": "4.5g 12 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után (2.25g).",
-        "crrt": "4.5g 8 óránként."
+        "gfr_gt_50": "CrCl >40: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 20-40: 3.375g 6 óránként.",
+        "gfr_lt_10": "CrCl <20: 2.25g 6 óránként.",
+        "hd": "2.25g 8 óránként, pótdózis dialízis után.",
+        "crrt": "3.375g 8 óránként."
     },
     {
         "antibiotic_name": "Meropenem",
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 26-50: 1g 12 óránként. GFR 10-25: 500mg 12 óránként.",
+        "gfr_10_50": "CrCl 26-50: 1g 12 óránként. CrCl 10-25: 500mg 12 óránként.",
         "gfr_lt_10": "500mg 24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "1g 12 óránként."
+        "hd": "500mg 24 óránként, pótdózis dialízis után.",
+        "crrt": "1g 8-12 óránként."
     },
     {
         "antibiotic_name": "Vancomycin",
-        "gfr_gt_50": "15-20 mg/kg 8-12 óránként, plazmaszint alapján.",
-        "gfr_10_50": "15-20 mg/kg 24-48 óránként, plazmaszint alapján.",
-        "gfr_lt_10": "Telítő dózis után 10-15 mg/kg 48-96 óránként, plazmaszint alapján.",
-        "hd": "Telítő dózis után pótdózis a dialízis után, plazmaszint alapján.",
-        "crrt": "15-20 mg/kg 24-48 óránként, plazmaszint alapján."
+        "gfr_gt_50": "CrCl >60: 15-20 mg/kg 8-12 óránként.",
+        "gfr_10_50": "CrCl 40-59: 15-20 mg/kg 12-24 óránként. CrCl 20-39: 15-20 mg/kg 24-48 óránként.",
+        "gfr_lt_10": "CrCl <20: 10-15 mg/kg 48-72 óránként.",
+        "hd": "Telítő dózis 20-25 mg/kg, majd 7.5-10 mg/kg dialízis után.",
+        "crrt": "Telítő dózis 20-25 mg/kg, majd 7.5-10 mg/kg 24-48 óránként."
     },
     {
         "antibiotic_name": "Gentamicin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra (hagyományos dózis esetén).",
-        "gfr_10_50": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "gfr_lt_10": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "hd": "Pótdózis szükséges a dialízis után, plazmaszint alapján.",
-        "crrt": "Dózismódosítás szükséges, plazmaszint monitorozás javasolt."
+        "gfr_gt_50": "CrCl >60: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 40-59: 4-6 mg/kg 36 óránként. CrCl 20-39: 3-4 mg/kg 48 óránként.",
+        "gfr_lt_10": "CrCl <20: 2 mg/kg, plazmaszint alapján.",
+        "hd": "2 mg/kg dialízis után.",
+        "crrt": "2.5 mg/kg 48 óránként."
     },
     {
         "antibiotic_name": "Ciprofloxacin",
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-50: 250-500mg 12 óránként. GFR 10-29: 250-500mg 18 óránként.",
-        "gfr_lt_10": "250mg 24 óránként.",
-        "hd": "250-500mg 24 óránként, a dialízis után.",
-        "crrt": "Normál dózis adható."
+        "gfr_10_50": "CrCl 10-50: 250-500mg 12 óránként.",
+        "gfr_lt_10": "250-500mg 24 óránként.",
+        "hd": "250-500mg 24 óránként, dialízis után.",
+        "crrt": "400 mg 12 óránként."
     }
     ,
     {
         "antibiotic_name": "Ticarcillin-clavulanate",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "2g IV 4-8 óránként.",
-        "gfr_lt_10": "2g IV 12 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után (3.1g).",
+        "gfr_gt_50": "CrCl >60: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 30-60: 2g 4 óránként. CrCl 10-30: 2g 8 óránként.",
+        "gfr_lt_10": "2g 12 óránként.",
+        "hd": "2g 12 óránként, pótdózis dialízis után.",
         "crrt": "3.1g 8 óránként."
     }
 ,
     {
         "antibiotic_name": "Cefazolin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Normál dózis 12 óránként.",
-        "gfr_lt_10": "Normál dózis 24-48 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 10-50: 1-2g 12 óránként.",
+        "gfr_lt_10": "1-2g 24 óránként.",
+        "hd": "1-2g 24 óránként, pótdózis dialízis után.",
+        "crrt": "2g 12 óránként."
     },
     {
         "antibiotic_name": "Ceftriaxone",
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Max. 2g/nap (kombinált vese- és májelégtelenség esetén).",
+        "gfr_lt_10": "Nincs szükség dózismódosításra.",
         "hd": "Nincs szükség dózismódosításra.",
         "crrt": "Nincs szükség dózismódosításra."
     },
     {
         "antibiotic_name": "Cefepime",
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-50: 1-2g 24 óránként. GFR 10-29: 1g 24 óránként.",
-        "gfr_lt_10": "0.5-1g 24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_10_50": "CrCl 30-50: 2g 24 óránként. CrCl 10-29: 1g 24 óránként.",
+        "gfr_lt_10": "500 mg 24 óránként.",
+        "hd": "1g telítő, majd 500 mg 24 óránként, pótdózis dialízis után.",
+        "crrt": "2g 12 óránként."
     },
     {
         "antibiotic_name": "Linezolid",
@@ -100,11 +100,11 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Daptomycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR >30: Nincs módosítás. GFR <30: Azonos dózis 48 óránként.",
-        "gfr_lt_10": "Azonos dózis 48 óránként.",
-        "hd": "Azonos dózis 48 óránként, a dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl <30: 4-6 mg/kg 48 óránként.",
+        "gfr_lt_10": "4-6 mg/kg 48 óránként.",
+        "hd": "4-6 mg/kg 48 óránként, dialízis után.",
+        "crrt": "6 mg/kg 24 óránként."
     },
     {
         "antibiotic_name": "Metronidazol",
@@ -116,11 +116,11 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "TMP-SMX",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 15-30: 50% dózis. GFR <15: Kerülendő.",
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 15-30: 50% dózis 12 óránként.",
         "gfr_lt_10": "Kerülendő.",
-        "hd": "50% dózis a dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "hd": "50% dózis 24 óránként.",
+        "crrt": "Normál dózis."
     }
 ,
     {
@@ -133,10 +133,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Cefalexin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "250-500mg 12 óránként.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 10-50: 500mg 8-12 óránként.",
         "gfr_lt_10": "250mg 12-24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "hd": "250-500mg, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -149,10 +149,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Cefuroxim",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "750mg 12 óránként.",
+        "gfr_gt_50": "CrCl >20: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 10-20: 750mg 12 óránként.",
         "gfr_lt_10": "750mg 24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "hd": "750mg pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -165,10 +165,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Ceftazidime",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "1g 24 óránként.",
-        "gfr_lt_10": "1g 48 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 31-50: 1g 12 óránként. CrCl 16-30: 1g 24 óránként.",
+        "gfr_lt_10": "CrCl 6-15: 500mg 24 óránként. CrCl <5: 500mg 48 óránként.",
+        "hd": "1g telítő, majd 500mg 24 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -181,10 +181,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Ceftolozane-tazobactam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-50: 0.75g 8 óránként. GFR 15-29: 0.375g 8 óránként.",
-        "gfr_lt_10": "Kerülendő.",
-        "hd": "225mg telítő dózis, majd 75mg 8 óránként.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 30-50: 750mg 8 óránként. CrCl 15-29: 375mg 8 óránként.",
+        "gfr_lt_10": "CrCl <15: 225mg telítő, majd 75mg 8 óránként.",
+        "hd": "225mg telítő, majd 75mg 8 óránként.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -197,10 +197,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Cefepime-taniborbactam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-50: 1.25g 8 óránként. GFR 15-29: 0.94g 8 óránként.",
-        "gfr_lt_10": "GFR <15: 0.625g 8 óránként.",
-        "hd": "0.625g a dialízis után.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 30-49: 1.25g 8 óránként. CrCl 15-29: 0.94g 8 óránként.",
+        "gfr_lt_10": "CrCl <15: 0.625g 8 óránként.",
+        "hd": "0.625g dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -208,7 +208,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "GFR 30-59: 2g 8 óránként. GFR 15-29: 1.5g 8 óránként.",
         "gfr_lt_10": "GFR <15: 1g 12 óránként.",
-        "hd": "1g a dialízis után.",
+        "hd": "1g dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     }
 ,
@@ -246,10 +246,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Ampicillin-sulbactam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 15-29: 1.5-3g 12 óránként.",
-        "gfr_lt_10": "GFR <15: 1.5-3g 24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 15-29: 1.5-3g 12 óránként.",
+        "gfr_lt_10": "CrCl <15: 1.5-3g 24 óránként.",
+        "hd": "1.5-3g 24 óránként, pótdózis dialízis után.",
         "crrt": "Normál dózis adható."
     },
     {
@@ -262,10 +262,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Imipenem-cilastatin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "250-500mg 8-12 óránként.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 30-50: 500mg 8 óránként. CrCl 10-29: 500mg 12 óránként.",
         "gfr_lt_10": "250mg 12 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "hd": "250-500mg 12 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -278,10 +278,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Doripenem",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-50: 250mg 8 óránként. GFR <30: 250mg 12 óránként.",
-        "gfr_lt_10": "250mg 12 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 30-50: 250mg 8 óránként. CrCl <30: 250mg 12 óránként.",
+        "gfr_lt_10": "CrCl <30: 250mg 12 óránként.",
+        "hd": "250mg 12 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -294,10 +294,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Meropenem-vaborbactam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-49: 2g/2g 8 óránként. GFR 15-29: 2g/2g 12 óránként.",
-        "gfr_lt_10": "GFR <15: 1g/1g 12 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 30-49: 2g 8 óránként. CrCl 15-29: 1g 8 óránként.",
+        "gfr_lt_10": "CrCl <15: 1g 12 óránként.",
+        "hd": "1g 12 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     }
 ,
@@ -311,10 +311,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Ofloxacin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "200-400mg 24 óránként.",
-        "gfr_lt_10": "200mg 24 óránként.",
-        "hd": "100-200mg 24 óránként, a dialízis után.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 10-50: 200-400mg 24 óránként.",
+        "gfr_lt_10": "100-200mg 24 óránként.",
+        "hd": "100-200mg 24 óránként, dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -322,7 +322,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "GFR 20-49: 750mg kezdő, majd 750mg 48 óránként.",
         "gfr_lt_10": "GFR <20: 750mg kezdő, majd 500mg 48 óránként.",
-        "hd": "500mg kezdő, majd 250mg 48 óránként.",
+        "hd": "500mg kezdő, majd 250mg 48 óránként, dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -335,10 +335,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Delafloxacin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 15-29: 200mg IV 12 óránként.",
-        "gfr_lt_10": "GFR <15: 150mg IV 12 óránként.",
-        "hd": "150mg IV 12 óránként.",
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 15-29: 200mg IV 12 óránként.",
+        "gfr_lt_10": "CrCl <15: 150mg IV 12 óránként.",
+        "hd": "150mg IV 12 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -346,7 +346,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "GFR 30-50: 7.5mg/kg 24 óránként. GFR <30: 10mg/kg 48 óránként.",
         "gfr_lt_10": "10mg/kg 48 óránként.",
-        "hd": "10mg/kg 48 óránként.",
+        "hd": "10mg/kg 48 óránként, dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -368,10 +368,10 @@ window.renal_dose_hu = [
 ,
     {
         "antibiotic_name": "Piperacillin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "4g 8 óránként.",
-        "gfr_lt_10": "4g 12 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >40: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 20-40: 4g 8 óránként.",
+        "gfr_lt_10": "CrCl <20: 4g 12 óránként.",
+        "hd": "2g 8 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -379,7 +379,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "50-75% dózis.",
         "gfr_lt_10": "25% dózis.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "hd": "25% pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -387,7 +387,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
         "gfr_lt_10": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "hd": "Pótdózis szükséges a dialízis után, plazmaszint alapján.",
+        "hd": "10-15 mg/kg pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges, plazmaszint monitorozás javasolt."
     },
     {
@@ -395,7 +395,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
         "gfr_lt_10": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "hd": "Pótdózis szükséges a dialízis után, plazmaszint alapján.",
+        "hd": "7.5 mg/kg pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges, plazmaszint monitorozás javasolt."
     },
     {
@@ -403,7 +403,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "GFR 30-80: 50% dózis. GFR <30: 33% dózis.",
         "gfr_lt_10": "33% dózis.",
-        "hd": "Nincs szükség dózismódosításra.",
+        "hd": "10. napon 33% dózis.",
         "crrt": "Normál dózis adható."
     },
     {
@@ -424,9 +424,9 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Clarithromycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR <30: 50% dózis.",
-        "gfr_lt_10": "50% dózis.",
+        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl <30: 50% dózis.",
+        "gfr_lt_10": "CrCl <30: 50% dózis.",
         "hd": "Nincs szükség dózismódosításra.",
         "crrt": "Nincs szükség dózismódosításra."
     },
@@ -528,9 +528,9 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Fosfomycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "70-80% dózis.",
-        "gfr_lt_10": "60-70% dózis.",
+        "gfr_gt_50": "CrCl >40: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 20-39: 70-80% dózis. CrCl 10-19: 60-70% dózis.",
+        "gfr_lt_10": "CrCl <10: 50% dózis.",
         "hd": "Pótdózis szükséges a dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
@@ -552,9 +552,9 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Rifabutin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "50% dózis.",
-        "gfr_lt_10": "50% dózis.",
+        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl <50: 50% dózis.",
+        "gfr_lt_10": "CrCl <50: 50% dózis.",
         "hd": "Nincs szükség dózismódosításra.",
         "crrt": "Nincs szükség dózismódosításra."
     },
@@ -568,10 +568,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Polymyxin B",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Dóziscsökkentés szükséges.",
-        "gfr_lt_10": "Dóziscsökkentés szükséges.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >80: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 50-79: 1.25 mg/kg 12 óránként. CrCl 20-49: 1 mg/kg 12 óránként.",
+        "gfr_lt_10": "CrCl <20: 1 mg/kg 24 óránként.",
+        "hd": "1 mg/kg 48 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -584,10 +584,10 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Colistin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Dóziscsökkentés szükséges.",
-        "gfr_lt_10": "Dóziscsökkentés szükséges.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "gfr_gt_50": "CrCl >80: Nincs szükség módosításra.",
+        "gfr_10_50": "CrCl 50-79: 2.5 mg/kg 12 óránként. CrCl 30-49: 1.5 mg/kg 12 óránként.",
+        "gfr_lt_10": "CrCl <30: 1.5 mg/kg 24 óránként.",
+        "hd": "1.5 mg/kg 48 óránként, pótdózis dialízis után.",
         "crrt": "Dózismódosítás szükséges."
     },
     {
@@ -595,7 +595,7 @@ window.renal_dose_hu = [
         "gfr_gt_50": "Nincs szükség dózismódosításra.",
         "gfr_10_50": "50% dózis.",
         "gfr_lt_10": "50% dózis.",
-        "hd": "Pótdózis szükséges a dialízis után.",
+        "hd": "Normál dózis dialízis után.",
         "crrt": "Normál dózis adható."
     },
     {

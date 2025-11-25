@@ -1,93 +1,93 @@
 window.renal_dose_de = [
     {
         "antibiotic_name": "Penicillin G",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "75% der normalen Dosis, alle 8-12 Stunden.",
-        "gfr_lt_10": "50% der normalen Dosis, alle 12-18 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
-        "crrt": "Dosisanpassung erforderlich, Plasmaspiegelüberwachung empfohlen."
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-30: 1-3 Mio. Einheiten i.v. alle 6-8 Std.",
+        "gfr_lt_10": "1-2 Mio. Einheiten i.v. alle 8-12 Std.",
+        "hd": "1-2 Mio. Einheiten i.v. alle 8-12 Std., Dosis nach Dialyse geben.",
+        "crrt": "2-4 Mio. Einheiten i.v. alle 6 Std."
     },
     {
         "antibiotic_name": "Amoxicillin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "500mg alle 12 Stunden.",
-        "gfr_lt_10": "500mg alle 24 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
-        "crrt": "Normale Dosis kann gegeben werden."
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-30: 250-500 mg alle 12 Std.",
+        "gfr_lt_10": "250-500 mg alle 24 Std.",
+        "hd": "250-500 mg alle 24 Std., Dosis nach Dialyse geben.",
+        "crrt": "500-1000 mg alle 8-12 Std."
     },
     {
         "antibiotic_name": "Piperacillin-tazobactam",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "4.5g alle 8 Stunden.",
-        "gfr_lt_10": "4.5g alle 12 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich (2.25g).",
-        "crrt": "4.5g alle 8 Stunden."
+        "gfr_gt_50": "CrCl >40: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 20-40: 3.375g alle 6 Std.",
+        "gfr_lt_10": "CrCl <20: 2.25g alle 6 Std.",
+        "hd": "2.25g alle 8 Std., Dosis nach Dialyse geben.",
+        "crrt": "3.375g alle 8 Std."
     },
     {
         "antibiotic_name": "Meropenem",
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 26-50: 1g alle 12 Stunden. GFR 10-25: 500mg alle 12 Stunden.",
-        "gfr_lt_10": "500mg alle 24 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
-        "crrt": "1g alle 12 Stunden."
+        "gfr_10_50": "CrCl 26-50: 1g alle 12 Std. CrCl 10-25: 500mg alle 12 Std.",
+        "gfr_lt_10": "500mg alle 24 Std.",
+        "hd": "500mg alle 24 Std., Dosis nach Dialyse geben.",
+        "crrt": "1g alle 8-12 Std."
     },
     {
         "antibiotic_name": "Vancomycin",
-        "gfr_gt_50": "15-20 mg/kg alle 8-12 Stunden, basierend auf Plasmaspiegel.",
-        "gfr_10_50": "15-20 mg/kg alle 24-48 Stunden, basierend auf Plasmaspiegel.",
-        "gfr_lt_10": "Nach Ladedosis, 10-15 mg/kg alle 48-96 Stunden, basierend auf Plasmaspiegel.",
-        "hd": "Nach Ladedosis, zusätzliche Dosis nach der Dialyse, basierend auf Plasmaspiegel.",
-        "crrt": "15-20 mg/kg alle 24-48 Stunden, basierend auf Plasmaspiegel."
+        "gfr_gt_50": "CrCl >60: 15-20 mg/kg alle 8-12 Std.",
+        "gfr_10_50": "CrCl 40-59: 15-20 mg/kg alle 12-24 Std. CrCl 20-39: 15-20 mg/kg alle 24-48 Std.",
+        "gfr_lt_10": "CrCl <20: 10-15 mg/kg alle 48-72 Std.",
+        "hd": "Ladedosis 20-25 mg/kg, dann 7.5-10 mg/kg nach Dialyse.",
+        "crrt": "Ladedosis 20-25 mg/kg, dann 7.5-10 mg/kg alle 24-48 Std."
     },
     {
         "antibiotic_name": "Gentamicin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich (bei konventioneller Dosierung).",
-        "gfr_10_50": "Dosisreduktion oder Intervallverlängerung, basierend auf Plasmaspiegel.",
-        "gfr_lt_10": "Dosisreduktion oder Intervallverlängerung, basierend auf Plasmaspiegel.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich, basierend auf Plasmaspiegel.",
-        "crrt": "Dosisanpassung erforderlich, Plasmaspiegelüberwachung empfohlen."
+        "gfr_gt_50": "CrCl >60: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 40-59: 4-6 mg/kg alle 36 Std. CrCl 20-39: 3-4 mg/kg alle 48 Std.",
+        "gfr_lt_10": "CrCl <20: 2 mg/kg, Dosis nach Spiegel.",
+        "hd": "2 mg/kg nach Dialyse.",
+        "crrt": "2.5 mg/kg alle 48 Std."
     },
     {
         "antibiotic_name": "Ciprofloxacin",
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 30-50: 250-500mg alle 12 Stunden. GFR 10-29: 250-500mg alle 18 Stunden.",
-        "gfr_lt_10": "250mg alle 24 Stunden.",
+        "gfr_10_50": "CrCl 10-50: 250-500mg alle 12 Stunden.",
+        "gfr_lt_10": "250-500mg alle 24 Stunden.",
         "hd": "250-500mg alle 24 Stunden, nach der Dialyse.",
-        "crrt": "Normale Dosis kann gegeben werden."
+        "crrt": "400 mg alle 12 Std."
     }
 ,
     {
         "antibiotic_name": "Ticarcillin-Clavulansäure",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "2g IV alle 4-8 Stunden.",
-        "gfr_lt_10": "2g IV alle 12 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich (3.1g).",
+        "gfr_gt_50": "CrCl >60: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 30-60: 2g i.v. alle 4 Std. CrCl 10-30: 2g i.v. alle 8 Std.",
+        "gfr_lt_10": "2g i.v. alle 12 Std.",
+        "hd": "2g i.v. alle 12 Std., Dosis nach Dialyse geben.",
         "crrt": "3.1g alle 8 Stunden."
     }
 ,
     {
         "antibiotic_name": "Cefazolin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "Normale Dosis alle 12 Stunden.",
-        "gfr_lt_10": "Normale Dosis alle 24-48 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
-        "crrt": "Dosisanpassung erforderlich."
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-50: 1-2g alle 12 Std.",
+        "gfr_lt_10": "1-2g alle 24 Std.",
+        "hd": "1-2g alle 24 Std., Dosis nach Dialyse geben.",
+        "crrt": "2g alle 12 Std."
     },
     {
         "antibiotic_name": "Ceftriaxon",
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_lt_10": "Max. 2g/Tag (bei kombinierter Nieren- und Leberinsuffizienz).",
+        "gfr_lt_10": "Keine Dosisanpassung erforderlich.",
         "hd": "Keine Dosisanpassung erforderlich.",
         "crrt": "Keine Dosisanpassung erforderlich."
     },
     {
         "antibiotic_name": "Cefepim",
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 30-50: 1-2g alle 24h. GFR 10-29: 1g alle 24h.",
-        "gfr_lt_10": "0.5-1g alle 24h.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
-        "crrt": "Dosisanpassung erforderlich."
+        "gfr_10_50": "CrCl 30-50: 2g alle 24 Std. CrCl 10-29: 1g alle 24 Std.",
+        "gfr_lt_10": "500 mg alle 24 Std.",
+        "hd": "1g Ladedosis, dann 500 mg alle 24 Std., Dosis nach Dialyse geben.",
+        "crrt": "2g alle 12 Std."
     },
     {
         "antibiotic_name": "Linezolid",
@@ -99,11 +99,11 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Daptomycin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR >30: Keine Anpassung. GFR <30: Gleiche Dosis alle 48h.",
-        "gfr_lt_10": "Gleiche Dosis alle 48h.",
-        "hd": "Gleiche Dosis alle 48h, nach der Dialyse.",
-        "crrt": "Dosisanpassung erforderlich."
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl <30: 4-6 mg/kg alle 48 Std.",
+        "gfr_lt_10": "4-6 mg/kg alle 48 Std.",
+        "hd": "4-6 mg/kg alle 48 Std., nach der Dialyse.",
+        "crrt": "6 mg/kg alle 24 Std."
     },
     {
         "antibiotic_name": "Metronidazol",
@@ -115,11 +115,11 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "TMP-SMX",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 15-30: 50% der Dosis. GFR <15: Vermeiden.",
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 15-30: 50% der Dosis alle 12 Std.",
         "gfr_lt_10": "Vermeiden.",
-        "hd": "50% der Dosis nach der Dialyse.",
-        "crrt": "Dosisanpassung erforderlich."
+        "hd": "50% der Dosis alle 24 Std.",
+        "crrt": "Normale Dosis."
     }
 ,
     {
@@ -132,10 +132,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Cefalexin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "250-500mg alle 12 Stunden.",
-        "gfr_lt_10": "250mg alle 12-24 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-50: 500mg alle 8-12 Std.",
+        "gfr_lt_10": "250mg alle 12-24 Std.",
+        "hd": "250-500mg, Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -148,10 +148,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Cefuroxim",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "750mg alle 12 Stunden.",
-        "gfr_lt_10": "750mg alle 24 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >20: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-20: 750mg alle 12 Std.",
+        "gfr_lt_10": "750mg alle 24 Std.",
+        "hd": "750mg Zusatzdosis nach Dialyse.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -164,10 +164,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ceftazidim",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "1g alle 24 Stunden.",
-        "gfr_lt_10": "1g alle 48 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 31-50: 1g alle 12 Std. CrCl 16-30: 1g alle 24 Std.",
+        "gfr_lt_10": "CrCl 6-15: 500mg alle 24 Std. CrCl <5: 500mg alle 48 Std.",
+        "hd": "1g Ladedosis, dann 500mg alle 24 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -180,10 +180,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ceftolozan-Tazobactam",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 30-50: 0.75g alle 8h. GFR 15-29: 0.375g alle 8h.",
-        "gfr_lt_10": "Vermeiden.",
-        "hd": "225mg Ladedosis, dann 75mg alle 8h.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 30-50: 750mg alle 8 Std. CrCl 15-29: 375mg alle 8 Std.",
+        "gfr_lt_10": "CrCl <15: 225mg Ladedosis, dann 75mg alle 8 Std.",
+        "hd": "225mg Ladedosis, dann 75mg alle 8 Std.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -196,9 +196,9 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Cefepim-Taniborbactam",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 30-50: 1.25g alle 8h. GFR 15-29: 0.94g alle 8h.",
-        "gfr_lt_10": "GFR <15: 0.625g alle 8h.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 30-49: 1.25g alle 8 Std. CrCl 15-29: 0.94g alle 8 Std.",
+        "gfr_lt_10": "CrCl <15: 0.625g alle 8 Std.",
         "hd": "0.625g nach der Dialyse.",
         "crrt": "Dosisanpassung erforderlich."
     },
@@ -229,10 +229,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Amoxicillin-Clavulansäure",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 10-30: 1.2g i.v. alle 12h.",
-        "gfr_lt_10": "1.2g i.v. alle 24h.",
-        "hd": "1.2g i.v. alle 24h, mit zusätzlicher Dosis nach der Dialyse.",
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-30: 1.2g i.v. alle 12 Std.",
+        "gfr_lt_10": "1.2g i.v. alle 24 Std.",
+        "hd": "1.2g i.v. alle 24 Std., mit zusätzlicher Dosis nach der Dialyse.",
         "crrt": "Normale Dosis kann gegeben werden."
     },
     {
@@ -240,15 +240,15 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "Normale Dosis alle 8-12h.",
         "gfr_lt_10": "Normale Dosis alle 12-24h.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "hd": "Dosis nach Dialyse geben.",
         "crrt": "Normale Dosis kann gegeben werden."
     },
     {
         "antibiotic_name": "Ampicillin-Sulbactam",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 15-29: 1.5-3g alle 12h.",
-        "gfr_lt_10": "GFR <15: 1.5-3g alle 24h.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 15-29: 1.5-3g alle 12 Std.",
+        "gfr_lt_10": "CrCl <15: 1.5-3g alle 24 Std.",
+        "hd": "1.5-3g alle 24 Std., Dosis nach Dialyse geben.",
         "crrt": "Normale Dosis kann gegeben werden."
     },
     {
@@ -261,10 +261,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Imipenem-Cilastatin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "250-500mg alle 8-12h.",
-        "gfr_lt_10": "250mg alle 12h.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 30-50: 500mg alle 8 Std. CrCl 10-29: 500mg alle 12 Std.",
+        "gfr_lt_10": "250mg alle 12 Std.",
+        "hd": "250-500mg alle 12 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -277,10 +277,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Doripenem",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 30-50: 250mg alle 8h. GFR <30: 250mg alle 12h.",
-        "gfr_lt_10": "250mg alle 12h.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 30-50: 250mg alle 8 Std. CrCl <30: 250mg alle 12 Std.",
+        "gfr_lt_10": "CrCl <30: 250mg alle 12 Std.",
+        "hd": "250mg alle 12 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -293,10 +293,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Meropenem-Vaborbactam",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 30-49: 2g/2g alle 8h. GFR 15-29: 2g/2g alle 12h.",
-        "gfr_lt_10": "GFR <15: 1g/1g alle 12h.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 30-49: 2g alle 8 Std. CrCl 15-29: 1g alle 8 Std.",
+        "gfr_lt_10": "CrCl <15: 1g alle 12 Std.",
+        "hd": "1g alle 12 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     }
 ,
@@ -310,10 +310,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ofloxacin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "200-400mg alle 24h.",
-        "gfr_lt_10": "200mg alle 24h.",
-        "hd": "100-200mg alle 24h, nach der Dialyse.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 10-50: 200-400mg alle 24 Std.",
+        "gfr_lt_10": "100-200mg alle 24 Std.",
+        "hd": "100-200mg alle 24 Std., nach der Dialyse.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -321,7 +321,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "GFR 20-49: 750mg initial, dann 750mg alle 48h.",
         "gfr_lt_10": "GFR <20: 750mg initial, dann 500mg alle 48h.",
-        "hd": "500mg initial, dann 250mg alle 48h.",
+        "hd": "500mg initial, dann 250mg alle 48h, nach der Dialyse.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -334,10 +334,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Delafloxacin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR 15-29: 200mg i.v. alle 12h.",
-        "gfr_lt_10": "GFR <15: 150mg i.v. alle 12h.",
-        "hd": "150mg i.v. alle 12h.",
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 15-29: 200mg i.v. alle 12 Std.",
+        "gfr_lt_10": "CrCl <15: 150mg i.v. alle 12 Std.",
+        "hd": "150mg i.v. alle 12 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -345,7 +345,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "GFR 30-50: 7.5mg/kg alle 24h. GFR <30: 10mg/kg alle 48h.",
         "gfr_lt_10": "10mg/kg alle 48h.",
-        "hd": "10mg/kg alle 48h.",
+        "hd": "10mg/kg alle 48 Std., nach der Dialyse.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -367,10 +367,10 @@ window.renal_dose_de = [
 ,
     {
         "antibiotic_name": "Piperacillin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "4g alle 8 Stunden.",
-        "gfr_lt_10": "4g alle 12 Stunden.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >40: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 20-40: 4g alle 8 Std.",
+        "gfr_lt_10": "CrCl <20: 4g alle 12 Std.",
+        "hd": "2g alle 8 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -378,7 +378,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "50-75% der Dosis.",
         "gfr_lt_10": "25% der Dosis.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "hd": "25% Zusatzdosis nach Dialyse.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -386,7 +386,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "Dosisreduktion oder Intervallverlängerung, basierend auf Plasmaspiegel.",
         "gfr_lt_10": "Dosisreduktion oder Intervallverlängerung, basierend auf Plasmaspiegel.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich, basierend auf Plasmaspiegel.",
+        "hd": "10-15 mg/kg Zusatzdosis nach Dialyse.",
         "crrt": "Dosisanpassung erforderlich, Plasmaspiegelüberwachung empfohlen."
     },
     {
@@ -394,7 +394,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "Dosisreduktion oder Intervallverlängerung, basierend auf Plasmaspiegel.",
         "gfr_lt_10": "Dosisreduktion oder Intervallverlängerung, basierend auf Plasmaspiegel.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich, basierend auf Plasmaspiegel.",
+        "hd": "7.5 mg/kg Zusatzdosis nach Dialyse.",
         "crrt": "Dosisanpassung erforderlich, Plasmaspiegelüberwachung empfohlen."
     },
     {
@@ -402,7 +402,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "GFR 30-80: 50% der Dosis. GFR <30: 33% der Dosis.",
         "gfr_lt_10": "33% der Dosis.",
-        "hd": "Keine Dosisanpassung erforderlich.",
+        "hd": "33% der Dosis am 10. Tag.",
         "crrt": "Normale Dosis kann gegeben werden."
     },
     {
@@ -423,9 +423,9 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Clarithromycin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "GFR <30: 50% der Dosis.",
-        "gfr_lt_10": "50% der Dosis.",
+        "gfr_gt_50": "CrCl >30: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl <30: 50% der Dosis.",
+        "gfr_lt_10": "CrCl <30: 50% der Dosis.",
         "hd": "Keine Dosisanpassung erforderlich.",
         "crrt": "Keine Dosisanpassung erforderlich."
     },
@@ -527,9 +527,9 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Fosfomycin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "70-80% der Dosis.",
-        "gfr_lt_10": "60-70% der Dosis.",
+        "gfr_gt_50": "CrCl >40: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 20-39: 70-80% der Dosis. CrCl 10-19: 60-70% der Dosis.",
+        "gfr_lt_10": "CrCl <10: 50% der Dosis.",
         "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
         "crrt": "Dosisanpassung erforderlich."
     },
@@ -551,9 +551,9 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Rifabutin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "50% der Dosis.",
-        "gfr_lt_10": "50% der Dosis.",
+        "gfr_gt_50": "CrCl >50: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl <50: 50% der Dosis.",
+        "gfr_lt_10": "CrCl <50: 50% der Dosis.",
         "hd": "Keine Dosisanpassung erforderlich.",
         "crrt": "Keine Dosisanpassung erforderlich."
     },
@@ -567,10 +567,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Polymyxin B",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "Dosisreduktion erforderlich.",
-        "gfr_lt_10": "Dosisreduktion erforderlich.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >80: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 50-79: 1.25 mg/kg alle 12 Std. CrCl 20-49: 1 mg/kg alle 12 Std.",
+        "gfr_lt_10": "CrCl <20: 1 mg/kg alle 24 Std.",
+        "hd": "1 mg/kg alle 48 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -583,10 +583,10 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Colistin",
-        "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
-        "gfr_10_50": "Dosisreduktion erforderlich.",
-        "gfr_lt_10": "Dosisreduktion erforderlich.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "gfr_gt_50": "CrCl >80: Keine Anpassung erforderlich.",
+        "gfr_10_50": "CrCl 50-79: 2.5 mg/kg alle 12 Std. CrCl 30-49: 1.5 mg/kg alle 12 Std.",
+        "gfr_lt_10": "CrCl <30: 1.5 mg/kg alle 24 Std.",
+        "hd": "1.5 mg/kg alle 48 Std., Dosis nach Dialyse geben.",
         "crrt": "Dosisanpassung erforderlich."
     },
     {
@@ -594,7 +594,7 @@ window.renal_dose_de = [
         "gfr_gt_50": "Keine Dosisanpassung erforderlich.",
         "gfr_10_50": "50% der Dosis.",
         "gfr_lt_10": "50% der Dosis.",
-        "hd": "Zusätzliche Dosis nach der Dialyse erforderlich.",
+        "hd": "Normale Dosis nach Dialyse.",
         "crrt": "Normale Dosis kann gegeben werden."
     },
     {

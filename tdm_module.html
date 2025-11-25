@@ -1,0 +1,197 @@
+<div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2 text-center">
+            🧬 TDM Kalkulátor
+        </h1>
+        <p class="text-gray-600 text-center mb-2">Therapeutic Drug Monitoring - Gentamicin, Amikacin, Vancomycin, Voriconazole</p>
+        <div class="text-center mb-8">
+            <p class="text-xs text-gray-500">© 2025 Dr. Péterfi Zoltán | Verzió 2.1.0</p>
+        </div>
+        
+        <!-- Patient Data Section -->
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="bg-blue-50 rounded-xl p-6">
+                <h2 class="text-xl font-semibold text-blue-800 mb-4">👤 Beteg adatok</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Születési év</label>
+                        <input type="number" id="birthYear" placeholder="1980" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Testsúly (kg)</label>
+                        <input type="number" id="weight" placeholder="70" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Magasság (cm)</label>
+                        <input type="number" id="height" placeholder="170" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nem</label>
+                        <select id="gender" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="male">Férfi</option>
+                            <option value="female">Nő</option>
+                        </select>
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Szérum kreatinin (μmol/L)</label>
+                        <input type="number" id="creatinine" placeholder="88" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                    </div>
+                </div>
+                
+                <button id="gfr-calc-btn" onclick="calculateGFR()" class="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-400">
+                    GFR számítás (CKD-EPI)
+                </button>
+                
+                <div id="gfrResult" class="mt-4 p-3 bg-white rounded-lg border hidden">
+                    <div class="text-sm text-gray-600">Számított GFR:</div>
+                    <div id="gfrValue" class="text-lg font-semibold text-blue-600"></div>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Vagy adja meg a GFR értéket (mL/min/1.73m²)</label>
+                    <input type="number" id="manualGFR" placeholder="90" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Dialízis típusa</label>
+                    <select id="dialysisType" onchange="updateDialysisInfo()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="none">Nincs dialízis</option>
+                        <option value="hd">HD - Hemodialízis</option>
+                        <option value="pd">PD - Peritoneális dialízis</option>
+                        <option value="crrt">CRRT - Folyamatos vesepótló kezelés</option>
+                    </select>
+                </div>
+                
+                <div id="dialysisInfo" class="mt-4 p-3 bg-orange-50 rounded-lg border hidden">
+                    <div class="text-sm text-orange-800"></div>
+                </div>
+            </div>
+            
+            <!-- Drug Selection -->
+            <div class="bg-green-50 rounded-xl p-6">
+                <h2 class="text-xl font-semibold text-green-800 mb-4">💊 Gyógyszer kiválasztása</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Gyógyszer</label>
+                        <select id="antibiotic" onchange="updateDrugInfo()" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="gentamicin">Gentamicin</option>
+                            <option value="amikacin">Amikacin</option>
+                            <option value="vancomycin">Vancomycin</option>
+                            <option value="voriconazole">Voriconazole</option>
+                        </select>
+                    </div>
+                    
+                    <div id="drugInfo" class="bg-white rounded-lg p-4 border">
+                        <div class="text-sm font-medium text-gray-700 mb-2">Gentamicin</div>
+                        <div class="text-xs text-gray-600">
+                            • Célszint: 5-10 mg/L (csúcs), <2 mg/L (völgy)<br>
+                            • Felezési idő: 2-3 óra<br>
+                            • Nefrotoxikus, ototoxikus
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Indikáció súlyossága</label>
+                        <select id="severity" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="mild">Enyhe fertőzés</option>
+                            <option value="moderate">Közepes fertőzés</option>
+                            <option value="severe">Súlyos fertőzés</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="initial-dose-btn" onclick="calculateInitialDose()" class="w-full mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium disabled:bg-gray-400">
+                    Kezdő dózis számítás
+                </button>
+            </div>
+
+            <!-- Initial Dose Result Column -->
+            <div id="initialDoseResultColumn" class="bg-cyan-50 rounded-xl p-6 hidden">
+                <h2 class="text-xl font-semibold text-cyan-800 mb-4">📊 Kezdő Dózis Javaslat</h2>
+                <div id="initialDoseContent" class="space-y-3 text-sm"></div>
+            </div>
+        </div>
+        
+        <!-- TDM Section -->
+        <div class="bg-purple-50 rounded-xl p-6 mb-8">
+            <h2 class="text-xl font-semibold text-purple-800 mb-4">📊 TDM Számítás (Völgyszint alapú)</h2>
+            
+            <div class="grid md:grid-cols-4 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jelenlegi dózis (mg)</label>
+                    <input type="number" id="dose" placeholder="240" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Völgyszint (mg/L)</label>
+                    <input type="number" id="troughLevel" step="0.1" placeholder="1.5" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jelenlegi dózisköz (óra)</label>
+                    <input type="number" id="interval" placeholder="24" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Steady-state elérve?</label>
+                    <select id="steadyState" class="tdm-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        <option value="yes">Igen (≥5 felezési idő)</option>
+                        <option value="no">Nem</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="bg-blue-100 rounded-lg p-4 mb-4">
+                <h4 class="font-medium text-blue-800 mb-2">📋 Mintavételi útmutató:</h4>
+                <div class="text-sm text-blue-700">
+                    <strong>Aminoglikozidok (Gentamicin, Amikacin):</strong> Közvetlenül a következő dózis előtt (előző dózis után 18-24 órával)<br>
+                    <strong>Vancomycin:</strong> 30 perccel a negyedik dózis előtt<br>
+                    <strong>Voriconazole:</strong> Közvetlenül a következő dózis előtt (steady-state után, 5. nap)
+                </div>
+            </div>
+            
+            <button id="tdm-calc-btn" onclick="calculateTroughBasedTDM()" class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium disabled:bg-gray-400">
+                TDM Számítás és Dózis Javaslat
+            </button>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="results" class="hidden">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-yellow-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-yellow-800 mb-4">PK Paraméterek</h3>
+                    <div id="pkResults" class="space-y-2 text-sm"></div>
+                </div>
+                
+                <div class="bg-red-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-red-800 mb-4">Dózis javaslat</h3>
+                    <div id="doseRecommendation" class="space-y-2 text-sm"></div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-6 mt-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">⚠️ Klinikai megjegyzések</h3>
+                <div id="clinicalNotes" class="text-sm text-gray-700"></div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mt-6">
+                <canvas id="tdmChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
