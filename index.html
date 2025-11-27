@@ -428,9 +428,10 @@
                         <thead class="bg-gray-100 border-b-2 border-gray-300">
                             <tr>
                                 <th id="th-renal-antibiotic" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Antibiotikum</th>
-                                <th id="th-renal-gfr50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-normal">GFR > 50 ml/min</th>
-                                <th id="th-renal-gfr10-50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 10-50 ml/min</th>
-                                <th id="th-renal-gfr-lt10" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-severe">GFR &lt; 10 ml/min</th>
+                                <th id="th-renal-gfr50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-normal">GFR >50</th>
+                                <th id="th-renal-gfr30-50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 30-50</th>
+                                <th id="th-renal-gfr10-29" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 10-29</th>
+                                <th id="th-renal-gfr-lt10" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-severe">GFR &lt;10</th>
                                 <th id="th-renal-hd" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">HD</th>
                                 <th id="th-renal-crrt" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">CRRT</th>
                             </tr>
@@ -668,7 +669,7 @@ console.log("antibiotics_hu:", window.antibiotics_hu);
 console.log("diseases_hu:", window.diseases_hu);
 console.log("pathogens_hu:", window.pathogens_hu);
 console.log("renal_dose_hu:", window.renal_dose_hu);
-</script>
+</script> 
 
 <script>
     let currentLanguage = 'hu';
@@ -742,6 +743,8 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'th-renal-antibiotic': 'Antibiotikum',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
+                'th-renal-gfr30-50': 'GFR 30-50 ml/min',
+                'th-renal-gfr10-29': 'GFR 10-29 ml/min',
                 'th-renal-gfr-lt10': 'GFR < 10 ml/min',
                 'th-renal-hd': 'HD',
                 'search-renal-antibiotic': 'Keresés antibiotikum szerint:',
@@ -857,6 +860,8 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'th-renal-antibiotic': 'Antibiotic',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
+                'th-renal-gfr30-50': 'GFR 30-50 ml/min',
+                'th-renal-gfr10-29': 'GFR 10-29 ml/min',
                 'th-renal-gfr-lt10': 'GFR < 10 ml/min',
                 'th-renal-hd': 'HD',
                 'search-renal-antibiotic': 'Search by antibiotic:',
@@ -972,6 +977,8 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'th-renal-antibiotic': 'Antibiotikum',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
+                'th-renal-gfr30-50': 'GFR 30-50 ml/min',
+                'th-renal-gfr10-29': 'GFR 10-29 ml/min',
                 'th-renal-gfr-lt10': 'GFR < 10 ml/min',
                 'th-renal-hd': 'HD',
                 'search-renal-antibiotic': 'Nach Antibiotikum suchen:',
@@ -1200,7 +1207,8 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             list.sort((a, b) => a.name[currentLanguage].localeCompare(b.name[currentLanguage]));
             list.forEach(ab => {
                 const div = document.createElement('div');
-                div.textContent = ab.name[currentLanguage];
+                const abbreviation = ab.group.abbreviation ? ` (${ab.group.abbreviation})` : '';
+                div.textContent = `${ab.name[currentLanguage]}${abbreviation}`;
                 div.className = 'p-2 cursor-pointer hover:bg-blue-100 rounded';
                 div.onclick = () => showPharmDetails(ab);
                 pharmList.appendChild(div);
@@ -1249,7 +1257,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             
             details.innerHTML = `
                 <div class="text-left">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">${antibiotic.name[lang]}</h3>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">${antibiotic.name[lang]} ${antibiotic.group.abbreviation ? `(${antibiotic.group.abbreviation})` : ''}</h3>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-4">
@@ -1550,7 +1558,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                         ${firstAntibiotic.spectrum.other[currentLanguage] ? `<div class="text-xs text-gray-500 mt-1">${firstAntibiotic.spectrum.other[currentLanguage]}</div>` : ''}
                     </td>
                     <td class="px-6 py-4">
-                        <div class="text-sm text-gray-900">${antibioticsInGroup.map(ab => ab.name[currentLanguage]).join(', ')}</div>
+                        <div class="text-sm text-gray-900">${antibioticsInGroup.map(ab => `${ab.name[currentLanguage]}${ab.group.abbreviation ? ` (${ab.group.abbreviation})` : ''}`).join(', ')}</div>
                     </td>
                 `;
                 
@@ -1584,16 +1592,25 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 return;
             }
 
+            const renderCell = (data) => {
+                if (typeof data === 'string') {
+                    return `<div class="text-sm text-gray-700">${data}</div>`;
+                }
+                if (typeof data === 'object' && data !== null) {
+                    let html = `<div class="font-semibold text-gray-900">${data.dose} ${data.interval || ''}</div>`;
+                    if (data.notes) {
+                        html += `<div class="text-xs text-gray-500 mt-1 italic">${data.notes}</div>`;
+                    }
+                    return html;
+                }
+                return '';
+            };
+
             list.forEach(dose => {
                 let nameHtml = `<div class="text-sm font-medium text-gray-900">${dose.antibiotic_name}</div>`;
                 
-                // Add serum level info for specific antibiotics
                 const serumLevelText = {
-                    'Vancomycin': {
-                        hu: 'Völgy: 15-20 mg/L',
-                        en: 'Trough: 15-20 mg/L',
-                        de: 'Talspiegel: 15-20 mg/L'
-                    },
+                    'Vancomycin': { hu: 'Völgy: 15-20 mg/L', en: 'Trough: 15-20 mg/L', de: 'Talspiegel: 15-20 mg/L' },
                     'Gentamicin': {
                         hu: 'Csúcs: <10, Völgy: <1 mg/L',
                         en: 'Peak: <10, Trough: <1 mg/L',
@@ -1613,12 +1630,13 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 const row = document.createElement('tr');
                 row.className = 'hover:bg-gray-50';
                 row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap">${nameHtml}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 gfr-normal">${dose.gfr_gt_50 || ''}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 gfr-moderate">${dose.gfr_10_50 || ''}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 gfr-severe">${dose.gfr_lt_10 || ''}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">${dose.hd || ''}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">${dose.crrt || ''}</td>
+                    <td class="px-4 py-3 whitespace-nowrap">${nameHtml}</td>
+                    <td class="px-4 py-3 gfr-normal">${renderCell(dose.gfr_gt_50)}</td>
+                    <td class="px-4 py-3 gfr-moderate">${renderCell(dose.gfr_30_50)}</td>
+                    <td class="px-4 py-3 gfr-moderate">${renderCell(dose.gfr_10_29)}</td>
+                    <td class="px-4 py-3 gfr-severe">${renderCell(dose.gfr_lt_10)}</td>
+                    <td class="px-4 py-3">${renderCell(dose.hd)}</td>
+                    <td class="px-4 py-3">${renderCell(dose.crrt)}</td>
                 `;
                 tableBody.appendChild(row);
             });

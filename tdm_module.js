@@ -79,7 +79,7 @@ function calculateGFR() {
     const gender = document.getElementById('gender').value;
     const creatinine = parseFloat(document.getElementById('creatinine').value);
 
-    if (!validateTdmInputs() && (!birthYear || !weight || !height || !creatinine)) return;
+    if (!birthYear || !weight || !height || !creatinine) { alert("Kérlek, tölts ki minden mezőt a GFR számításhoz!"); return; }
 
     const age = calculateAge(birthYear);
     const creatinineMgDl = creatinine / 88.4; // Convert μmol/L to mg/dL
@@ -111,7 +111,7 @@ function calculateGFR() {
 
 function updateDrugInfo() {
     const antibiotic = document.getElementById('antibiotic').value;
-    const drug = drugData[antibiotic];
+    const drug = tdm_data[antibiotic];
     document.getElementById('drugInfo').innerHTML = `
         <div class="text-sm font-medium text-gray-700 mb-2">${drug.name}</div>
         <div class="text-xs text-gray-600">${drug.info}</div>
@@ -141,9 +141,9 @@ function calculateInitialDose() {
      const gfr = parseFloat(document.getElementById('manualGFR').value);
      const dialysisType = document.getElementById('dialysisType').value;
 
-     if (!validateTdmInputs() && !weight) return;
+     if (!weight) { alert("Kérlek, add meg a testsúlyt!"); return; }
 
-     const drug = drugData[antibiotic];
+     const drug = tdm_data[antibiotic];
      let resultHTML = '';
      
      resultHTML += `<div class="space-y-1">
@@ -180,7 +180,7 @@ function calculateInitialDose() {
      } else {
          // Normal GFR-based dosing
          if (!gfr) {
-             if (!validateTdmInputs()) return;
+            alert("Kérlek, számítsd ki vagy add meg a GFR értéket!"); return;
          }
          
          let baseDosePerKg = drug.dosing[severity];
@@ -246,9 +246,9 @@ function calculateTroughBasedTDM() {
     const antibiotic = document.getElementById('antibiotic').value;
     const steadyState = document.getElementById('steadyState').value;
 
-    if (!validateTdmInputs() && (!dose || !troughLevel || !interval || !weight || !gfr)) return;
+    if (!dose || !troughLevel || !interval || !weight) { alert("Kérlek, töltsd ki a TDM számításhoz szükséges mezőket!"); return; }
 
-    const drug = drugData[antibiotic];
+    const drug = tdm_data[antibiotic];
     
     // Estimate pharmacokinetic parameters based on patient characteristics
     let estimatedKe;

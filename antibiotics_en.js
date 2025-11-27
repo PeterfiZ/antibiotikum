@@ -2,6 +2,7 @@ window.antibiotics_en = [
     {
         "name": { "hu": "Penicillin G", "en": "Penicillin G", "de": "Penicillin G" },
         "group": {
+            "abbreviation": "PCN",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -61,6 +62,7 @@ window.antibiotics_en = [
     {
         "name": { "hu": "Penicillin V", "en": "Penicillin V", "de": "Penicillin V" },
         "group": {
+            "abbreviation": "PVK",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -119,6 +121,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Oxacillin", "en": "Oxacillin", "de": "Oxacillin"},
         "group": {
+            "abbreviation": "OXA",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -178,6 +181,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Amoxicillin", "en": "Amoxicillin", "de": "Amoxicillin"},
         "group": {
+            "abbreviation": "AMX",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -237,6 +241,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Amoxicillin-clavulánsav", "en": "Amoxicillin-clavulanate", "de": "Amoxicillin-clavulanate"},
         "group": {
+            "abbreviation": "AMC",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -296,6 +301,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Ampicillin", "en": "Ampicillin", "de": "Ampicillin"},
         "group": {
+            "abbreviation": "AMP",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -356,6 +362,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Ampicillin-sulbactam", "en": "Ampicillin-sulbactam", "de": "Ampicillin-sulbactam"},
         "group": {
+            "abbreviation": "SAM",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -415,6 +422,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Flucloxacillin", "en": "Flucloxacillin", "de": "Flucloxacillin"},
         "group": {
+            "abbreviation": "FLU",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -474,6 +482,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Piperacillin", "en": "Piperacillin", "de": "Piperacillin"},
         "group": {
+            "abbreviation": "PIP",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -532,6 +541,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Piperacillin-tazobactam", "en": "Piperacillin-tazobactam", "de": "Piperacillin-tazobactam"},
         "group": {
+            "abbreviation": "TZP",
             "hu": "Penicillin",
             "en": "Penicillin",
             "de": "Penicillin"
@@ -590,6 +600,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefazolin", "en": "Cefazolin", "de": "Cefazolin"},
         "group": {
+            "abbreviation": "CFZ",
             "hu": "Cefalosporin (1. generáció)",
             "en": "Cefalosporin (1st generation)",
             "de": "Cefalosporin (1. Generation)"
@@ -649,6 +660,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefoxitin", "en": "Cefoxitin", "de": "Cefoxitin"},
         "group": {
+            "abbreviation": "FOX",
             "hu": "Cefalosporin (2. generáció)",
             "en": "Cefalosporin (2nd generation)",
             "de": "Cefalosporin (2. Generation)"
@@ -708,6 +720,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefalexin", "en": "Cefalexin", "de": "Cefalexin"},
         "group": {
+            "abbreviation": "LEX",
             "hu": "Cefalosporin (1. generáció)",
             "en": "Cefalosporin (1st generation)",
             "de": "Cefalosporin (1. Generation)"
@@ -766,6 +779,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefaclor", "en": "Cefaclor", "de": "Cefaclor"},
         "group": {
+            "abbreviation": "CEC",
             "hu": "Cefalosporin (2. generáció)",
             "en": "Cefalosporin (2nd generation)",
             "de": "Cefalosporin (2. Generation)"
@@ -824,6 +838,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefuroxim", "en": "Cefuroxime", "de": "Cefuroxim"},
         "group": {
+            "abbreviation": "CXM",
             "hu": "Cefalosporin (2. generáció)",
             "en": "Cefalosporin (2nd generation)",
             "de": "Cefalosporin (2. Generation)"
@@ -884,6 +899,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Ceftriaxone", "en": "Ceftriaxone", "de": "Ceftriaxon"},
         "group": {
+            "abbreviation": "CRO",
             "hu": "Cefalosporin (3. generáció)",
             "en": "Cefalosporin (3rd generation)",
             "de": "Cefalosporin (3. Generation)"
@@ -943,6 +959,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefotaxime", "en": "Cefotaxime", "de": "Cefotaxime"},
         "group": {
+            "abbreviation": "CTX",
             "hu": "Cefalosporin (3. generáció)",
             "en": "Cefalosporin (3rd generation)",
             "de": "Cefalosporin (3. Generation)"
@@ -1002,6 +1019,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Ceftazidime", "en": "Ceftazidime", "de": "Ceftazidim"},
         "group": {
+            "abbreviation": "CAZ",
             "hu": "Cefalosporin (3. generáció)",
             "en": "Cefalosporin (3rd generation)",
             "de": "Cefalosporin (3. Generation)"
@@ -1061,6 +1079,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Ceftazidime-avibactam", "en": "Ceftazidime-avibactam", "de": "Ceftazidime-avibactam"},
         "group": {
+            "abbreviation": "CZA",
             "hu": "Cefalosporin (5. generáció)",
             "en": "Cefalosporin (5th generation)",
             "de": "Cefalosporin (5. Generation)"
@@ -1119,6 +1138,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Cefepime", "en": "Cefepime", "de": "Cefepim"},
         "group": {
+            "abbreviation": "FEP",
             "hu": "Cefalosporin (4. generáció)",
             "en": "Cefalosporin (4th generation)",
             "de": "Cefalosporin (4. Generation)"
@@ -1178,6 +1198,7 @@ window.antibiotics_en = [
     {
         "name": {"hu": "Ceftolozane-tazobactam", "en": "Ceftolozane-tazobactam", "de": "Ceftolozane-tazobactam"},
         "group": {
+            "abbreviation": "C/T",
             "hu": "Cefalosporin (5. generáció)",
             "en": "Cefalosporin (5th generation)",
             "de": "Cefalosporin (5. Generation)"
@@ -1236,6 +1257,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Ceftaroline-avibactam", "en": "Ceftaroline-avibactam", "de": "Ceftaroline-avibactam"},
       "group": {
+        "abbreviation": "CPT-AVI",
         "en": "Cefalosporin (5th generation)",
         "hu": "Cefalosporin (5. generáció)",
         "de": "Cefalosporin (5. Generation)"
@@ -1294,6 +1316,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Cefepime-taniborbactam", "en": "Cefepime-taniborbactam", "de": "Cefepime-taniborbactam"},
       "group": {
+        "abbreviation": "FEP-TAN",
         "en": "Cefalosporin (4th generation)",
         "hu": "Cefalosporin (4. generáció)",
         "de": "Cefalosporin (4. Generation)"
@@ -1352,6 +1375,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Cefiderocol", "en": "Cefiderocol", "de": "Cefiderocol"},
       "group": {
+        "abbreviation": "FDC",
         "en": "Cefalosporin (new generation)",
         "hu": "Cefalosporin (új generáció)",
         "de": "Cefalosporin (neue Generation)"
@@ -1410,6 +1434,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Meropenem", "en": "Meropenem", "de": "Meropenem"},
       "group": {
+        "abbreviation": "MEM",
         "en": "Carbapenem",
         "hu": "Karbapenem",
         "de": "Carbapenem"
@@ -1468,6 +1493,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Imipenem-cilastatin", "en": "Imipenem-cilastatin", "de": "Imipenem-Cilastatin"},
       "group": {
+        "abbreviation": "IPM",
         "en": "Carbapenem",
         "hu": "Karbapenem",
         "de": "Carbapenem"
@@ -1526,6 +1552,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Ertapenem", "en": "Ertapenem", "de": "Ertapenem"},
       "group": {
+        "abbreviation": "ETP",
         "en": "Carbapenem",
         "hu": "Karbapenem",
         "de": "Carbapenem"
@@ -1585,6 +1612,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Doripenem", "en": "Doripenem", "de": "Doripenem"},
       "group": {
+        "abbreviation": "DOR",
         "en": "Carbapenem",
         "hu": "Karbapenem",
         "de": "Carbapenem"
@@ -1643,6 +1671,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Imipenem-cilastatin-relebactam", "en": "Imipenem-cilastatin-relebactam", "de": "Imipenem-Cilastatin-Relebactam"},
       "group": {
+        "abbreviation": "IMI-REL",
         "en": "Carbapenem",
         "hu": "Karbapenem",
         "de": "Carbapenem"
@@ -1705,6 +1734,7 @@ window.antibiotics_en = [
         "de": "Meropenem-Vaborbactam"
       },
       "group": {
+        "abbreviation": "MER-VAB",
         "en": "Carbapenem",
         "hu": "Karbapenem",
         "de": "Carbapenem"
@@ -1763,6 +1793,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Aztreonam", "en": "Aztreonam", "de": "Aztreonam"},
       "group": {
+        "abbreviation": "ATM",
         "en": "Monobactam",
         "hu": "Monobaktám",
         "de": "Monobaktam"
@@ -1822,6 +1853,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Gentamicin", "en": "Gentamicin", "de": "Gentamicin"},
       "group": {
+        "abbreviation": "GEN",
         "en": "Aminoglycoside",
         "hu": "Aminoglikozid",
         "de": "Aminoglykosid"
@@ -1881,6 +1913,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Amikacin", "en": "Amikacin", "de": "Amikacin"},
       "group": {
+        "abbreviation": "AMK",
         "en": "Aminoglycoside",
         "hu": "Aminoglikozid",
         "de": "Aminoglykosid"
@@ -1940,6 +1973,7 @@ window.antibiotics_en = [
     {
       "name": {"hu": "Plazomicin", "en": "Plazomicin", "de": "Plazomicin"},
       "group": {
+        "abbreviation": "PLZ",
         "en": "Aminoglycoside",
         "hu": "Aminoglikozid",
         "de": "Aminoglykosid"

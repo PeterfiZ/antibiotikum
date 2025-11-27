@@ -1,4 +1,4 @@
-const drugData = {
+const tdm_data = {
     gentamicin: {
         name: "Gentamicin",
         targetPeak: [5, 10],
