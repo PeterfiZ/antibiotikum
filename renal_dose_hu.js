@@ -240,452 +240,508 @@ window.renal_dose_hu = [
 ,
     {
         "antibiotic_name": "Penicillin V",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Használata nem javasolt.",
-        "hd": "Használata nem javasolt.",
-        "crrt": "Használata nem javasolt."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Használata nem javasolt", "interval": "", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Oxacillin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Amoxicillin-klavulánsav",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 10-30: 1.2g IV 12 óránként.",
-        "gfr_lt_10": "1.2g IV 24 óránként.",
-        "hd": "1.2g IV 24 óránként, pótdózis a dialízis után.",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "1.2g IV", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "1.2g IV", "interval": "24 óránként", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "1.2g IV", "interval": "24 óránként", "notes": "pótdózis a dialízis után." },
+        "crrt": { "dose": "Normál dózis adható.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Ampicillin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Normál dózis 8-12 óránként.",
-        "gfr_lt_10": "Normál dózis 12-24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Normál dózis", "interval": "8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "Normál dózis", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "Normál dózis", "interval": "12-24 óránként", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "Pótdózis szükséges a dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Normál dózis adható.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Ampicillin-sulbactam",
-        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 15-29: 1.5-3g 12 óránként.",
-        "gfr_lt_10": "CrCl <15: 1.5-3g 24 óránként.",
-        "hd": "1.5-3g 24 óránként, pótdózis dialízis után.",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >30" },
+        "gfr_30_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "1.5-3g", "interval": "12 óránként", "notes": "CrCl 15-29 ml/min" },
+        "gfr_lt_10": { "dose": "1.5-3g", "interval": "24 óránként", "notes": "CrCl <15 ml/min" },
+        "hd": { "dose": "1.5-3g", "interval": "24 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Normál dózis adható.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Flucloxacillin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Imipenem-cilastatin",
-        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 30-50: 500mg 8 óránként. CrCl 10-29: 500mg 12 óránként.",
-        "gfr_lt_10": "250mg 12 óránként.",
-        "hd": "250-500mg 12 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >50" },
+        "gfr_30_50": { "dose": "500mg", "interval": "8 óránként", "notes": "CrCl 30-50 ml/min" },
+        "gfr_10_29": { "dose": "500mg", "interval": "12 óránként", "notes": "CrCl 10-29 ml/min" },
+        "gfr_lt_10": { "dose": "250mg", "interval": "12 óránként", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "250-500mg", "interval": "12 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Ertapenem",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR <30: 500mg 24 óránként.",
-        "gfr_lt_10": "500mg 24 óránként.",
-        "hd": "Pótdózis szükséges a dialízis után (ha az utolsó adag 6 órán belül volt).",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "500mg", "interval": "24 óránként", "notes": "CrCl <30 ml/min" },
+        "gfr_lt_10": { "dose": "500mg", "interval": "24 óránként", "notes": "CrCl <30 ml/min" },
+        "hd": { "dose": "Pótdózis szükséges a dialízis után", "interval": "", "notes": "ha az utolsó adag 6 órán belül volt." },
+        "crrt": { "dose": "Normál dózis adható.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Doripenem",
-        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 30-50: 250mg 8 óránként. CrCl <30: 250mg 12 óránként.",
-        "gfr_lt_10": "CrCl <30: 250mg 12 óránként.",
-        "hd": "250mg 12 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >50" },
+        "gfr_30_50": { "dose": "250mg", "interval": "8 óránként", "notes": "CrCl 30-50 ml/min" },
+        "gfr_10_29": { "dose": "250mg", "interval": "12 óránként", "notes": "CrCl <30 ml/min" },
+        "gfr_lt_10": { "dose": "250mg", "interval": "12 óránként", "notes": "CrCl <30 ml/min" },
+        "hd": { "dose": "250mg", "interval": "12 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Imipenem-cilastatin-relebactam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-59: 400mg/200mg/100mg. GFR 15-29: 300mg/150mg/75mg.",
-        "gfr_lt_10": "GFR <15: 200mg/100mg/50mg.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "400mg/200mg/100mg", "interval": "", "notes": "GFR 30-59 ml/min" },
+        "gfr_10_29": { "dose": "300mg/150mg/75mg", "interval": "", "notes": "GFR 15-29 ml/min" },
+        "gfr_lt_10": { "dose": "200mg/100mg/50mg", "interval": "", "notes": "GFR <15 ml/min" },
+        "hd": { "dose": "Pótdózis szükséges a dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Meropenem-vaborbactam",
-        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 30-49: 2g 8 óránként. CrCl 15-29: 1g 8 óránként.",
-        "gfr_lt_10": "CrCl <15: 1g 12 óránként.",
-        "hd": "1g 12 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >50" },
+        "gfr_30_50": { "dose": "2g", "interval": "8 óránként", "notes": "CrCl 30-49 ml/min" },
+        "gfr_10_29": { "dose": "1g", "interval": "8 óránként", "notes": "CrCl 15-29 ml/min" },
+        "gfr_lt_10": { "dose": "1g", "interval": "12 óránként", "notes": "CrCl <15 ml/min" },
+        "hd": { "dose": "1g", "interval": "12 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     }
 ,
     {
         "antibiotic_name": "Nalidixic acid",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Használata nem javasolt.",
-        "gfr_lt_10": "Használata nem javasolt.",
-        "hd": "Használata nem javasolt.",
-        "crrt": "Használata nem javasolt."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" },
+        "hd": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Használata nem javasolt.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Ofloxacin",
-        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 10-50: 200-400mg 24 óránként.",
-        "gfr_lt_10": "100-200mg 24 óránként.",
-        "hd": "100-200mg 24 óránként, dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >50" },
+        "gfr_30_50": { "dose": "200-400mg", "interval": "24 óránként", "notes": "CrCl 10-50 ml/min" },
+        "gfr_10_29": { "dose": "200-400mg", "interval": "24 óránként", "notes": "CrCl 10-50 ml/min" },
+        "gfr_lt_10": { "dose": "100-200mg", "interval": "24 óránként", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "100-200mg", "interval": "24 óránként", "notes": "dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Levofloxacin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 20-49: 750mg kezdő, majd 750mg 48 óránként.",
-        "gfr_lt_10": "GFR <20: 750mg kezdő, majd 500mg 48 óránként.",
-        "hd": "500mg kezdő, majd 250mg 48 óránként, dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "750mg kezdő, majd 750mg", "interval": "48 óránként", "notes": "GFR 20-49 ml/min" },
+        "gfr_10_29": { "dose": "750mg kezdő, majd 500mg", "interval": "48 óránként", "notes": "GFR <20 ml/min" },
+        "gfr_lt_10": { "dose": "750mg kezdő, majd 500mg", "interval": "48 óránként", "notes": "GFR <20 ml/min" },
+        "hd": { "dose": "500mg kezdő, majd 250mg", "interval": "48 óránként", "notes": "dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Moxifloxacin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Delafloxacin",
-        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 15-29: 200mg IV 12 óránként.",
-        "gfr_lt_10": "CrCl <15: 150mg IV 12 óránként.",
-        "hd": "150mg IV 12 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >30" },
+        "gfr_30_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "200mg IV", "interval": "12 óránként", "notes": "CrCl 15-29 ml/min" },
+        "gfr_lt_10": { "dose": "150mg IV", "interval": "12 óránként", "notes": "CrCl <15 ml/min" },
+        "hd": { "dose": "150mg IV", "interval": "12 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Telavancin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-50: 7.5mg/kg 24 óránként. GFR <30: 10mg/kg 48 óránként.",
-        "gfr_lt_10": "10mg/kg 48 óránként.",
-        "hd": "10mg/kg 48 óránként, dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "7.5mg/kg", "interval": "24 óránként", "notes": "GFR 30-50 ml/min" },
+        "gfr_10_29": { "dose": "10mg/kg", "interval": "48 óránként", "notes": "GFR <30 ml/min" },
+        "gfr_lt_10": { "dose": "10mg/kg", "interval": "48 óránként", "notes": "GFR <30 ml/min" },
+        "hd": { "dose": "10mg/kg", "interval": "48 óránként", "notes": "dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Dalbavancin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR <30: 750mg egyszeri, majd 375mg 1 hét múlva.",
-        "gfr_lt_10": "GFR <30: 750mg egyszeri, majd 375mg 1 hét múlva.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "750mg egyszeri, majd 375mg 1 hét múlva", "interval": "", "notes": "GFR <30 ml/min" },
+        "gfr_lt_10": { "dose": "750mg egyszeri, majd 375mg 1 hét múlva", "interval": "", "notes": "GFR <30 ml/min" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Oritavancin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     }
 ,
     {
         "antibiotic_name": "Piperacillin",
-        "gfr_gt_50": "CrCl >40: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 20-40: 4g 8 óránként.",
-        "gfr_lt_10": "CrCl <20: 4g 12 óránként.",
-        "hd": "2g 8 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >40" },
+        "gfr_30_50": { "dose": "4g", "interval": "8 óránként", "notes": "CrCl 20-40 ml/min" },
+        "gfr_10_29": { "dose": "4g", "interval": "8 óránként", "notes": "CrCl 20-40 ml/min" },
+        "gfr_lt_10": { "dose": "4g", "interval": "12 óránként", "notes": "CrCl <20 ml/min" },
+        "hd": { "dose": "2g", "interval": "8 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Aztreonam",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "50-75% dózis.",
-        "gfr_lt_10": "25% dózis.",
-        "hd": "25% pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "50-75% dózis.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "50-75% dózis.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "25% dózis", "interval": "", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "25% pótdózis dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Amikacin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "gfr_lt_10": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "hd": "10-15 mg/kg pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges, plazmaszint monitorozás javasolt."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Dóziscsökkentés vagy intervallum növelése", "interval": "", "notes": "plazmaszint alapján." },
+        "gfr_10_29": { "dose": "Dóziscsökkentés vagy intervallum növelése", "interval": "", "notes": "plazmaszint alapján." },
+        "gfr_lt_10": { "dose": "Dóziscsökkentés vagy intervallum növelése", "interval": "", "notes": "plazmaszint alapján." },
+        "hd": { "dose": "10-15 mg/kg pótdózis dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Dózismódosítás szükséges", "interval": "", "notes": "plazmaszint monitorozás javasolt." }
     },
     {
         "antibiotic_name": "Plazomicin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "gfr_lt_10": "Dóziscsökkentés vagy intervallum növelése, plazmaszint alapján.",
-        "hd": "7.5 mg/kg pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges, plazmaszint monitorozás javasolt."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Dóziscsökkentés vagy intervallum növelése", "interval": "", "notes": "plazmaszint alapján." },
+        "gfr_10_29": { "dose": "Dóziscsökkentés vagy intervallum növelése", "interval": "", "notes": "plazmaszint alapján." },
+        "gfr_lt_10": { "dose": "Dóziscsökkentés vagy intervallum növelése", "interval": "", "notes": "plazmaszint alapján." },
+        "hd": { "dose": "7.5 mg/kg pótdózis dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Dózismódosítás szükséges", "interval": "", "notes": "plazmaszint monitorozás javasolt." }
     },
     {
         "antibiotic_name": "Teicoplanin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR 30-80: 50% dózis. GFR <30: 33% dózis.",
-        "gfr_lt_10": "33% dózis.",
-        "hd": "10. napon 33% dózis.",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "50% dózis", "interval": "", "notes": "GFR 30-80 ml/min" },
+        "gfr_10_29": { "dose": "33% dózis", "interval": "", "notes": "GFR <30 ml/min" },
+        "gfr_lt_10": { "dose": "33% dózis", "interval": "", "notes": "GFR <30 ml/min" },
+        "hd": { "dose": "10. napon 33% dózis.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Normál dózis adható.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Erythromycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "50-75% dózis.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "50-75% dózis", "interval": "", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Azithromycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Clarithromycin",
-        "gfr_gt_50": "CrCl >30: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl <30: 50% dózis.",
-        "gfr_lt_10": "CrCl <30: 50% dózis.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >30" },
+        "gfr_30_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "50% dózis", "interval": "", "notes": "CrCl <30 ml/min" },
+        "gfr_lt_10": { "dose": "50% dózis", "interval": "", "notes": "CrCl <30 ml/min" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Roxithromycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "50% dózis.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "50% dózis", "interval": "", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Spiramycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Clindamycin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Doxycycline",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Tigecycline",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Minocycline",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Eravacycline",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Sarecycline",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Omadacycline",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Tedizolid",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Quinupristin-dalfopristin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Chloramphenicol",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Fosfomycin",
-        "gfr_gt_50": "CrCl >40: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 20-39: 70-80% dózis. CrCl 10-19: 60-70% dózis.",
-        "gfr_lt_10": "CrCl <10: 50% dózis.",
-        "hd": "Pótdózis szükséges a dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >40" },
+        "gfr_30_50": { "dose": "70-80% dózis", "interval": "", "notes": "CrCl 20-39 ml/min" },
+        "gfr_10_29": { "dose": "60-70% dózis", "interval": "", "notes": "CrCl 10-19 ml/min" },
+        "gfr_lt_10": { "dose": "50% dózis", "interval": "", "notes": "CrCl <10 ml/min" },
+        "hd": { "dose": "Pótdózis szükséges a dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Nitrofurantoin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "GFR <30: Kerülendő.",
-        "gfr_lt_10": "Kerülendő.",
-        "hd": "Kerülendő.",
-        "crrt": "Kerülendő."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Kerülendő", "interval": "", "notes": "GFR <30 ml/min" },
+        "gfr_lt_10": { "dose": "Kerülendő", "interval": "", "notes": "GFR <30 ml/min" },
+        "hd": { "dose": "Kerülendő.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Kerülendő.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Rifampin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Rifabutin",
-        "gfr_gt_50": "CrCl >50: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl <50: 50% dózis.",
-        "gfr_lt_10": "CrCl <50: 50% dózis.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >50" },
+        "gfr_30_50": { "dose": "50% dózis", "interval": "", "notes": "CrCl <50 ml/min" },
+        "gfr_10_29": { "dose": "50% dózis", "interval": "", "notes": "CrCl <50 ml/min" },
+        "gfr_lt_10": { "dose": "50% dózis", "interval": "", "notes": "CrCl <50 ml/min" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Rifaximin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Polymyxin B",
-        "gfr_gt_50": "CrCl >80: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 50-79: 1.25 mg/kg 12 óránként. CrCl 20-49: 1 mg/kg 12 óránként.",
-        "gfr_lt_10": "CrCl <20: 1 mg/kg 24 óránként.",
-        "hd": "1 mg/kg 48 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >80" },
+        "gfr_30_50": { "dose": "1 mg/kg", "interval": "12 óránként", "notes": "CrCl 20-49 ml/min" },
+        "gfr_10_29": { "dose": "1 mg/kg", "interval": "12 óránként", "notes": "CrCl 20-49 ml/min" },
+        "gfr_lt_10": { "dose": "1 mg/kg", "interval": "24 óránként", "notes": "CrCl <20 ml/min" },
+        "hd": { "dose": "1 mg/kg", "interval": "48 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Bacitracin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra (topikális).",
-        "gfr_10_50": "Nincs szükség dózismódosításra (topikális).",
-        "gfr_lt_10": "Nincs szükség dózismódosításra (topikális).",
-        "hd": "Nincs szükség dózismódosításra (topikális).",
-        "crrt": "Nincs szükség dózismódosításra (topikális)."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" }
     },
     {
         "antibiotic_name": "Colistin",
-        "gfr_gt_50": "CrCl >80: Nincs szükség módosításra.",
-        "gfr_10_50": "CrCl 50-79: 2.5 mg/kg 12 óránként. CrCl 30-49: 1.5 mg/kg 12 óránként.",
-        "gfr_lt_10": "CrCl <30: 1.5 mg/kg 24 óránként.",
-        "hd": "1.5 mg/kg 48 óránként, pótdózis dialízis után.",
-        "crrt": "Dózismódosítás szükséges."
+        "gfr_gt_50": { "dose": "Nincs szükség módosításra.", "interval": "", "notes": "CrCl >80" },
+        "gfr_30_50": { "dose": "1.5 mg/kg", "interval": "12 óránként", "notes": "CrCl 30-49 ml/min" },
+        "gfr_10_29": { "dose": "1.5 mg/kg", "interval": "24 óránként", "notes": "CrCl <30 ml/min" },
+        "gfr_lt_10": { "dose": "1.5 mg/kg", "interval": "24 óránként", "notes": "CrCl <30 ml/min" },
+        "hd": { "dose": "1.5 mg/kg", "interval": "48 óránként", "notes": "pótdózis dialízis után." },
+        "crrt": { "dose": "Dózismódosítás szükséges.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Fluconazole",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "50% dózis.",
-        "gfr_lt_10": "50% dózis.",
-        "hd": "Normál dózis dialízis után.",
-        "crrt": "Normál dózis adható."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "50% dózis.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "50% dózis.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "50% dózis.", "interval": "", "notes": "" },
+        "hd": { "dose": "Normál dózis dialízis után.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Normál dózis adható.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Voriconazole",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Caspofungin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Amphotericin B",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Vancomycin (inhalációs)",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Tobramycin (inhalációs)",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Lefamulin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     },
     {
         "antibiotic_name": "Mupirocin",
-        "gfr_gt_50": "Nincs szükség dózismódosításra (topikális).",
-        "gfr_10_50": "Nincs szükség dózismódosításra (topikális).",
-        "gfr_lt_10": "Nincs szükség dózismódosításra (topikális).",
-        "hd": "Nincs szükség dózismódosításra (topikális).",
-        "crrt": "Nincs szükség dózismódosításra (topikális)."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "topikális" }
     },
     {
         "antibiotic_name": "Fusidinsav",
-        "gfr_gt_50": "Nincs szükség dózismódosításra.",
-        "gfr_10_50": "Nincs szükség dózismódosításra.",
-        "gfr_lt_10": "Nincs szükség dózismódosításra.",
-        "hd": "Nincs szükség dózismódosításra.",
-        "crrt": "Nincs szükség dózismódosításra."
+        "gfr_gt_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_30_50": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_10_29": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "gfr_lt_10": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "hd": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     }
 ]
