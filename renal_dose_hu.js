@@ -3,85 +3,85 @@ window.renal_dose_hu = [
     {
         "antibiotic_name": "Penicillin G",
         "gfr_gt_50": { "dose": "Nincs módosítás", "interval": "", "notes": "CrCl >30 ml/min esetén." },
-        "gfr_30_50": { "dose": "1-3 millió E", "interval": "q6-8h", "notes": "" },
-        "gfr_10_29": { "dose": "1-3 millió E", "interval": "q8-12h", "notes": "" },
-        "gfr_lt_10": { "dose": "1-2 millió E", "interval": "q12h", "notes": "" },
-        "hd": { "dose": "1-2 millió E", "interval": "q12h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "2-4 millió E", "interval": "q6h", "notes": "" }
+        "gfr_30_50": { "dose": "1-3 millió E", "interval": "6-8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "1-3 millió E", "interval": "8-12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "1-2 millió E", "interval": "12 óránként", "notes": "" },
+        "hd": { "dose": "1-2 millió E", "interval": "12 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "2-4 millió E", "interval": "6 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Amoxicillin",
         "gfr_gt_50": { "dose": "Nincs módosítás", "interval": "", "notes": "CrCl >30 ml/min esetén." },
-        "gfr_30_50": { "dose": "250-500 mg", "interval": "q12h", "notes": "" },
-        "gfr_10_29": { "dose": "250-500 mg", "interval": "q12h", "notes": "" },
-        "gfr_lt_10": { "dose": "250-500 mg", "interval": "q24h", "notes": "" },
-        "hd": { "dose": "250-500 mg", "interval": "q24h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "500-1000 mg", "interval": "q8-12h", "notes": "" }
+        "gfr_30_50": { "dose": "250-500 mg", "interval": "12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "250-500 mg", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "250-500 mg", "interval": "24 óránként", "notes": "" },
+        "hd": { "dose": "250-500 mg", "interval": "24 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "500-1000 mg", "interval": "8-12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Piperacillin-tazobactam",
-        "gfr_gt_50": { "dose": "4.5g", "interval": "q6h", "notes": "CrCl >40 ml/min esetén." },
-        "gfr_30_50": { "dose": "3.375g", "interval": "q6h", "notes": "CrCl 20-40 ml/min tartomány." },
-        "gfr_10_29": { "dose": "2.25g", "interval": "q6h", "notes": "CrCl <20 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "2.25g", "interval": "q8h", "notes": "" },
-        "hd": { "dose": "2.25g", "interval": "q8h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "3.375g", "interval": "q8h", "notes": "" }
+        "gfr_gt_50": { "dose": "4.5g", "interval": "6 óránként", "notes": "CrCl >40 ml/min esetén." },
+        "gfr_30_50": { "dose": "3.375g", "interval": "6 óránként", "notes": "CrCl 20-40 ml/min tartomány." },
+        "gfr_10_29": { "dose": "2.25g", "interval": "6 óránként", "notes": "CrCl <20 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "2.25g", "interval": "8 óránként", "notes": "" },
+        "hd": { "dose": "2.25g", "interval": "8 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "3.375g", "interval": "8 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Meropenem",
-        "gfr_gt_50": { "dose": "1-2g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "1g", "interval": "q12h", "notes": "CrCl 26-50 ml/min tartomány." },
-        "gfr_10_29": { "dose": "500mg", "interval": "q12h", "notes": "CrCl 10-25 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "500mg", "interval": "q24h", "notes": "" },
-        "hd": { "dose": "500mg", "interval": "q24h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "1g", "interval": "q8-12h", "notes": "" }
+        "gfr_gt_50": { "dose": "1-2g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "1g", "interval": "12 óránként", "notes": "CrCl 26-50 ml/min tartomány." },
+        "gfr_10_29": { "dose": "500mg", "interval": "12 óránként", "notes": "CrCl 10-25 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "500mg", "interval": "24 óránként", "notes": "" },
+        "hd": { "dose": "500mg", "interval": "24 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "1g", "interval": "8-12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Vancomycin",
-        "gfr_gt_50": { "dose": "15-20 mg/kg", "interval": "q8-12h", "notes": "CrCl >60 ml/min esetén." },
-        "gfr_30_50": { "dose": "15-20 mg/kg", "interval": "q12-24h", "notes": "CrCl 40-59 ml/min tartomány." },
-        "gfr_10_29": { "dose": "15-20 mg/kg", "interval": "q24-48h", "notes": "CrCl 20-39 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "10-15 mg/kg", "interval": "q48-72h", "notes": "" },
+        "gfr_gt_50": { "dose": "15-20 mg/kg", "interval": "8-12 óránként", "notes": "CrCl >60 ml/min esetén." },
+        "gfr_30_50": { "dose": "15-20 mg/kg", "interval": "12-24 óránként", "notes": "CrCl 40-59 ml/min tartomány." },
+        "gfr_10_29": { "dose": "15-20 mg/kg", "interval": "24-48 óránként", "notes": "CrCl 20-39 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "10-15 mg/kg", "interval": "48-72 óránként", "notes": "" },
         "hd": { "dose": "7.5-10 mg/kg", "interval": "HD után", "notes": "Telítő dózis: 20-25 mg/kg." },
-        "crrt": { "dose": "7.5-10 mg/kg", "interval": "q24-48h", "notes": "Telítő dózis: 20-25 mg/kg." }
+        "crrt": { "dose": "7.5-10 mg/kg", "interval": "24-48 óránként", "notes": "Telítő dózis: 20-25 mg/kg." }
     },
     {
         "antibiotic_name": "Gentamicin",
-        "gfr_gt_50": { "dose": "5-7 mg/kg", "interval": "q24h", "notes": "CrCl >60 ml/min esetén." },
-        "gfr_30_50": { "dose": "4-6 mg/kg", "interval": "q36h", "notes": "CrCl 40-59 ml/min tartomány." },
-        "gfr_10_29": { "dose": "3-4 mg/kg", "interval": "q48h", "notes": "CrCl 20-39 ml/min tartomány." },
+        "gfr_gt_50": { "dose": "5-7 mg/kg", "interval": "24 óránként", "notes": "CrCl >60 ml/min esetén." },
+        "gfr_30_50": { "dose": "4-6 mg/kg", "interval": "36 óránként", "notes": "CrCl 40-59 ml/min tartomány." },
+        "gfr_10_29": { "dose": "3-4 mg/kg", "interval": "48 óránként", "notes": "CrCl 20-39 ml/min tartomány." },
         "gfr_lt_10": { "dose": "2 mg/kg", "interval": "szint szerint", "notes": "Plazmaszint monitorozás." },
         "hd": { "dose": "2 mg/kg", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "2.5 mg/kg", "interval": "q48h", "notes": "" }
+        "crrt": { "dose": "2.5 mg/kg", "interval": "48 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Ciprofloxacin",
-        "gfr_gt_50": { "dose": "400mg IV", "interval": "q12h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "400mg IV", "interval": "q12h", "notes": "" },
-        "gfr_10_29": { "dose": "400mg IV", "interval": "q24h", "notes": "" },
-        "gfr_lt_10": { "dose": "200mg IV", "interval": "q24h", "notes": "" },
-        "hd": { "dose": "200mg IV", "interval": "q24h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "400mg IV", "interval": "q12h", "notes": "" }
+        "gfr_gt_50": { "dose": "400mg IV", "interval": "12 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "400mg IV", "interval": "12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "400mg IV", "interval": "24 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "200mg IV", "interval": "24 óránként", "notes": "" },
+        "hd": { "dose": "200mg IV", "interval": "24 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "400mg IV", "interval": "12 óránként", "notes": "" }
     }
     ,
     {
         "antibiotic_name": "Ticarcillin-clavulanate",
-        "gfr_gt_50": { "dose": "3.1g", "interval": "q4h", "notes": "CrCl >60 ml/min esetén." },
-        "gfr_30_50": { "dose": "2g", "interval": "q4h", "notes": "CrCl 30-60 ml/min tartomány." },
-        "gfr_10_29": { "dose": "2g", "interval": "q8h", "notes": "CrCl 10-30 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "2g", "interval": "q12h", "notes": "" },
-        "hd": { "dose": "2g", "interval": "q12h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "3.1g", "interval": "q8h", "notes": "" }
+        "gfr_gt_50": { "dose": "3.1g", "interval": "4 óránként", "notes": "CrCl >60 ml/min esetén." },
+        "gfr_30_50": { "dose": "2g", "interval": "4 óránként", "notes": "CrCl 30-60 ml/min tartomány." },
+        "gfr_10_29": { "dose": "2g", "interval": "8 óránként", "notes": "CrCl 10-30 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "2g", "interval": "12 óránként", "notes": "" },
+        "hd": { "dose": "2g", "interval": "12 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "3.1g", "interval": "8 óránként", "notes": "" }
     }
 ,
     {
         "antibiotic_name": "Cefazolin",
-        "gfr_gt_50": { "dose": "1-2g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "1-2g", "interval": "q12h", "notes": "" },
-        "gfr_10_29": { "dose": "1g", "interval": "q24h", "notes": "" },
-        "gfr_lt_10": { "dose": "0.5-1g", "interval": "q24h", "notes": "" },
-        "hd": { "dose": "1-2g", "interval": "q24h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "2g", "interval": "q12h", "notes": "" }
+        "gfr_gt_50": { "dose": "1-2g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "1-2g", "interval": "12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "1g", "interval": "24 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "0.5-1g", "interval": "24 óránként", "notes": "" },
+        "hd": { "dose": "1-2g", "interval": "24 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "2g", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Ceftriaxone",
@@ -94,12 +94,12 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Cefepime",
-        "gfr_gt_50": { "dose": "2g", "interval": "q8-12h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "2g", "interval": "q24h", "notes": "" },
-        "gfr_10_29": { "dose": "1g", "interval": "q24h", "notes": "" },
-        "gfr_lt_10": { "dose": "500mg", "interval": "q24h", "notes": "" },
-        "hd": { "dose": "500mg", "interval": "q24h", "notes": "1g telítő dózis, majd pótdózis dialízis után." },
-        "crrt": { "dose": "2g", "interval": "q12h", "notes": "" }
+        "gfr_gt_50": { "dose": "2g", "interval": "8-12 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "2g", "interval": "24 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "1g", "interval": "24 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "500mg", "interval": "24 óránként", "notes": "" },
+        "hd": { "dose": "500mg", "interval": "24 óránként", "notes": "1g telítő dózis, majd pótdózis dialízis után." },
+        "crrt": { "dose": "2g", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Linezolid",
@@ -112,12 +112,12 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "Daptomycin",
-        "gfr_gt_50": { "dose": "4-6 mg/kg", "interval": "q24h", "notes": "CrCl >30 ml/min esetén." },
-        "gfr_30_50": { "dose": "4-6 mg/kg", "interval": "q24h", "notes": "" },
-        "gfr_10_29": { "dose": "4-6 mg/kg", "interval": "q48h", "notes": "" },
-        "gfr_lt_10": { "dose": "4-6 mg/kg", "interval": "q48h", "notes": "" },
-        "hd": { "dose": "4-6 mg/kg", "interval": "q48h", "notes": "Dialízis után adandó." },
-        "crrt": { "dose": "6 mg/kg", "interval": "q24h", "notes": "" }
+        "gfr_gt_50": { "dose": "4-6 mg/kg", "interval": "24 óránként", "notes": "CrCl >30 ml/min esetén." },
+        "gfr_30_50": { "dose": "4-6 mg/kg", "interval": "24 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "4-6 mg/kg", "interval": "48 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "4-6 mg/kg", "interval": "48 óránként", "notes": "" },
+        "hd": { "dose": "4-6 mg/kg", "interval": "48 óránként", "notes": "Dialízis után adandó." },
+        "crrt": { "dose": "6 mg/kg", "interval": "24 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Metronidazol",
@@ -130,112 +130,112 @@ window.renal_dose_hu = [
     },
     {
         "antibiotic_name": "TMP-SMX",
-        "gfr_gt_50": { "dose": "Normál dózis", "interval": "q12h", "notes": "CrCl >30 ml/min esetén." },
-        "gfr_30_50": { "dose": "Normál dózis", "interval": "q12h", "notes": "" },
-        "gfr_10_29": { "dose": "50% dózis", "interval": "q12h", "notes": "CrCl 15-30 ml/min tartomány." },
+        "gfr_gt_50": { "dose": "Normál dózis", "interval": "12 óránként", "notes": "CrCl >30 ml/min esetén." },
+        "gfr_30_50": { "dose": "Normál dózis", "interval": "12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "50% dózis", "interval": "12 óránként", "notes": "CrCl 15-30 ml/min tartomány." },
         "gfr_lt_10": { "dose": "Kerülendő", "interval": "", "notes": "" },
-        "hd": { "dose": "50% dózis", "interval": "q24h", "notes": "" },
-        "crrt": { "dose": "Normál dózis", "interval": "q12h", "notes": "" }
+        "hd": { "dose": "50% dózis", "interval": "24 óránként", "notes": "" },
+        "crrt": { "dose": "Normál dózis", "interval": "12 óránként", "notes": "" }
     }
 ,
     {
         "antibiotic_name": "Cefoxitin",
-        "gfr_gt_50": { "dose": "1-2g", "interval": "q6-8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "1-2g", "interval": "q8-12h", "notes": "" },
-        "gfr_10_29": { "dose": "1-2g", "interval": "q12-24h", "notes": "" },
-        "gfr_lt_10": { "dose": "1g", "interval": "q24-48h", "notes": "" },
-        "hd": { "dose": "1g", "interval": "q24h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "1-2g", "interval": "q12h", "notes": "" }
+        "gfr_gt_50": { "dose": "1-2g", "interval": "6-8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "1-2g", "interval": "8-12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "1-2g", "interval": "12-24 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "1g", "interval": "24-48 óránként", "notes": "" },
+        "hd": { "dose": "1g", "interval": "24 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "1-2g", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Cefalexin",
-        "gfr_gt_50": { "dose": "500mg", "interval": "q6h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "500mg", "interval": "q8-12h", "notes": "" },
-        "gfr_10_29": { "dose": "500mg", "interval": "q12h", "notes": "" },
-        "gfr_lt_10": { "dose": "250mg", "interval": "q12-24h", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "6 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "500mg", "interval": "8-12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "500mg", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "250mg", "interval": "12-24 óránként", "notes": "" },
         "hd": { "dose": "250-500mg", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "500mg", "interval": "q8h", "notes": "" }
+        "crrt": { "dose": "500mg", "interval": "8 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Cefaclor",
-        "gfr_gt_50": { "dose": "250-500mg", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "50% dózis", "interval": "q8h", "notes": "" },
-        "gfr_10_29": { "dose": "50% dózis", "interval": "q12h", "notes": "" },
-        "gfr_lt_10": { "dose": "25% dózis", "interval": "q12h", "notes": "" },
+        "gfr_gt_50": { "dose": "250-500mg", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "50% dózis", "interval": "8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "50% dózis", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "25% dózis", "interval": "12 óránként", "notes": "" },
         "hd": { "dose": "250-500mg", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "Normál dózis", "interval": "q8h", "notes": "" }
+        "crrt": { "dose": "Normál dózis", "interval": "8 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Cefuroxim",
-        "gfr_gt_50": { "dose": "750mg-1.5g", "interval": "q8h", "notes": "CrCl >20 ml/min esetén." },
-        "gfr_30_50": { "dose": "750mg-1.5g", "interval": "q8h", "notes": "" },
-        "gfr_10_29": { "dose": "750mg", "interval": "q12h", "notes": "" },
-        "gfr_lt_10": { "dose": "750mg", "interval": "q24h", "notes": "" },
+        "gfr_gt_50": { "dose": "750mg-1.5g", "interval": "8 óránként", "notes": "CrCl >20 ml/min esetén." },
+        "gfr_30_50": { "dose": "750mg-1.5g", "interval": "8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "750mg", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "750mg", "interval": "24 óránként", "notes": "" },
         "hd": { "dose": "750mg", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "750mg", "interval": "q12h", "notes": "" }
+        "crrt": { "dose": "750mg", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Cefotaxime",
-        "gfr_gt_50": { "dose": "1-2g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "50% dózis", "interval": "q8h", "notes": "" },
-        "gfr_10_29": { "dose": "50% dózis", "interval": "q12h", "notes": "" },
-        "gfr_lt_10": { "dose": "25% dózis", "interval": "q12h", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "50% dózis", "interval": "8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "50% dózis", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "25% dózis", "interval": "12 óránként", "notes": "" },
         "hd": { "dose": "500mg-1g", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "1-2g", "interval": "q12h", "notes": "" }
+        "crrt": { "dose": "1-2g", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Ceftazidime",
-        "gfr_gt_50": { "dose": "1-2g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "1g", "interval": "q12h", "notes": "" },
-        "gfr_10_29": { "dose": "1g", "interval": "q24h", "notes": "" },
-        "gfr_lt_10": { "dose": "500mg", "interval": "q48h", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "1g", "interval": "12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "1g", "interval": "24 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "500mg", "interval": "48 óránként", "notes": "" },
         "hd": { "dose": "1g", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "1-2g", "interval": "q12h", "notes": "" }
+        "crrt": { "dose": "1-2g", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Ceftazidime-avibactam",
-        "gfr_gt_50": { "dose": "2.5g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "1.25g", "interval": "q8h", "notes": "" },
-        "gfr_10_29": { "dose": "0.94g", "interval": "q12h", "notes": "GFR 16-30 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "0.94g", "interval": "q48h", "notes": "GFR <15 ml/min tartomány." },
+        "gfr_gt_50": { "dose": "2.5g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "1.25g", "interval": "8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "0.94g", "interval": "12 óránként", "notes": "GFR 16-30 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "0.94g", "interval": "48 óránként", "notes": "GFR <15 ml/min tartomány." },
         "hd": { "dose": "0.94g", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "1.25g", "interval": "q8h", "notes": "" }
+        "crrt": { "dose": "1.25g", "interval": "8 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Ceftolozane-tazobactam",
-        "gfr_gt_50": { "dose": "1.5g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "750mg", "interval": "q8h", "notes": "" },
-        "gfr_10_29": { "dose": "375mg", "interval": "q8h", "notes": "" },
-        "gfr_lt_10": { "dose": "75mg", "interval": "q8h", "notes": "225mg telítő dózis." },
-        "hd": { "dose": "75mg", "interval": "q8h", "notes": "225mg telítő dózis, majd pótdózis dialízis után." },
-        "crrt": { "dose": "750mg", "interval": "q8h", "notes": "" }
+        "gfr_gt_50": { "dose": "1.5g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "750mg", "interval": "8 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "375mg", "interval": "8 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "75mg", "interval": "8 óránként", "notes": "225mg telítő dózis." },
+        "hd": { "dose": "75mg", "interval": "8 óránként", "notes": "225mg telítő dózis, majd pótdózis dialízis után." },
+        "crrt": { "dose": "750mg", "interval": "8 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Ceftaroline-avibactam",
-        "gfr_gt_50": { "dose": "600mg", "interval": "q12h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "400mg", "interval": "q12h", "notes": "" },
-        "gfr_10_29": { "dose": "300mg", "interval": "q12h", "notes": "" },
-        "gfr_lt_10": { "dose": "200mg", "interval": "q12h", "notes": "" },
-        "hd": { "dose": "200mg", "interval": "q12h", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "400mg", "interval": "q12h", "notes": "" }
+        "gfr_gt_50": { "dose": "600mg", "interval": "12 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "400mg", "interval": "12 óránként", "notes": "" },
+        "gfr_10_29": { "dose": "300mg", "interval": "12 óránként", "notes": "" },
+        "gfr_lt_10": { "dose": "200mg", "interval": "12 óránként", "notes": "" },
+        "hd": { "dose": "200mg", "interval": "12 óránként", "notes": "Pótdózis dialízis után." },
+        "crrt": { "dose": "400mg", "interval": "12 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Cefepime-taniborbactam",
-        "gfr_gt_50": { "dose": "2.5g", "interval": "q8h", "notes": "CrCl >50 ml/min esetén." },
-        "gfr_30_50": { "dose": "1.25g", "interval": "q8h", "notes": "CrCl 30-49 ml/min tartomány." },
-        "gfr_10_29": { "dose": "0.94g", "interval": "q8h", "notes": "CrCl 15-29 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "0.625g", "interval": "q8h", "notes": "" },
+        "gfr_gt_50": { "dose": "2.5g", "interval": "8 óránként", "notes": "CrCl >50 ml/min esetén." },
+        "gfr_30_50": { "dose": "1.25g", "interval": "8 óránként", "notes": "CrCl 30-49 ml/min tartomány." },
+        "gfr_10_29": { "dose": "0.94g", "interval": "8 óránként", "notes": "CrCl 15-29 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "0.625g", "interval": "8 óránként", "notes": "" },
         "hd": { "dose": "0.625g", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "1.25g", "interval": "q8h", "notes": "" }
+        "crrt": { "dose": "1.25g", "interval": "8 óránként", "notes": "" }
     },
     {
         "antibiotic_name": "Cefiderocol",
-        "gfr_gt_50": { "dose": "2g", "interval": "q8h", "notes": "Nincs módosítás." },
-        "gfr_30_50": { "dose": "2g", "interval": "q8h", "notes": "GFR 30-59 ml/min tartomány." },
-        "gfr_10_29": { "dose": "1.5g", "interval": "q8h", "notes": "GFR 15-29 ml/min tartomány." },
-        "gfr_lt_10": { "dose": "1g", "interval": "q12h", "notes": "" },
+        "gfr_gt_50": { "dose": "2g", "interval": "8 óránként", "notes": "Nincs módosítás." },
+        "gfr_30_50": { "dose": "2g", "interval": "8 óránként", "notes": "GFR 30-59 ml/min tartomány." },
+        "gfr_10_29": { "dose": "1.5g", "interval": "8 óránként", "notes": "GFR 15-29 ml/min tartomány." },
+        "gfr_lt_10": { "dose": "1g", "interval": "12 óránként", "notes": "" },
         "hd": { "dose": "1g", "interval": "HD után", "notes": "Pótdózis dialízis után." },
-        "crrt": { "dose": "2g", "interval": "q8h", "notes": "" }
+        "crrt": { "dose": "2g", "interval": "8 óránként", "notes": "" }
     }
 ,
     {
