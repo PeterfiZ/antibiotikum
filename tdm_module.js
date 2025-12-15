@@ -366,14 +366,20 @@ function calculateTroughBasedTDM() {
     
     // Special handling for elevated aminoglycoside trough levels
     if ((antibiotic === 'gentamicin' || antibiotic === 'amikacin') && troughLevel > targetTroughMax && nextDoseDelay > 0) {
-        recommendation += `<div class="bg-red-100 border border-red-300 p-3 rounded-lg mb-3">`;
-        recommendation += `<div class="font-bold text-red-800">⚠️ EMELKEDETT VÖLGYSZINT - AZONNALI INTÉZKEDÉS!</div>`;
-        recommendation += `<div class="text-red-700 mt-2">`;
-        recommendation += `<strong>Következő dózis időzítése:</strong><br>`;
-        recommendation += `${nextDoseRecommendation}<br><br>`;
-        recommendation += `<strong>Ellenőrzés:</strong> Völgyszint mérés ${Math.ceil(nextDoseDelay)} óra múlva<br>`;
-        recommendation += `<strong>Cél völgyszint:</strong> ≤${targetTroughMax} mg/L`;
-        recommendation += `</div></div>`;
+        recommendation += `
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg mb-4" role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zM9 9a1 1 0 0 0 2 0V7a1 1 0 1 0-2 0v2zm0 4a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/></svg></div>
+                    <div>
+                        <p class="font-bold">Azonnali intézkedés szükséges!</p>
+                        <p class="text-sm">
+                            <strong>Következő dózis időzítése:</strong> ${nextDoseRecommendation}.<br>
+                            <strong>Teendő:</strong> A következő dózis beadása előtt ${Math.ceil(nextDoseDelay)} óra múlva völgyszint ellenőrzés.<br>
+                            <strong>Cél:</strong> Völgyszint ≤${targetTroughMax} mg/L.
+                        </p>
+                    </div>
+                </div>
+            </div>`;
     }
     
     recommendation += `<div class="bg-blue-100 p-3 rounded-lg mt-2">`;

@@ -17,6 +17,9 @@ const urlsToCache = [
   './renal_dose_hu.js',
   './renal_dose_en.js',
   './renal_dose_de.js',
+  './pediatric_doses_en.js',
+  './pediatric_doses_de.js',
+  './pediatric_doses_hu.js',
   './icon-192.png',
   './icon-512.png'
 ];

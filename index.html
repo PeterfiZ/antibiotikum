@@ -66,7 +66,7 @@
                 </div>
             </div>
             <p class="text-sm text-gray-600 mt-1">
-                <span id="copyright">© 2025, Dr. Péterfi Zoltán | Verzió: 3.2.0</span>
+                <span id="copyright">© 2025, Dr. Péterfi Zoltán | Verzió: 4.2.5</span>
             </p>
         </div>
     </header>
@@ -75,7 +75,7 @@
     <main class="container mx-auto px-6 py-8">
         <!-- Module Selection -->
         <div id="module-selection" class="fade-in max-w-4xl mx-auto">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center" id="select-module">Válasszon modult</h2>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center" id="select-module">Válasszon modult</h2> 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-blue-300" onclick="showModule('pharmacological')">
                     <div class="text-center">
@@ -156,6 +156,17 @@
                         <p class="text-gray-600" id="tdm-desc">Gentamicin, Amikacin, Vancomycin, Voriconazole TDM</p>
                     </div>
                 </div>
+                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-pink-300" onclick="showModule('pediatric')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="pediatric-title">Gyermekdózisok</h3>
+                        <p class="text-gray-600" id="pediatric-desc">Antibiotikumok dózisai gyermekkorban</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -203,6 +214,33 @@
                             <p id="select-antibiotic">Válasszon egy antibiotikumot a részletek megtekintéséhez</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pediatric Module -->
+        <div id="pediatric-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="pediatric-module-title">Gyermekdózisok</h2>
+                <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-8">Vissza</button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800" id="pediatric-table-title">Antibiotikum dózisok gyermekkorban</h3>
+                    <p class="text-sm text-gray-600 mt-1" id="pediatric-table-desc">Általános iránymutatások. Mindig orvosi validáció szükséges!</p>
+                    <div class="mt-4">
+                        <label for="pediatric-search" class="block text-sm font-medium text-gray-700 mb-2" id="search-pediatric-antibiotic">Keresés antibiotikum szerint:</label>
+                        <input type="text" id="pediatric-search" placeholder="Antibiotikum neve..." class="search-input w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                    </div>
+                </div>
+                
+                <div id="pediatric-table-container" class="overflow-x-auto">
+                    <table id="pediatric-table" class="w-full">
+                        <tbody id="pediatric-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Pediatric dose table content will be populated here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -454,7 +492,7 @@
                     </h1>
                     <p class="text-gray-600 text-center mb-2">Therapeutic Drug Monitoring - Gentamicin, Amikacin, Vancomycin, Voriconazole</p>
                     <div class="text-center mb-8">
-                        <p class="text-xs text-gray-500">© 2025 Dr. Péterfi Zoltán | Verzió 2.1.0</p>
+                        <p class="text-xs text-gray-500">© 2025 Dr. Péterfi Zoltán | Verzió 4.2.5</p>
                     </div>
                     
                     <!-- Patient Data Section -->
@@ -636,9 +674,9 @@
         <!-- Footer -->
         <footer class="text-center py-6 mt-8">
             <div class="bg-white rounded-xl shadow-lg p-4 max-w-md mx-auto">
-                <p class="text-gray-600 text-sm">
-                    <span id="footer-copyright">© 2025 Dr. Péterfi Zoltán | Verzió: 3.2.0</span>
-                </p>
+                <p class="text-gray-600 text-sm" id="footer-copyright">
+                    © 2025 Dr. Péterfi Zoltán | Verzió: 4.2.5
+                </p> 
                 <p class="text-xs text-gray-500 mt-1" id="footer-subtitle">
                     Antibiotikum Oktató Program - Klinikai döntéstámogatás
                 </p>
@@ -659,22 +697,28 @@
 <script src="test_en.js"></script>
 <script src="test_de.js"></script>
 <script src="renal_dose_hu.js"></script>
-<script src="renal_dose_en.js"></script>
-<script src="renal_dose_de.js"></script>
+<script src="renal_dose_en.js"></script> 
+<script src="renal_dose_de.js"></script> 
 <script src="tdm_data.js"></script>
-<script src="tdm_module.js"></script>
+<script src="pediatric_doses_en.js"></script>
+<script src="pediatric_doses_de.js"></script>
+<script src="pediatric_doses_hu.js"></script>
+<script src="tdm_module.js"></script> 
 
 <script>
 console.log("antibiotics_hu:", window.antibiotics_hu);
 console.log("diseases_hu:", window.diseases_hu);
 console.log("pathogens_hu:", window.pathogens_hu);
 console.log("renal_dose_hu:", window.renal_dose_hu);
+console.log("pediatric_doses_hu:", window.pediatric_doses_hu);
+console.log("pediatric_doses_en:", window.pediatric_doses_en);
+console.log("pediatric_doses_de:", window.pediatric_doses_de);
 </script> 
 
 <script>
     let currentLanguage = 'hu';
-    let antibiotics, diseases, pathogens, testQuestions, renalDoses;
-
+    let antibiotics, diseases, pathogens, testQuestions, renalDoses, pediatricDoses;
+ 
     // Quiz state
     let currentQuestions = [];
     let currentQuestionIndex = 0;
@@ -682,7 +726,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
 
         const translations = {
             
-            hu: {
+            hu: { 
                 'select-module': 'Válasszon modult',
                 'pharm-title': 'Farmakológiai megközelítés',
                 'pharm-desc': 'Antibiotikumok tulajdonságai és hatásmechanizmusai',
@@ -698,6 +742,12 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'quiz-desc': 'Tesztelje tudását interaktív kvízekkel',
                 'tdm-title': 'TDM Kalkulátor',
                 'tdm-desc': 'Gentamicin, Amikacin, Vancomycin, Voriconazole TDM',
+                'pediatric-table-title': 'Antibiotikum dózisok gyermekkorban',
+                'pediatric-table-desc': 'Általános iránymutatások. Mindig orvosi validáció szükséges!',
+                'search-pediatric-antibiotic': 'Keresés antibiotikum szerint:',
+                'pediatric-title': 'Gyermekdózisok',
+                'pediatric-desc': 'Antibiotikumok dózisai gyermekkorban',
+                'pediatric-module-title': 'Gyermekdózisok',
                 'renal-module-title': 'Dózismódosítás vesekárosodás esetén',
                 'renal-table-title': 'Antibiotikum dózisok vesefunkció szerint',
                 'quiz-module-title': 'Tudásfelmérő',
@@ -739,7 +789,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'th-mechanism': 'Hatásmechanizmus',
                 'th-spectrum': 'Spektrum',
                 'th-examples': 'Példák', 
-                'copyright': '© 2025, Dr. Péterfi Zoltán | Verzió: 3.2.0',
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Verzió: 4.2.5',
                 'th-renal-antibiotic': 'Antibiotikum',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
@@ -797,7 +847,45 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'score-text': 'a pontszámod',
                 'restart-quiz-btn': 'Új kvíz',
                 'correct-answer': 'Helyes!',
-                'wrong-answer': 'Hibás! A helyes válasz:'
+                'wrong-answer': 'Hibás! A helyes válasz:',
+                'tab-details': 'Részletek',
+                'tab-pediatric': 'Gyermekdózisok',
+                // Pediatric dose keys - HU
+                'neonate': 'Újszülött',
+                'infant_child': 'Csecsemő/Gyermek',
+                'severe_infection': 'Súlyos fertőzés',
+                'child': 'Gyermek',
+                'max_dose': 'Max. dózis',
+                'special': 'Speciális',
+                'notes': 'Megjegyzés',
+                'high_dose': 'Magas dózis',
+                'meningitis': 'Meningitis',
+                'child_po': 'Gyermek (PO)',
+                'child_iv': 'Gyermek (IV)',
+                'contraindication': 'Ellenjavallat',
+                'adolescent': 'Serdülő',
+                'conventional': 'Hagyományos',
+                'extended_interval': 'Kiterjesztett intervallum',
+                'child_6m_5y': 'Gyermek (6hó - 5év)',
+                'child_5y_16y': 'Gyermek (5 - 16év)',
+                'loading': 'Telítő dózis',
+                'maintenance': 'Fenntartó dózis',
+                'child_1y_6y': '1-6 év',
+                'child_7y_11y': '7-11 év',
+                'child_12y_17y': '12-17 év',
+                'pcp_treatment': 'PCP kezelés',
+                'child_gt_8y': 'Gyermek >8 év',
+                'child_8y_11y': 'Gyermek (8-11 év)',
+                'adolescent_12y_17y': 'Serdülő (12-17 év)',
+                'inhalation_cf': 'Inhalációs (CF)',
+                'iv': 'IV',
+                'cystitis_po': 'Cystitis (PO)',
+                'prophylaxis': 'Profilaxis',
+                'child_2y_12y_iv': 'Gyermek (2-12 év) IV',
+                'child_2y_12y_po': 'Gyermek (2-12 év) PO',
+                'child_3m_17y': 'Gyermek (3hó - 17év)',
+                'liposomal': 'Liposzómás',
+                'deoxycholate': 'Deoxikolát'
             },
             en: {
                 'select-module': 'Select Module',
@@ -816,6 +904,12 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'tdm-title': 'TDM Calculator',
                 'tdm-desc': 'Gentamicin, Amikacin, Vancomycin, Voriconazole TDM',
                 'renal-module-title': 'Dosage in Renal Impairment',
+                'pediatric-table-title': 'Antibiotic Dosages in Childhood',
+                'pediatric-table-desc': 'General guidelines. Medical validation is always required!',
+                'search-pediatric-antibiotic': 'Search by antibiotic:',
+                'pediatric-title': 'Pediatric Doses',
+                'pediatric-desc': 'Antibiotic dosages in childhood',
+                'pediatric-module-title': 'Pediatric Doses',
                 'renal-table-title': 'Antibiotic Doses by Renal Function',
                 'quiz-module-title': 'Quiz',
                 'quiz-setup-title': 'Quiz Settings',
@@ -856,7 +950,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'th-mechanism': 'Mechanism',
                 'th-spectrum': 'Spectrum',
                 'th-examples': 'Examples', 
-                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 3.2.0',
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 4.2.5',
                 'th-renal-antibiotic': 'Antibiotic',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
@@ -914,7 +1008,45 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'score-text': 'is your score.',
                 'restart-quiz-btn': 'New Quiz',
                 'correct-answer': 'Correct!',
-                'wrong-answer': 'Wrong! The correct answer was:'
+                'wrong-answer': 'Wrong! The correct answer was:',
+                'tab-details': 'Details',
+                'tab-pediatric': 'Pediatric Doses',
+                // Pediatric dose keys - EN
+                'neonate': 'Neonate',
+                'infant_child': 'Infant/Child',
+                'severe_infection': 'Severe Infection',
+                'child': 'Child',
+                'max_dose': 'Max Dose',
+                'special': 'Special',
+                'notes': 'Notes',
+                'high_dose': 'High Dose',
+                'meningitis': 'Meningitis',
+                'child_po': 'Child (PO)',
+                'child_iv': 'Child (IV)',
+                'contraindication': 'Contraindication',
+                'adolescent': 'Adolescent',
+                'conventional': 'Conventional',
+                'extended_interval': 'Extended Interval',
+                'child_6m_5y': 'Child (6m - 5y)',
+                'child_5y_16y': 'Child (5 - 16y)',
+                'loading': 'Loading Dose',
+                'maintenance': 'Maintenance Dose',
+                'child_1y_6y': '1-6 years',
+                'child_7y_11y': '7-11 years',
+                'child_12y_17y': '12-17 years',
+                'pcp_treatment': 'PCP Treatment',
+                'child_gt_8y': 'Child >8 years',
+                'child_8y_11y': 'Child (8-11 years)',
+                'adolescent_12y_17y': 'Adolescent (12-17 years)',
+                'inhalation_cf': 'Inhalation (CF)',
+                'iv': 'IV',
+                'cystitis_po': 'Cystitis (PO)',
+                'prophylaxis': 'Prophylaxis',
+                'child_2y_12y_iv': 'Child (2-12y) IV',
+                'child_2y_12y_po': 'Child (2-12y) PO',
+                'child_3m_17y': 'Child (3m - 17y)',
+                'liposomal': 'Liposomal',
+                'deoxycholate': 'Deoxycholate'
             },
             de: {
                 'select-module': 'Modul auswählen',
@@ -973,7 +1105,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'th-mechanism': 'Mechanismus',
                 'th-spectrum': 'Spektrum',
                 'th-examples': 'Beispiele', 
-                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 3.2.0',
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 4.2.5',
                 'th-renal-antibiotic': 'Antibiotikum',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
@@ -1031,7 +1163,45 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 'score-text': 'ist Ihre Punktzahl.',
                 'restart-quiz-btn': 'Neues Quiz',
                 'correct-answer': 'Richtig!',
-                'wrong-answer': 'Falsch! Die richtige Antwort war:'
+                'wrong-answer': 'Falsch! Die richtige Antwort war:',
+                'tab-details': 'Details',
+                'tab-pediatric': 'Pädiatrische Dosen',
+                // Pediatric dose keys - DE
+                'neonate': 'Neugeborenes',
+                'infant_child': 'Säugling/Kind',
+                'severe_infection': 'Schwere Infektion',
+                'child': 'Kind',
+                'max_dose': 'Max. Dosis',
+                'special': 'Speziell',
+                'notes': 'Anmerkungen',
+                'high_dose': 'Hohe Dosis',
+                'meningitis': 'Meningitis',
+                'child_po': 'Kind (p.o.)',
+                'child_iv': 'Kind (i.v.)',
+                'contraindication': 'Kontraindikation',
+                'adolescent': 'Jugendlicher',
+                'conventional': 'Konventionell',
+                'extended_interval': 'Verlängertes Intervall',
+                'child_6m_5y': 'Kind (6M - 5J)',
+                'child_5y_16y': 'Kind (5 - 16J)',
+                'loading': 'Aufsättigungsdosis',
+                'maintenance': 'Erhaltungsdosis',
+                'child_1y_6y': '1-6 Jahre',
+                'child_7y_11y': '7-11 Jahre',
+                'child_12y_17y': '12-17 Jahre',
+                'pcp_treatment': 'PCP-Behandlung',
+                'child_gt_8y': 'Kind >8 Jahre',
+                'child_8y_11y': 'Kind (8-11 Jahre)',
+                'adolescent_12y_17y': 'Jugendlicher (12-17 Jahre)',
+                'inhalation_cf': 'Inhalation (CF)',
+                'iv': 'i.v.',
+                'cystitis_po': 'Zystitis (p.o.)',
+                'prophylaxis': 'Prophylaxe',
+                'child_2y_12y_iv': 'Kind (2-12J) i.v.',
+                'child_2y_12y_po': 'Kind (2-12J) p.o.',
+                'child_3m_17y': 'Kind (3M - 17J)',
+                'liposomal': 'Liposomal',
+                'deoxycholate': 'Deoxycholat'
             }
         };
 
@@ -1054,19 +1224,22 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
         diseases = window.diseases_hu || [];
         pathogens = window.pathogens_hu || [];
         testQuestions = window.test_hu || [];
-        renalDoses = window.renal_dose_hu || [];
+        renalDoses = window.renal_dose_hu || []; 
+        pediatricDoses = window.pediatric_doses_hu || [];
     } else if (lang === 'en') {
         antibiotics = window.antibiotics_en || [];
         diseases = window.diseases_en || [];
         pathogens = window.pathogens_en || [];
         testQuestions = window.test_en || [];
-        renalDoses = window.renal_dose_en || [];
+        renalDoses = window.renal_dose_en || []; 
+        pediatricDoses = window.pediatric_doses_en || [];
     } else if (lang === 'de') {
         antibiotics = window.antibiotics_de || [];
         diseases = window.diseases_de || [];
         pathogens = window.pathogens_de || [];
         testQuestions = window.test_de || [];
-        renalDoses = window.renal_dose_de || [];
+        renalDoses = window.renal_dose_de || []; 
+        pediatricDoses = window.pediatric_doses_de || [];
     }
 
             document.getElementById('back-btn-2').textContent = translations[lang]['back-btn'];
@@ -1074,7 +1247,9 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             document.getElementById('back-btn-4').textContent = translations[lang]['back-btn'];
             document.getElementById('back-btn-5').textContent = translations[lang]['back-btn'];
             document.getElementById('back-btn-6').textContent = translations[lang]['back-btn'];
+            document.getElementById('back-btn-8').textContent = translations[lang]['back-btn'];
             document.getElementById('installPrompt').textContent = translations[lang]['install-prompt'] || '📱 Install';
+            document.getElementById('footer-copyright').textContent = translations[lang]['copyright'];
             
             refreshCurrentModule();
         }
@@ -1095,6 +1270,8 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 initQuizModule();
             } else if (moduleType === 'renal') {
                 initRenalModule();
+            } else if (moduleType === 'pediatric') {
+                initPediatricModule();
             }
              else if (moduleType === 'tdm') {
                 initTdmModule();
@@ -1137,6 +1314,11 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
         function initRenalModule() {
             displayRenalDoseTable(renalDoses);
             setupRenalSearch();
+        }
+
+        function initPediatricModule() {
+            displayPediatricDoseTable(pediatricDoses);
+            setupPediatricSearch();
         }
 
         function initTdmModule() {
@@ -1221,9 +1403,21 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             if (!list) return;
             list.sort((a, b) => a.name[currentLanguage].localeCompare(b.name[currentLanguage]));
             list.forEach(disease => {
+                const severityIcons = {
+                    'high': '<span class="text-red-500" title="Magas súlyosság">🔴</span>',
+                    'medium': '<span class="text-yellow-500" title="Közepes súlyosság">🟡</span>',
+                    'low': '<span class="text-green-500" title="Alacsony súlyosság">🟢</span>'
+                };
+                const severityTooltips = {
+                    'high': { hu: 'Magas súlyosság', en: 'High Severity', de: 'Hohe Schweregrad' },
+                    'medium': { hu: 'Közepes súlyosság', en: 'Medium Severity', de: 'Mittlerer Schweregrad' },
+                    'low': { hu: 'Alacsony súlyosság', en: 'Low Severity', de: 'Niedriger Schweregrad' }
+                };
+                const icon = severityIcons[disease.severity] ? `<span class="text-lg mr-2" title="${severityTooltips[disease.severity] ? severityTooltips[disease.severity][currentLanguage] : ''}">${severityIcons[disease.severity]}</span>` : '<span class="inline-block w-6 mr-2"></span>';
+
                 const div = document.createElement('div');
-                div.textContent = disease.name[currentLanguage];
-                div.className = 'p-2 cursor-pointer hover:bg-green-100 rounded';
+                div.innerHTML = `${icon}<span>${disease.name[currentLanguage]}</span>`;
+                div.className = 'p-2 cursor-pointer hover:bg-green-100 rounded flex items-center';
                 div.onclick = () => showClinDetails(disease);
                 clinList.appendChild(div);
             });
@@ -1258,8 +1452,20 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             details.innerHTML = `
                 <div class="text-left">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">${antibiotic.name[lang]} ${antibiotic.group.abbreviation ? `(${antibiotic.group.abbreviation})` : ''}</h3>
+
+                    <div class="mb-6 border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                            <a href="#" onclick="switchPharmTab(event, 'details')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600" id="tab-details">${translations[lang]['tab-details']}</a>
+                            <a href="#" onclick="switchPharmTab(event, 'pediatric')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" id="tab-pediatric">${translations[lang]['tab-pediatric']}</a>
+                        </nav>
+                    </div>
+
+                    <div id="pharm-tab-content-pediatric" class="hidden">
+                        <h4 class="font-semibold text-pink-800 mb-2">Gyermekdózisok</h4>
+                        <div id="pediatric-dose-info" class="bg-pink-50 p-4 rounded-lg"></div>
+                    </div>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <div id="pharm-tab-content-details" class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-4">
                             <div class="bg-blue-50 p-4 rounded-lg">
                                 <h4 class="font-semibold text-blue-800 mb-2">${translations[lang]['basicData']}</h4>
@@ -1305,6 +1511,39 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                     </div>
                 </div>
             `;
+
+            // Gyermekdózis betöltése
+            const pediatricDoseInfo = document.getElementById('pediatric-dose-info');
+            if (pediatricDoses && pediatricDoses.length > 0) {
+                const pediatricDose = pediatricDoses.find(pd => pd.antibiotic_name === antibiotic.name.en);
+                if (pediatricDose) {
+                    let doseHtml = '<ul class="list-disc list-inside space-y-1">';
+                    for (const [key, value] of Object.entries(pediatricDose.doses)) {
+                        const translatedKey = translations[lang][key] || key.replace(/_/g, ' ');
+                        doseHtml += `<li><strong class="capitalize">${translatedKey}:</strong> ${value}</li>`;
+                    }
+                    pediatricDoseInfo.innerHTML = doseHtml + '</ul>';
+                } else {
+                    pediatricDoseInfo.innerHTML = `<p>Nincs elérhető gyermekdózis adat.</p>`;
+                }
+            } else {
+                 pediatricDoseInfo.innerHTML = `<p>${translations[lang]['no-data'] || 'Pediatric dose data not available for this language.'}</p>`;
+            }
+        }
+
+        function switchPharmTab(event, tabName) {
+            event.preventDefault();
+            // Tabok elrejtése
+            document.getElementById('pharm-tab-content-details').classList.add('hidden');
+            document.getElementById('pharm-tab-content-pediatric').classList.add('hidden');
+
+            // Linkek stílusának resetelése
+            document.getElementById('tab-details').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
+            document.getElementById('tab-pediatric').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
+
+            // Aktív tab és tartalom megjelenítése
+            document.getElementById(`pharm-tab-content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600';
         }
 
         function showClinDetails(disease) {
@@ -1501,6 +1740,9 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             } else if (!document.getElementById('renal-module').classList.contains('hidden')) {
                 document.getElementById('renal-search').value = '';
                 displayRenalDoseTable(renalDoses);
+            } else if (!document.getElementById('pediatric-module').classList.contains('hidden')) {
+                document.getElementById('pediatric-search').value = '';
+                displayPediatricDoseTable(pediatricDoses);
             }
              else if (!document.getElementById('tdm-module').classList.contains('hidden')) {
                 initTdmModule();
@@ -1582,13 +1824,53 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             searchInput.addEventListener('input', filterAndDisplay);
         }
 
+        function setupPediatricSearch() {
+            const searchInput = document.getElementById('pediatric-search');
+            if (!searchInput) return;
+
+            function filterAndDisplay() {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                const filteredDoses = pediatricDoses.filter(dose => {
+                    return dose.antibiotic_name.toLowerCase().includes(searchTerm);
+                });
+
+                displayPediatricDoseTable(filteredDoses);
+            }
+
+            searchInput.addEventListener('input', filterAndDisplay);
+        }
+
+        function displayPediatricDoseTable(list) {
+            const tableBody = document.getElementById('pediatric-table-body');
+            if (!tableBody) return;
+            tableBody.innerHTML = '';
+
+            if (!list || list.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="2" class="text-center p-4">${translations[currentLanguage]['no-data'] || 'No data available.'}</td></tr>`;
+                return;
+            }
+
+            list.forEach(dose => {
+                const row = document.createElement('tr');
+                let doseHtml = '<ul class="list-disc list-inside space-y-1">';
+                for (const [key, value] of Object.entries(dose.doses)) {
+                     const translatedKey = translations[currentLanguage][key] || key.replace(/_/g, ' ');
+                     doseHtml += `<li><strong class="capitalize text-gray-600">${translatedKey}:</strong> ${value}</li>`;
+                }
+                doseHtml += '</ul>';
+                row.innerHTML = `<td class="px-6 py-4 font-medium text-gray-900 align-top">${dose.antibiotic_name}</td><td class="px-6 py-4 text-gray-700">${doseHtml}</td>`;
+                tableBody.appendChild(row);
+            });
+        }
+
         function displayRenalDoseTable(list) {
             const tableBody = document.getElementById('renal-table-body');
             if (!tableBody) return;
             tableBody.innerHTML = '';
 
             if (!list || list.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="6" class="text-center p-4">${translations[currentLanguage]['no-data'] || 'Nincsenek adatok.'}</td></tr>`;
+                tableBody.innerHTML = `<tr><td colspan="7" class="text-center p-4">${translations[currentLanguage]['no-data'] || 'No data available.'}</td></tr>`;
                 return;
             }
 
@@ -1806,7 +2088,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 <body>
                     <div class="header">
                         <h1>${title}</h1>
-                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 2.4.7</p>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.2.5</p>
                         <p>${description}</p>
                     </div>
                     ${table}
@@ -1909,7 +2191,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 <body>
                     <div class="header">
                         <h1>${translations[lang]['clin-module-title']}</h1>
-                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 2.4.7</p>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.2.5</p>
                     </div>
                     ${generateDetailedDiseasesTable()}
                 </body>
@@ -1997,7 +2279,7 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
                 <body>
                     <div class="header">
                         <h1>${translations[lang]['micro-module-title']}</h1>
-                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 2.4.7</p>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.2.5</p>
                     </div>
                     ${generateDetailedPathogensTable()}
                 </body>
@@ -2127,11 +2409,10 @@ console.log("renal_dose_hu:", window.renal_dose_hu);
             diseases = window.diseases_hu || [];
             pathogens = window.pathogens_hu || [];
             testQuestions = window.test_hu || [];
+            renalDoses = window.renal_dose_hu || [];
+            pediatricDoses = window.pediatric_doses_hu || [];
             changeLanguage('hu');
 });
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>

@@ -6,6 +6,7 @@ window.diseases_en = [
             "de": "Purulente Meningitis (Erwachsene)"
         },
         "category": "CNS",
+        "severity": "high",
         "commonPathogens": [
             "Streptococcus pneumoniae",
             "Neisseria meningitidis",
@@ -68,6 +69,7 @@ window.diseases_en = [
             "de": "Purulente Meningitis (Neugeborene)"
         },
         "category": "CNS",
+        "severity": "high",
         "commonPathogens": [
             "Group B Streptococcus",
             "E. coli",
@@ -120,6 +122,7 @@ window.diseases_en = [
             "de": "CAP - Ambulante Behandlung (niedriges Risiko)"
         },
         "category": "Respiratory",
+        "severity": "low",
         "commonPathogens": [
             "S. pneumoniae",
             "H. influenzae",
@@ -178,6 +181,7 @@ window.diseases_en = [
             "de": "CAP - Ambulante Behandlung (hohes Risiko)"
         },
         "category": "Respiratory",
+        "severity": "medium",
         "commonPathogens": [
             "S. pneumoniae",
             "H. influenzae",
@@ -232,6 +236,7 @@ window.diseases_en = [
             "de": "CAP - Stationäre Behandlung (nicht schwer)"
         },
         "category": "Respiratory",
+        "severity": "medium",
         "commonPathogens": [
             "S. pneumoniae",
             "H. influenzae",
@@ -286,6 +291,7 @@ window.diseases_en = [
             "de": "CAP - Intensivpflichtig"
         },
         "category": "Respiratory",
+        "severity": "high",
         "commonPathogens": [
             "S. pneumoniae",
             "Legionella",
@@ -340,6 +346,7 @@ window.diseases_en = [
             "de": "HAP (nosokomiale Pneumonie) - Niedriges MDR-Risiko"
         },
         "category": "Respiratory",
+        "severity": "medium",
         "commonPathogens": [
             "S. pneumoniae",
             "H. influenzae",
@@ -393,6 +400,7 @@ window.diseases_en = [
             "de": "HAP (nosokomiale Pneumonie) - Hohes MDR-Risiko"
         },
         "category": "Respiratory",
+        "severity": "high",
         "commonPathogens": [
             "P. aeruginosa",
             "K. pneumoniae (ESBL)",
@@ -446,6 +454,7 @@ window.diseases_en = [
             "de": "VAP (beatmungsassoziierte Pneumonie) - Früh (<5 Tage)"
         },
         "category": "Respiratory",
+        "severity": "high",
         "commonPathogens": [
             "S. pneumoniae",
             "H. influenzae",
@@ -499,6 +508,7 @@ window.diseases_en = [
             "de": "VAP (beatmungsassoziierte Pneumonie) - Spät (≥5 Tage)"
         },
         "category": "Respiratory",
+        "severity": "high",
         "commonPathogens": [
             "P. aeruginosa",
             "A. baumannii",
@@ -557,6 +567,7 @@ window.diseases_en = [
             "de": "Infektiöse Endokarditis (native Klappe) - Akut"
         },
         "category": "Cardiovascular",
+        "severity": "high",
         "commonPathogens": [
             "S. aureus",
             "alfa-hemolytic streptococci",
@@ -625,6 +636,7 @@ window.diseases_en = [
             "de": "Infektiöse Endokarditis (native Klappe) - Subakut"
         },
         "category": "Cardiovascular",
+        "severity": "high",
         "commonPathogens": [
             "Viridans streptococci",
             "Enterococci",
@@ -689,6 +701,7 @@ window.diseases_en = [
             "de": "Infektiöse Endokarditis (Prothesenklappe) - Früh (<1 Jahr)"
         },
         "category": "Cardiovascular",
+        "severity": "high",
         "commonPathogens": [
             "CoNS",
             "S. aureus",
@@ -752,6 +765,7 @@ window.diseases_en = [
             "de": "Infektiöse Endokarditis (Prothesenklappe) - Spät (>1 Jahr)"
         },
         "category": "Cardiovascular",
+        "severity": "high",
         "commonPathogens": [
             "Viridans streptococci",
             "Enterococci",
@@ -810,6 +824,7 @@ window.diseases_en = [
             "de": "Akute Zystitis (Frauen, unkompliziert)"
         },
         "category": "Urogenital",
+        "severity": "low",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -868,6 +883,7 @@ window.diseases_en = [
             "de": "Akute Pyelonephritis (ambulant)"
         },
         "category": "Urogenital",
+        "severity": "medium",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -926,6 +942,7 @@ window.diseases_en = [
             "de": "Akute Pyelonephritis"
         },
         "category": "Urogenital",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae (ESBL)",
@@ -985,6 +1002,7 @@ window.diseases_en = [
             "de": "Komplizierte HWI"
         },
         "category": "Urogenital",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -1044,6 +1062,7 @@ window.diseases_en = [
             "de": "Cellulitis (unkompliziert)"
         },
         "category": "Skin",
+        "severity": "low",
         "commonPathogens": [
             "S. pyogenes",
             "S. aureus"
@@ -1095,6 +1114,7 @@ window.diseases_en = [
             "de": "Nekrotisierende Fasziitis"
         },
         "category": "Skin",
+        "severity": "high",
         "commonPathogens": [
             "S. pyogenes",
             "Clostridium spp.",
@@ -1147,6 +1167,7 @@ window.diseases_en = [
             "de": "Sepsis und septischer Schock (gemeinschaftserworben)"
         },
         "category": "Sepsis",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -1206,6 +1227,7 @@ window.diseases_en = [
             "de": "Sepsis und septischer Schock (nosokomial)"
         },
         "category": "Sepsis",
+        "severity": "high",
         "commonPathogens": [
             "P. aeruginosa",
             "K. pneumoniae (ESBL/KPC)",
@@ -1270,6 +1292,7 @@ window.diseases_en = [
             "de": "Neutropenisches Fieber"
         },
         "category": "Sepsis",
+        "severity": "high",
         "commonPathogens": [
             "P. aeruginosa",
             "E. coli",
@@ -1329,6 +1352,7 @@ window.diseases_en = [
             "de": "Spontane bakterielle Peritonitis (SBP)"
         },
         "category": "Gastrointestinal",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -1387,6 +1411,7 @@ window.diseases_en = [
             "de": "Sekundäre Peritonitis"
         },
         "category": "Gastrointestinal",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "B. fragilis",
@@ -1445,6 +1470,7 @@ window.diseases_en = [
             "de": "Tertiäre Peritonitis"
         },
         "category": "Gastrointestinal",
+        "severity": "high",
         "commonPathogens": [
             "Candida spp.",
             "Enterococcus",
@@ -1503,6 +1529,7 @@ window.diseases_en = [
             "de": "Akute Cholezystitis"
         },
         "category": "Gastrointestinal",
+        "severity": "medium",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -1561,6 +1588,7 @@ window.diseases_en = [
             "de": "Akute Cholangitis"
         },
         "category": "Gastrointestinal",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -1619,6 +1647,7 @@ window.diseases_en = [
             "de": "Appendizitis"
         },
         "category": "Gastrointestinal",
+        "severity": "medium",
         "commonPathogens": [
             "E. coli",
             "B. fragilis",
@@ -1672,6 +1701,7 @@ window.diseases_en = [
             "de": "Divertikulitis (unkompliziert)"
         },
         "category": "Gastrointestinal",
+        "severity": "low",
         "commonPathogens": [
             "E. coli",
             "K. pneumoniae",
@@ -1720,6 +1750,7 @@ window.diseases_en = [
             "de": "C. difficile-Infektion"
         },
         "category": "Gastrointestinal",
+        "severity": "medium",
         "commonPathogens": [
             "Clostridioides difficile"
         ],
@@ -1770,6 +1801,7 @@ window.diseases_en = [
             "de": "Intraabdomineller Abszess"
         },
         "category": "Gastrointestinal",
+        "severity": "high",
         "commonPathogens": [
             "E. coli",
             "B. fragilis",
@@ -1829,6 +1861,7 @@ window.diseases_en = [
             "de": "Spondylodiszitis"
         },
         "category": "Orthopedic",
+        "severity": "high",
         "commonPathogens": [
             "S. aureus",
             "Streptococcus spp.",
@@ -1887,6 +1920,7 @@ window.diseases_en = [
             "de": "Osteomyelitis"
         },
         "category": "Orthopedic",
+        "severity": "high",
         "commonPathogens": [
             "S. aureus",
             "S. epidermidis",
@@ -1945,6 +1979,7 @@ window.diseases_en = [
             "de": "Bakterieller Hirnabszess"
         },
         "category": "CNS",
+        "severity": "high",
         "commonPathogens": [
             "Streptococcus spp.",
             "Staphylococcus spp.",
@@ -1997,6 +2032,7 @@ window.diseases_en = [
             "de": "Subdurales Empyem"
         },
         "category": "CNS",
+        "severity": "high",
         "commonPathogens": [
             "Streptococcus spp.",
             "Staphylococcus spp.",
