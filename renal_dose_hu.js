@@ -745,4 +745,3 @@ window.renal_dose_hu = [
         "crrt": { "dose": "Nincs szükség dózismódosításra.", "interval": "", "notes": "" }
     }
 ]
-
