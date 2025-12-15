@@ -425,19 +425,26 @@ window.renal_dose_de = [
     {
         "antibiotic_name": "Amikacin",
         "gfr_gt_50": { "dose": "15 mg/kg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
-        "gfr_30_50": { "dose": "Dosisreduktion oder Intervallverlängerungasierend auf Plasmaspiegs": " "interval": "", "notes": "bl"
-        "gfr_10:{ "dose": "Dosisanpassung erforderlich", "interval": "", "notes": "Plasmaspiegel-Monitoring empfohlen." }
+        "gfr_30_50": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
+        "gfr_10_29": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
+        "gfr_lt_10": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
+        "hd": { "dose": "10-15 mg/kg Zusatzdosis nach Dialyse.", "interval": "", "notes": "" },
+        "crrt": { "dose": "Dosisanpassung erforderlich", "interval": "", "notes": "Plasmaspiegel-Monitoring empfohlen." }
     },
     {
-        "gfr_gt_50": { "dose": "15 mg/kg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
+        "antibiotic_name": "Plazomicin",
         "gfr_30_50": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
         "gfr_10_29": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
         "gfr_lt_10": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
         "hd": { "dose": "7.5 mg/kg Zusatzdosis nach Dialyse.", "interval": "", "notes": "" },
-        "crrt": { "dose": "Dosisanpassung erforderlich", "interval": "", ring empfohlen." }
-    {i50": { "dose": "6-12 mg/kg", "interval": "q12h für 3 Dosen, dann q24h", "notes": "Keine Dosisanpassung erforderlich." },
+        "crrt": { "dose": "Dosisanpassung erforderlich", "interval": "", "notes": "Plasmaspiegel-Monitoring empfohlen." }
+    },
+    {
+        "antibiotic_name": "Isoniazid",
+        "gfr_gt_50": { "dose": "6-12 mg/kg", "interval": "q12h für 3 Dosen, dann q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "50% Dosis", "interval": "", "notes": "GFR 30-80 ml/min" },
         "gfr_10_29": { "dose": "33% Dosis", "interval": "", "notes": "GFR <30 ml/min" },
+        "gfr_lt_10": { "dose": "33% Dosis", "interval": "", "notes": "GFR <30 ml/min" },
         "hd": { "dose": "33% Dosis an Tag 10.", "interval": "", "notes": "" },
         "crrt": { "dose": "Normale Dosis kann gegeben werden.", "interval": "", "notes": "" }
     },
