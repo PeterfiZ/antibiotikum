@@ -1,7 +1,7 @@
 window.renal_dose_de = [
     {
         "antibiotic_name": "Penicillin G",
-        "gfr_gt_50": { "dose": "Keine Anpassung", "interval": "", "notes": "Für CrCl >30 ml/min." },
+        "gfr_gt_50": { "dose": "1-3 Millionen IE", "interval": "q4-6h", "notes": "Keine Anpassung für CrCl >30 ml/min." },
         "gfr_30_50": { "dose": "1-3 Millionen IE", "interval": "q6-8h", "notes": "" },
         "gfr_10_29": { "dose": "1-3 Millionen IE", "interval": "q8-12h", "notes": "" },
         "gfr_lt_10": { "dose": "1-2 Millionen IE", "interval": "q12h", "notes": "" },
@@ -10,7 +10,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Amoxicillin",
-        "gfr_gt_50": { "dose": "Keine Anpassung", "interval": "", "notes": "Für CrCl >30 ml/min." },
+        "gfr_gt_50": { "dose": "250-500 mg", "interval": "q8h", "notes": "Keine Anpassung für CrCl >30 ml/min." },
         "gfr_30_50": { "dose": "250-500 mg", "interval": "q12h", "notes": "" },
         "gfr_10_29": { "dose": "250-500 mg", "interval": "q12h", "notes": "" },
         "gfr_lt_10": { "dose": "250-500 mg", "interval": "q24h", "notes": "" },
@@ -82,7 +82,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ceftriaxon",
-        "gfr_gt_50": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "q12-24h", "notes": "Keine Anpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
@@ -100,7 +100,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Linezolid",
-        "gfr_gt_50": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "600mg", "interval": "q12h", "notes": "Keine Anpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
@@ -118,7 +118,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Metronidazol",
-        "gfr_gt_50": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "q8h", "notes": "Keine Anpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Anpassung", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Anpassung", "interval": "", "notes": "Metaboliten können sich anreichern." },
@@ -235,7 +235,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Penicillin V",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "250-500mg", "interval": "q6-8h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Anwendung nicht empfohlen (CrCl <10 ml/min).", "interval": "", "notes": "" },
@@ -244,7 +244,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Oxacillin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "q4-6h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -253,7 +253,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Amoxicillin-Clavulansäure",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1.2g IV", "interval": "alle 8 Stunden", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "1.2g IV", "interval": "alle 12 Stunden", "notes": "" },
         "gfr_lt_10": { "dose": "1.2g IV", "interval": "alle 24 Stunden", "notes": "CrCl <10 ml/min" },
@@ -262,7 +262,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ampicillin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "alle 4-6 Stunden", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Normale Dosis", "interval": "alle 8 Stunden", "notes": "" },
         "gfr_10_29": { "dose": "Normale Dosis", "interval": "alle 12 Stunden", "notes": "" },
         "gfr_lt_10": { "dose": "Normale Dosis", "interval": "alle 12-24 Stunden", "notes": "CrCl <10 ml/min" },
@@ -271,7 +271,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ampicillin-Sulbactam",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >30 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1.5-3g", "interval": "alle 6 Stunden", "notes": "Keine Anpassung für CrCl >30 erforderlich." },
         "gfr_30_50": { "dose": "Keine Anpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "1.5-3g", "interval": "alle 12 Stunden", "notes": "CrCl 15-29 ml/min" },
         "gfr_lt_10": { "dose": "1.5-3g", "interval": "alle 24 Stunden", "notes": "CrCl <15 ml/min" },
@@ -280,7 +280,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Flucloxacillin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "q6h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -289,7 +289,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Imipenem-Cilastatin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >50 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "alle 6 Stunden", "notes": "Keine Anpassung für CrCl >50 erforderlich." },
         "gfr_30_50": { "dose": "500mg", "interval": "alle 8 Stunden", "notes": "CrCl 30-50 ml/min" },
         "gfr_10_29": { "dose": "500mg", "interval": "alle 12 Stunden", "notes": "CrCl 10-29 ml/min" },
         "gfr_lt_10": { "dose": "250mg", "interval": "alle 12 Stunden", "notes": "CrCl <10 ml/min" },
@@ -298,7 +298,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ertapenem",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1g", "interval": "alle 24 Stunden", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "500mg", "interval": "alle 24 Stunden", "notes": "CrCl <30 ml/min" },
         "gfr_lt_10": { "dose": "500mg", "interval": "alle 24 Stunden", "notes": "CrCl <30 ml/min" },
@@ -307,7 +307,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Doripenem",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >50 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "alle 8 Stunden", "notes": "Keine Anpassung für CrCl >50 erforderlich." },
         "gfr_30_50": { "dose": "250mg", "interval": "alle 8 Stunden", "notes": "CrCl 30-50 ml/min" },
         "gfr_10_29": { "dose": "250mg", "interval": "alle 12 Stunden", "notes": "CrCl <30 ml/min" },
         "gfr_lt_10": { "dose": "250mg", "interval": "alle 12 Stunden", "notes": "CrCl <30 ml/min" },
@@ -316,7 +316,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Imipenem-Cilastatin-Relebactam",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg/250mg/250mg", "interval": "q6h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "400mg/200mg/100mg", "interval": "", "notes": "GFR 30-59 ml/min" },
         "gfr_10_29": { "dose": "300mg/150mg/75mg", "interval": "", "notes": "GFR 15-29 ml/min" },
         "gfr_lt_10": { "dose": "200mg/100mg/50mg", "interval": "", "notes": "GFR <15 ml/min" },
@@ -325,7 +325,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Meropenem-Vaborbactam",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >50 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "4g", "interval": "alle 8 Stunden", "notes": "Keine Anpassung für CrCl >50 erforderlich." },
         "gfr_30_50": { "dose": "2g", "interval": "alle 8 Stunden", "notes": "CrCl 30-49 ml/min" },
         "gfr_10_29": { "dose": "1g", "interval": "alle 8 Stunden", "notes": "CrCl 15-29 ml/min" },
         "gfr_lt_10": { "dose": "1g", "interval": "alle 12 Stunden", "notes": "CrCl <15 ml/min" },
@@ -334,7 +334,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Nalidixinsäure",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1g", "interval": "q6h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Anwendung nicht empfohlen.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Anwendung nicht empfohlen.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Anwendung nicht empfohlen.", "interval": "", "notes": "" },
@@ -343,7 +343,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Ofloxacin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >50 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "200-400mg", "interval": "alle 12 Stunden", "notes": "Keine Anpassung für CrCl >50 erforderlich." },
         "gfr_30_50": { "dose": "200-400mg", "interval": "alle 24 Stunden", "notes": "CrCl 10-50 ml/min" },
         "gfr_10_29": { "dose": "200-400mg", "interval": "alle 24 Stunden", "notes": "CrCl 10-50 ml/min" },
         "gfr_lt_10": { "dose": "100-200mg", "interval": "alle 24 Stunden", "notes": "CrCl <10 ml/min" },
@@ -352,7 +352,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Levofloxacin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "750mg", "interval": "alle 24 Stunden", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "750mg initial, dann 750mg", "interval": "alle 48 Stunden", "notes": "GFR 20-49 ml/min" },
         "gfr_10_29": { "dose": "750mg initial, dann 500mg", "interval": "alle 48 Stunden", "notes": "GFR <20 ml/min" },
         "gfr_lt_10": { "dose": "750mg initial, dann 500mg", "interval": "alle 48 Stunden", "notes": "GFR <20 ml/min" },
@@ -361,7 +361,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Moxifloxacin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "400mg", "interval": "alle 24 Stunden", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -370,7 +370,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Delafloxacin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >30 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "300mg IV", "interval": "alle 12 Stunden", "notes": "Keine Anpassung für CrCl >30 erforderlich." },
         "gfr_30_50": { "dose": "Keine Anpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "200mg IV", "interval": "alle 12 Stunden", "notes": "CrCl 15-29 ml/min" },
         "gfr_lt_10": { "dose": "150mg IV", "interval": "alle 12 Stunden", "notes": "CrCl <15 ml/min" },
@@ -379,7 +379,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Telavancin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "10mg/kg", "interval": "alle 24 Stunden", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "7.5mg/kg", "interval": "alle 24 Stunden", "notes": "GFR 30-50 ml/min" },
         "gfr_10_29": { "dose": "10mg/kg", "interval": "alle 48 Stunden", "notes": "GFR <30 ml/min" },
         "gfr_lt_10": { "dose": "10mg/kg", "interval": "alle 48 Stunden", "notes": "GFR <30 ml/min" },
@@ -388,7 +388,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Dalbavancin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1500mg Einzeldosis, oder 1000mg dann 500mg nach 1 Woche", "interval": "", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "750mg Einzeldosis, dann 375mg nach 1 Woche", "interval": "", "notes": "GFR <30 ml/min" },
         "gfr_lt_10": { "dose": "750mg Einzeldosis, dann 375mg nach 1 Woche", "interval": "", "notes": "GFR <30 ml/min" },
@@ -397,7 +397,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Oritavancin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1200mg", "interval": "Einzeldosis", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -406,7 +406,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Piperacillin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >40 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "4g", "interval": "alle 6 Stunden", "notes": "Keine Anpassung für CrCl >40 erforderlich." },
         "gfr_30_50": { "dose": "4g", "interval": "alle 8 Stunden", "notes": "CrCl 20-40 ml/min" },
         "gfr_10_29": { "dose": "4g", "interval": "alle 8 Stunden", "notes": "CrCl 20-40 ml/min" },
         "gfr_lt_10": { "dose": "4g", "interval": "alle 12 Stunden", "notes": "CrCl <20 ml/min" },
@@ -415,7 +415,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Aztreonam",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "q8-12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "50-75% Dosis.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "50-75% Dosis.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "25% Dosis", "interval": "", "notes": "CrCl <10 ml/min" },
@@ -424,18 +424,18 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Amikacin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "15 mg/kg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Dosisreduktion oder Intervallverlängerungasierend auf Plasmaspiegs": " "interval": "", "notes": "bl"
         "gfr_10:{ "dose": "Dosisanpassung erforderlich", "interval": "", "notes": "Plasmaspiegel-Monitoring empfohlen." }
     },
     {
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "15 mg/kg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
         "gfr_10_29": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
         "gfr_lt_10": { "dose": "Dosisreduktion oder Intervallverlängerung", "interval": "", "notes": "basierend auf Plasmaspiegel." },
         "hd": { "dose": "7.5 mg/kg Zusatzdosis nach Dialyse.", "interval": "", "notes": "" },
         "crrt": { "dose": "Dosisanpassung erforderlich", "interval": "", ring empfohlen." }
-    {i50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+    {i50": { "dose": "6-12 mg/kg", "interval": "q12h für 3 Dosen, dann q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "50% Dosis", "interval": "", "notes": "GFR 30-80 ml/min" },
         "gfr_10_29": { "dose": "33% Dosis", "interval": "", "notes": "GFR <30 ml/min" },
         "hd": { "dose": "33% Dosis an Tag 10.", "interval": "", "notes": "" },
@@ -443,7 +443,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Erythromycin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "250-500mg", "interval": "q6h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "50-75% Dosis", "interval": "", "notes": "CrCl <10 ml/min" },
@@ -452,7 +452,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Azithromycin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -461,7 +461,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Clarithromycin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >30 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "q12h", "notes": "Keine Anpassung für CrCl >30 erforderlich." },
         "gfr_30_50": { "dose": "Keine Anpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <30 ml/min" },
         "gfr_lt_10": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <30 ml/min" },
@@ -470,7 +470,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Roxithromycin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "150-300mg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <10 ml/min" },
@@ -479,7 +479,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Spiramycin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1-2g", "interval": "q8-12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -488,7 +488,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Clindamycin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "600-900mg", "interval": "q8h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -497,7 +497,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Doxycyclin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "100mg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -506,7 +506,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Tigecyclin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "100mg Ladedosis, dann 50mg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -515,7 +515,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Minocyclin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "200mg Ladedosis, dann 100mg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -524,7 +524,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Eravacyclin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1 mg/kg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -533,7 +533,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Sarecyclin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "60-150mg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -542,7 +542,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Omadacyclin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "100mg IV q12h für 2 Dosen, dann 100mg IV q24h", "interval": "", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -551,7 +551,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Tedizolid",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "200mg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -560,7 +560,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Quinupristin-Dalfopristin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "7.5 mg/kg", "interval": "q8-12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -569,7 +569,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Chloramphenicol",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "50 mg/kg/Tag", "interval": "in 4 geteilten Dosen", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -578,7 +578,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Fosfomycin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >40 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "4-6g", "interval": "q8h", "notes": "Keine Anpassung für CrCl >40 erforderlich." },
         "gfr_30_50": { "dose": "70-80% Dosis", "interval": "", "notes": "CrCl 20-39 ml/min" },
         "gfr_10_29": { "dose": "60-70% Dosis", "interval": "", "notes": "CrCl 10-19 ml/min" },
         "gfr_lt_10": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <10 ml/min" },
@@ -587,7 +587,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Nitrofurantoin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "50-100mg", "interval": "q6h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Vermeiden", "interval": "", "notes": "GFR <30 ml/min" },
         "gfr_lt_10": { "dose": "Vermeiden", "interval": "", "notes": "GFR <30 ml/min" },
@@ -596,7 +596,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Rifampin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "600mg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -605,7 +605,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Rifabutin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >50 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "300mg", "interval": "q24h", "notes": "Keine Anpassung für CrCl >50 erforderlich." },
         "gfr_30_50": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <50 ml/min" },
         "gfr_10_29": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <50 ml/min" },
         "gfr_lt_10": { "dose": "50% Dosis", "interval": "", "notes": "CrCl <50 ml/min" },
@@ -614,7 +614,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Rifaximin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "200-550mg", "interval": "q8-12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -623,7 +623,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Polymyxin B",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >80 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "1.25-1.5 mg/kg", "interval": "alle 12 Stunden", "notes": "Keine Anpassung für CrCl >80 erforderlich." },
         "gfr_30_50": { "dose": "1 mg/kg", "interval": "alle 12 Stunden", "notes": "CrCl 20-49 ml/min" },
         "gfr_10_29": { "dose": "1 mg/kg", "interval": "alle 12 Stunden", "notes": "CrCl 20-49 ml/min" },
         "gfr_lt_10": { "dose": "1 mg/kg", "interval": "alle 24 Stunden", "notes": "CrCl <20 ml/min" },
@@ -641,7 +641,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Colistin",
-        "gfr_gt_50": { "dose": "Keine Anpassung für CrCl >80 erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "2.5-5 mg/kg/Tag", "interval": "in 2-4 geteilten Dosen", "notes": "Keine Anpassung für CrCl >80 erforderlich." },
         "gfr_30_50": { "dose": "1.5 mg/kg", "interval": "alle 12 Stunden", "notes": "CrCl 30-49 ml/min" },
         "gfr_10_29": { "dose": "1.5 mg/kg", "interval": "alle 24 Stunden", "notes": "CrCl <30 ml/min" },
         "gfr_lt_10": { "dose": "1.5 mg/kg", "interval": "alle 24 Stunden", "notes": "CrCl <30 ml/min" },
@@ -650,7 +650,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Fluconazol",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "200-800mg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "50% Dosis.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "50% Dosis.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "50% Dosis.", "interval": "", "notes": "" },
@@ -659,7 +659,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Voriconazol",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "6 mg/kg Ladedosis, dann 4 mg/kg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -668,7 +668,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Caspofungin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "70mg Ladedosis, dann 50mg", "interval": "q24h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -677,7 +677,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Amphotericin B",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "0.25-1.5 mg/kg/Tag", "interval": "", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -686,7 +686,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Vancomycin (Inhalation)",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "125-250mg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -695,7 +695,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Tobramycin (Inhalation)",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "300mg", "interval": "q12h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -704,7 +704,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Lefamulin",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "150mg IV q12h oder 600mg PO q12h", "interval": "", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
@@ -722,7 +722,7 @@ window.renal_dose_de = [
     },
     {
         "antibiotic_name": "Fusidinsäure",
-        "gfr_gt_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
+        "gfr_gt_50": { "dose": "500mg", "interval": "q8h", "notes": "Keine Dosisanpassung erforderlich." },
         "gfr_30_50": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_10_29": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
         "gfr_lt_10": { "dose": "Keine Dosisanpassung erforderlich.", "interval": "", "notes": "" },
