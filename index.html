@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .fade-in {
             animation: fadeIn 0.3s ease-in;
@@ -16,6 +17,9 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
         }
         .module-card {
             transition: all 0.3s ease;
@@ -32,6 +36,7 @@
         }
         .gfr-normal { background-color: #f0fdf4; } /* green-50 */
         .gfr-moderate { background-color: #fefce8; } /* yellow-50 */
+        .gfr-mild-moderate { background-color: #eff6ff; } /* blue-50 */
         .gfr-severe { background-color: #fef2f2; } /* red-50 */
         .install-prompt {
             position: fixed;
@@ -66,7 +71,7 @@
                 </div>
             </div>
             <p class="text-sm text-gray-600 mt-1">
-                <span id="copyright">© 2025, Dr. Péterfi Zoltán | Verzió: 4.2.5</span>
+                <span id="copyright">© 2025, Dr. Péterfi Zoltán | Verzió: 4.3.6</span>
             </p>
         </div>
     </header>
@@ -465,13 +470,13 @@
                     <table id="renal-table" class="w-full">
                         <thead class="bg-gray-100 border-b-2 border-gray-300">
                             <tr>
-                                <th id="th-renal-antibiotic" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Antibiotikum</th>
-                                <th id="th-renal-gfr50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-normal">GFR >50</th>
-                                <th id="th-renal-gfr30-50" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 30-50</th>
-                                <th id="th-renal-gfr10-29" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 10-29</th>
-                                <th id="th-renal-gfr-lt10" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider gfr-severe">GFR &lt;10</th>
-                                <th id="th-renal-hd" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">HD</th>
-                                <th id="th-renal-crrt" class="px-6 py-3 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">CRRT</th>
+                                <th id="th-renal-antibiotic" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Antibiotikum</th>
+                                <th id="th-renal-gfr50" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-normal">GFR >50</th>
+                                <th id="th-renal-gfr30-50" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-mild-moderate">GFR 30-50</th>
+                                <th id="th-renal-gfr10-29" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 10-29</th>
+                                <th id="th-renal-gfr-lt10" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-severe">GFR &lt;10</th>
+                                <th id="th-renal-hd" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">HD</th>
+                                <th id="th-renal-crrt" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">CRRT</th>
                             </tr>
                         </thead>
                         <tbody id="renal-table-body" class="bg-white divide-y divide-gray-200">
@@ -484,108 +489,114 @@
 
         <!-- TDM Module -->
         <div id="tdm-module" class="hidden fade-in">
-            <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors mb-6" id="back-btn-7">Vissza</button>
-            <div class="container mx-auto px-4 py-8 max-w-6xl">
-                <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                    <h1 class="text-3xl font-bold text-gray-800 mb-2 text-center">
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-7">Vissza</button>
+                <button onclick="fillTdmWithTestData()" class="px-4 py-2 bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-lg hover:bg-indigo-200 transition-colors font-semibold text-sm">⚡ Gyors kitöltés (Teszt)</button>
+            </div>
+            <div class="container mx-auto px-4 py-8 max-w-5xl font-sans">
+                <div class="mb-10 text-center">
+                    <h1 class="text-4xl font-extrabold text-slate-800 mb-3 tracking-tight">
                         🧬 TDM Kalkulátor
                     </h1>
-                    <p class="text-gray-600 text-center mb-2">Therapeutic Drug Monitoring - Gentamicin, Amikacin, Vancomycin, Voriconazole</p>
-                    <div class="text-center mb-8">
-                        <p class="text-xs text-gray-500">© 2025 Dr. Péterfi Zoltán | Verzió 4.2.5</p>
-                    </div>
+                    <p class="text-slate-500 text-lg">Therapeutic Drug Monitoring & Dózis Optimalizálás</p>
+                    <p class="text-xs text-slate-400 mt-2">© 2025 Dr. Péterfi Zoltán | Verzió 4.3.6</p>
+                </div>
+
+                <!-- Main Input Section -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-8">
                     
-                    <!-- Patient Data Section -->
-                    <div class="grid md:grid-cols-3 gap-8 mb-8">
-                        <div class="bg-blue-50 rounded-xl p-6">
-                            <h2 class="text-xl font-semibold text-blue-800 mb-4">👤 Beteg adatok</h2>
-                            
-                            <div class="space-y-4">
+                    <!-- Patient Data Card -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="bg-slate-50 px-4 py-3 border-b border-slate-100 flex items-center gap-2">
+                            <span class="text-xl">👤</span>
+                            <h2 class="text-lg font-bold text-slate-700">Beteg adatok</h2>
+                        </div>
+                        
+                        <div class="p-4 space-y-3">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Születési év</label>
-                                    <input type="number" id="birthYear" placeholder="1980" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Születési év</label>
+                                    <input type="number" id="birthYear" placeholder="1980" class="tdm-input w-full px-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none">
+                                    <p class="error-message text-red-500 text-xs mt-0.5 hidden"></p>
                                 </div>
-                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Testsúly (kg)</label>
-                                    <input type="number" id="weight" placeholder="70" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Magasság (cm)</label>
-                                    <input type="number" id="height" placeholder="170" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                </div>
-                                
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nem</label>
-                                    <select id="gender" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Nem</label>
+                                    <select id="gender" class="tdm-input w-full px-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none">
                                         <option value="male">Férfi</option>
                                         <option value="female">Nő</option>
                                     </select>
                                 </div>
-                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Szérum kreatinin (μmol/L)</label>
-                                    <input type="number" id="creatinine" placeholder="88" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Testsúly (kg)</label>
+                                    <input type="number" id="weight" placeholder="70" class="tdm-input w-full px-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none">
+                                    <p class="error-message text-red-500 text-xs mt-0.5 hidden"></p>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Magasság (cm)</label>
+                                    <input type="number" id="height" placeholder="170" class="tdm-input w-full px-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none">
+                                    <p class="error-message text-red-500 text-xs mt-0.5 hidden"></p>
                                 </div>
                             </div>
                             
-                            <button onclick="calculateGFR()" class="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                                GFR számítás (CKD-EPI)
-                            </button>
-                            
-                            <div id="gfrResult" class="mt-4 p-3 bg-white rounded-lg border hidden">
-                                <div class="text-sm text-gray-600">Számított GFR:</div>
-                                <div id="gfrValue" class="text-lg font-semibold text-blue-600"></div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Vagy adja meg a GFR értéket (mL/min/1.73m²)</label>
-                                <input type="number" id="manualGFR" placeholder="90" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                            
-                            <div class="mt-4">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Dialízis típusa</label>
-                                <select id="dialysisType" onchange="updateDialysisInfo()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                    <option value="none">Nincs dialízis</option>
-                                    <option value="hd">HD - Hemodialízis</option>
-                                    <option value="pd">PD - Peritoneális dialízis</option>
-                                    <option value="crrt">CRRT - Folyamatos vesepótló kezelés</option>
-                                </select>
-                            </div>
-                            
-                            <div id="dialysisInfo" class="mt-4 p-3 bg-orange-50 rounded-lg border hidden">
-                                <div class="text-sm text-orange-800"></div>
+                            <div class="space-y-3">
+                                <div class="bg-blue-50 rounded-xl p-3 border border-blue-100">
+                                    <label class="block text-[10px] font-semibold text-blue-800 uppercase tracking-wider mb-1">Vesefunkció</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 items-end">
+                                        <div class="flex gap-2 items-end">
+                                            <div class="flex-1">
+                                                <label class="block text-[10px] text-blue-600 mb-0.5">Se-Kreatinin (μmol/L)</label>
+                                                <input type="number" id="creatinine" placeholder="88" class="tdm-input w-full px-3 py-1.5 text-sm bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                            </div>
+                                            <button id="gfr-calc-btn" onclick="calculateGFR()" class="bg-blue-600 text-white py-1.5 px-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-xs shadow-sm h-[34px]">
+                                                GFR Számítás
+                                            </button>
+                                        </div>
+                                        <div>
+                                             <label class="block text-[10px] text-blue-600 mb-0.5">Vagy ismert GFR (mL/min/1.73m²)</label>
+                                             <input type="number" id="manualGFR" placeholder="90" class="tdm-input w-full px-3 py-1.5 text-sm bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                        </div>
+                                    </div>
+                                    <div id="gfrResult" class="mt-2 pt-2 border-t border-blue-200 hidden flex justify-between items-center">
+                                        <span class="text-xs text-blue-800">Számított GFR (CKD-EPI):</span>
+                                        <span id="gfrValue" class="text-sm font-bold text-blue-700"></span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Dialízis státusz</label>
+                                    <select id="dialysisType" onchange="updateDialysisInfo()" class="w-full px-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                        <option value="none">Nincs dialízis</option>
+                                        <option value="hd">HD - Hemodialízis</option>
+                                        <option value="pd">PD - Peritoneális dialízis</option>
+                                        <option value="crrt">CRRT - Folyamatos vesepótló kezelés</option>
+                                    </select>
+                                    <div id="dialysisInfo" class="mt-1 text-[10px] text-orange-600 bg-orange-50 p-1.5 rounded border border-orange-100 hidden"></div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Drug Selection Card -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                        <div class="bg-slate-50 px-4 py-3 border-b border-slate-100 flex items-center gap-2">
+                            <span class="text-xl">💊</span>
+                            <h2 class="text-lg font-bold text-slate-700">Terápia beállítása</h2>
+                        </div>
                         
-                        <!-- Drug Selection -->
-                        <div class="bg-green-50 rounded-xl p-6">
-                            <h2 class="text-xl font-semibold text-green-800 mb-4">💊 Gyógyszer kiválasztása</h2>
-                            
-                            <div class="space-y-4">
+                        <div class="p-4 flex-1 flex flex-col space-y-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Gyógyszer</label>
-                                    <select id="antibiotic" onchange="updateDrugInfo()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Hatóanyag</label>
+                                    <select id="antibiotic" onchange="updateDrugInfo()" class="tdm-input w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none text-sm font-medium text-slate-700">
                                         <option value="gentamicin">Gentamicin</option>
                                         <option value="amikacin">Amikacin</option>
                                         <option value="vancomycin">Vancomycin</option>
                                         <option value="voriconazole">Voriconazole</option>
                                     </select>
                                 </div>
-                                
-                                <div id="drugInfo" class="bg-white rounded-lg p-4 border">
-                                    <div class="text-sm font-medium text-gray-700 mb-2">Gentamicin</div>
-                                    <div class="text-xs text-gray-600">
-                                        • Célszint: 5-10 mg/L (csúcs), <2 mg/L (völgy)<br>
-                                        • Felezési idő: 2-3 óra<br>
-                                        • Nefrotoxikus, ototoxikus
-                                    </div>
-                                </div>
-                                
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Indikáció súlyossága</label>
-                                    <select id="severity" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                    <label class="block text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Indikáció súlyossága</label>
+                                    <select id="severity" class="tdm-input w-full px-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none">
                                         <option value="mild">Enyhe fertőzés</option>
                                         <option value="moderate">Közepes fertőzés</option>
                                         <option value="severe">Súlyos fertőzés</option>
@@ -593,78 +604,128 @@
                                 </div>
                             </div>
                             
-                            <button onclick="calculateInitialDose()" class="w-full mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium">
-                                Kezdő dózis számítás
-                            </button>
-                        </div>
-
-                        <!-- Initial Dose Result Column -->
-                        <div id="initialDoseResultColumn" class="bg-cyan-50 rounded-xl p-6 hidden">
-                            <h2 class="text-xl font-semibold text-cyan-800 mb-4">📊 Kezdő Dózis Javaslat</h2>
-                            <div id="initialDoseContent" class="space-y-3 text-sm"></div>
+                            <div id="drugInfo" class="bg-emerald-50 rounded-xl p-3 border border-emerald-100 text-xs">
+                                <div class="font-semibold text-emerald-800 mb-1">Gentamicin profil</div>
+                                <div class="text-emerald-700 space-y-0.5">
+                                    <p>• Célszint (Csúcs): <strong>5-10 mg/L</strong></p>
+                                    <p>• Célszint (Völgy): <strong>&lt;2 mg/L</strong></p>
+                                    <p>• Felezési idő: 2-3 óra (normál vesefunkció)</p>
+                                    <p class="mt-1 italic">⚠️ Nefrotoxikus és ototoxikus hatású!</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto pt-2">
+                                <button id="initial-dose-btn" onclick="calculateInitialDose()" class="w-full bg-emerald-600 text-white py-2 px-4 rounded-xl hover:bg-emerald-700 transition-all font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm">
+                                    <span>🚀</span> Kezdő Dózis Számítása
+                                </button>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Initial Dose Result (Full Width) -->
+                <div id="initialDoseResultColumn" class="hidden mb-4 animate-fade-in flex justify-center">
+                    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-100 p-4 shadow-sm relative overflow-hidden w-full max-w-lg">
+                        <div class="absolute top-0 right-0 p-2 opacity-5 text-4xl">📊</div>
+                        <h2 class="text-sm font-bold text-emerald-900 mb-2 flex items-center gap-2 border-b border-emerald-200/50 pb-2">
+                            Javasolt kezdő dózis
+                        </h2>
+                        <div id="initialDoseContent" class="text-slate-700 text-sm">
+                            <!-- Content will be injected here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TDM Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-8">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center gap-2">
+                        <span class="text-xl">📉</span>
+                        <h2 class="text-lg font-bold text-slate-700">TDM Számítás (Mért szintek alapján)</h2>
+                    </div>
                     
-                    <!-- TDM Section -->
-                    <div class="bg-purple-50 rounded-xl p-6 mb-8">
-                        <h2 class="text-xl font-semibold text-purple-800 mb-4">📊 TDM Számítás (Völgyszint alapú)</h2>
-                        
-                        <div class="grid md:grid-cols-4 gap-4 mb-4">
+                    <div class="p-6">
+                        <div class="grid md:grid-cols-4 gap-6 mb-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Jelenlegi dózis (mg)</label>
-                                <input type="number" id="dose" placeholder="240" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Jelenlegi dózis (mg)</label>
+                                <input type="number" id="dose" placeholder="240" class="tdm-input w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none font-medium">
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Völgyszint (mg/L)</label>
-                                <input type="number" id="troughLevel" step="0.1" placeholder="1.5" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Mért völgyszint (mg/L)</label>
+                                <input type="number" id="troughLevel" step="0.1" placeholder="1.5" class="tdm-input w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none font-medium text-purple-700">
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Jelenlegi dózisköz (óra)</label>
-                                <input type="number" id="interval" placeholder="24" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Dózisköz (óra)</label>
+                                <input type="number" id="interval" placeholder="24" class="tdm-input w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none font-medium">
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Steady-state elérve?</label>
-                                <select id="steadyState" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                                    <option value="yes">Igen (≥5 felezési idő)</option>
-                                    <option value="no">Nem</option>
+                                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Steady-state?</label>
+                                <select id="steadyState" class="tdm-input w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none">
+                                    <option value="yes">Igen (≥3-5 dózis)</option>
+                                    <option value="no">Nem (Korai mérés)</option>
                                 </select>
                             </div>
                         </div>
                         
-                        <div class="bg-blue-100 rounded-lg p-4 mb-4">
-                            <h4 class="font-medium text-blue-800 mb-2">📋 Mintavételi útmutató:</h4>
-                            <div class="text-sm text-blue-700">
-                                <strong>Aminoglikozidok (Gentamicin, Amikacin):</strong> Közvetlenül a következő dózis előtt (előző dózis után 18-24 órával)<br>
-                                <strong>Vancomycin:</strong> 30 perccel a negyedik dózis előtt<br>
-                                <strong>Voriconazole:</strong> Közvetlenül a következő dózis előtt (steady-state után, 5. nap)
-                            </div>
-                        </div>
-                        
-                        <button onclick="calculateTroughBasedTDM()" class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors font-medium">
-                            TDM Számítás és Dózis Javaslat
-                        </button>
-                    </div>
-                    
-                    <!-- Results Section -->
-                    <div id="results" class="hidden">
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-yellow-50 rounded-xl p-6">
-                                <h3 class="text-lg font-semibold text-yellow-800 mb-4">📈 Farmakokinetikai paraméterek</h3>
-                                <div id="pkResults" class="space-y-2 text-sm"></div>
+                        <div class="flex flex-col md:flex-row gap-6 items-center">
+                            <div class="flex-1 bg-blue-50 rounded-xl p-4 border border-blue-100 text-sm text-blue-800 w-full">
+                                <strong class="block mb-1 flex items-center gap-2">ℹ️ Mintavételi időpontok:</strong>
+                                <ul class="list-disc list-inside space-y-1 text-xs opacity-90">
+                                    <li><strong>Aminoglikozidok:</strong> Közvetlenül a következő dózis előtt (völgy).</li>
+                                    <li><strong>Vancomycin:</strong> A 4. dózis előtt (steady-state völgy).</li>
+                                    <li><strong>Voriconazole:</strong> 5-7. napon, dózis előtt.</li>
+                                </ul>
                             </div>
                             
-                            <div class="bg-red-50 rounded-xl p-6">
-                                <h3 class="text-lg font-semibold text-red-800 mb-4">💡 Dózis javaslat</h3>
-                                <div id="doseRecommendation" class="space-y-2 text-sm"></div>
-                            </div>
+                            <button id="tdm-calc-btn" onclick="calculateTroughBasedTDM()" class="w-full md:w-auto bg-purple-600 text-white py-3 px-8 rounded-xl hover:bg-purple-700 transition-all font-bold shadow-md hover:shadow-lg whitespace-nowrap">
+                                Számítás és Korrekció
+                            </button>
                         </div>
-                        
-                        <div class="bg-gray-50 rounded-xl p-6 mt-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">⚠️ Klinikai megjegyzések</h3>
-                            <div id="clinicalNotes" class="text-sm text-gray-700"></div>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div id="results" class="hidden space-y-8 animate-fade-in">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Dose Recommendation (Highlighted) -->
+                        <div class="bg-white rounded-xl shadow-xl border-4 border-green-600 p-6 relative overflow-hidden flex flex-col">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl text-green-600">💊</div>
+                            <h3 class="text-xl font-extrabold text-green-700 uppercase tracking-wider mb-4">Javasolt Dózis Korrekció</h3>
+                            <div id="doseRecommendation" class="space-y-4 text-lg flex-grow font-medium">
+                                <!-- Content injected here needs to be big -->
+                            </div>
+                            <button onclick="togglePkDetails()" class="mt-auto pt-2 text-xs text-blue-600 hover:text-blue-800 font-semibold self-start flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                                <span>Részletes PK paraméterek</span>
+                            </button>
+                        </div>
+
+                        <!-- Clinical Notes -->
+                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
+                            <h3 class="text-lg font-semibold text-amber-800 mb-2 flex items-center gap-2">
+                                ⚠️ Klinikai megjegyzések
+                            </h3>
+                            <div id="clinicalNotes" class="text-sm text-amber-900/80 leading-relaxed"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- PK Parameters (Hidden by default) -->
+                    <div id="pk-details-card" class="hidden bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">Farmakokinetikai Paraméterek</h3>
+                        <div id="pkResults" class="space-y-3 text-sm text-slate-700"></div>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Szérumszint Görbe</h3>
+                        <div class="h-80 w-full">
+                            <canvas id="tdmChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -675,7 +736,7 @@
         <footer class="text-center py-6 mt-8">
             <div class="bg-white rounded-xl shadow-lg p-4 max-w-md mx-auto">
                 <p class="text-gray-600 text-sm" id="footer-copyright">
-                    © 2025 Dr. Péterfi Zoltán | Verzió: 4.2.5
+                    © 2025 Dr. Péterfi Zoltán | Verzió: 4.3.6
                 </p> 
                 <p class="text-xs text-gray-500 mt-1" id="footer-subtitle">
                     Antibiotikum Oktató Program - Klinikai döntéstámogatás
@@ -789,7 +850,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'th-mechanism': 'Hatásmechanizmus',
                 'th-spectrum': 'Spektrum',
                 'th-examples': 'Példák', 
-                'copyright': '© 2025, Dr. Péterfi Zoltán | Verzió: 4.2.5',
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Verzió: 4.3.6',
                 'th-renal-antibiotic': 'Antibiotikum',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
@@ -950,7 +1011,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'th-mechanism': 'Mechanism',
                 'th-spectrum': 'Spectrum',
                 'th-examples': 'Examples', 
-                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 4.2.5',
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 4.3.6',
                 'th-renal-antibiotic': 'Antibiotic',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
@@ -1105,7 +1166,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'th-mechanism': 'Mechanismus',
                 'th-spectrum': 'Spektrum',
                 'th-examples': 'Beispiele', 
-                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 4.2.5',
+                'copyright': '© 2025, Dr. Péterfi Zoltán | Version: 4.3.6',
                 'th-renal-antibiotic': 'Antibiotikum',
                 'th-renal-gfr50': 'GFR > 50 ml/min',
                 'th-renal-gfr10-50': 'GFR 10-50 ml/min',
@@ -1876,12 +1937,12 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
 
             const renderCell = (data) => {
                 if (typeof data === 'string') {
-                    return `<div class="text-sm text-gray-700">${data}</div>`;
+                    return `<div class="text-xs text-gray-700">${data}</div>`;
                 }
                 if (typeof data === 'object' && data !== null) {
-                    let html = `<div class="font-semibold text-gray-900">${data.dose} ${data.interval || ''}</div>`;
+                    let html = `<div class="font-semibold text-gray-900 text-xs">${data.dose} ${data.interval || ''}</div>`;
                     if (data.notes) {
-                        html += `<div class="text-xs text-gray-500 mt-1 italic">${data.notes}</div>`;
+                        html += `<div class="text-[10px] text-gray-500 mt-1 italic">${data.notes}</div>`;
                     }
                     return html;
                 }
@@ -1889,7 +1950,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             };
 
             list.forEach(dose => {
-                let nameHtml = `<div class="text-sm font-medium text-gray-900">${dose.antibiotic_name}</div>`;
+                let nameHtml = `<div class="text-xs font-medium text-gray-900">${dose.antibiotic_name}</div>`;
                 
                 const serumLevelText = {
                     'Vancomycin': { hu: 'Völgy: 15-20 mg/L', en: 'Trough: 15-20 mg/L', de: 'Talspiegel: 15-20 mg/L' },
@@ -1906,19 +1967,19 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 };
 
                 if (serumLevelText[dose.antibiotic_name]) {
-                    nameHtml += `<div class="text-xs text-gray-500">${serumLevelText[dose.antibiotic_name][currentLanguage]}</div>`;
+                    nameHtml += `<div class="text-[10px] text-gray-500">${serumLevelText[dose.antibiotic_name][currentLanguage]}</div>`;
                 }
 
                 const row = document.createElement('tr');
                 row.className = 'hover:bg-gray-50';
                 row.innerHTML = `
-                    <td class="px-4 py-3 whitespace-nowrap">${nameHtml}</td>
-                    <td class="px-4 py-3 gfr-normal">${renderCell(dose.gfr_gt_50)}</td>
-                    <td class="px-4 py-3 gfr-moderate">${renderCell(dose.gfr_30_50)}</td>
-                    <td class="px-4 py-3 gfr-moderate">${renderCell(dose.gfr_10_29)}</td>
-                    <td class="px-4 py-3 gfr-severe">${renderCell(dose.gfr_lt_10)}</td>
-                    <td class="px-4 py-3">${renderCell(dose.hd)}</td>
-                    <td class="px-4 py-3">${renderCell(dose.crrt)}</td>
+                    <td class="px-2 py-2 whitespace-nowrap">${nameHtml}</td>
+                    <td class="px-2 py-2 gfr-normal">${renderCell(dose.gfr_gt_50)}</td>
+                    <td class="px-2 py-2 gfr-mild-moderate">${renderCell(dose.gfr_30_50)}</td>
+                    <td class="px-2 py-2 gfr-moderate">${renderCell(dose.gfr_10_29)}</td>
+                    <td class="px-2 py-2 gfr-severe">${renderCell(dose.gfr_lt_10)}</td>
+                    <td class="px-2 py-2">${renderCell(dose.hd)}</td>
+                    <td class="px-2 py-2">${renderCell(dose.crrt)}</td>
                 `;
                 tableBody.appendChild(row);
             });
@@ -2088,7 +2149,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 <body>
                     <div class="header">
                         <h1>${title}</h1>
-                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.2.5</p>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.3.6</p>
                         <p>${description}</p>
                     </div>
                     ${table}
@@ -2191,7 +2252,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 <body>
                     <div class="header">
                         <h1>${translations[lang]['clin-module-title']}</h1>
-                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.2.5</p>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.3.6</p>
                     </div>
                     ${generateDetailedDiseasesTable()}
                 </body>
@@ -2279,7 +2340,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 <body>
                     <div class="header">
                         <h1>${translations[lang]['micro-module-title']}</h1>
-                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.2.5</p>
+                        <p>© 2025, Dr. Péterfi Zoltán | ${currentLanguage === 'hu' ? 'Verzió' : currentLanguage === 'en' ? 'Version' : 'Version'}: 4.3.6</p>
                     </div>
                     ${generateDetailedPathogensTable()}
                 </body>

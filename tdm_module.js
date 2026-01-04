@@ -1,3 +1,26 @@
+let tdmChart = null;
+
+function fillTdmWithTestData() {
+    document.getElementById('birthYear').value = 1975;
+    document.getElementById('gender').value = 'male';
+    document.getElementById('weight').value = 82;
+    document.getElementById('height').value = 180;
+    document.getElementById('creatinine').value = 110;
+    
+    calculateGFR();
+    
+    document.getElementById('antibiotic').value = 'gentamicin';
+    updateDrugInfo();
+    document.getElementById('severity').value = 'severe';
+    
+    document.getElementById('dose').value = 320;
+    document.getElementById('troughLevel').value = 2.8;
+    document.getElementById('interval').value = 24;
+    document.getElementById('steadyState').value = 'yes';
+    
+    validateTdmInputs();
+}
+
 function setupTdmInputValidation() {
     const inputs = document.querySelectorAll('.tdm-input');
     inputs.forEach(input => {
@@ -33,7 +56,7 @@ function validateTdmInputs() {
 
     const manualGfrInputTdm = document.getElementById('manualGFR');
     const gfrResultDivTdm = document.getElementById('gfrResult');
-     if (!manualGfrInputTdm.value && gfrResultDivTdm.classList.contains('hidden')) {
+     if (!manualGfrInputTdm.value) {
         isTdmFormValid = false;
     }
 
@@ -113,8 +136,8 @@ function updateDrugInfo() {
     const antibiotic = document.getElementById('antibiotic').value;
     const drug = tdm_data[antibiotic];
     document.getElementById('drugInfo').innerHTML = `
-        <div class="text-sm font-medium text-gray-700 mb-2">${drug.name}</div>
-        <div class="text-xs text-gray-600">${drug.info}</div>
+        <div class="font-semibold text-emerald-800 mb-1">${drug.name}</div>
+        <div class="text-emerald-700 space-y-0.5 text-xs">${drug.info}</div>
     `;
 }
 
@@ -146,9 +169,9 @@ function calculateInitialDose() {
      const drug = tdm_data[antibiotic];
      let resultHTML = '';
      
-     resultHTML += `<div class="space-y-1">
-         <div><strong>Gyógyszer:</strong> ${drug.name}</div>
-         <div><strong>Testsúly:</strong> ${weight} kg</div>
+     resultHTML += `<div class="flex justify-between text-xs mb-2 border-b border-slate-100 pb-1">
+         <span>💊 ${drug.name}</span>
+         <span>⚖️ ${weight} kg</span>
      </div>`;
      
      // Check if dialysis is selected
@@ -157,24 +180,20 @@ function calculateInitialDose() {
          const dialysisName = dialysisData[dialysisType].name;
          const recommendedDose = Math.round(dialysisInfo.dose * weight);
          
-         resultHTML += `<div class="mt-4 pt-4 border-t border-cyan-200">
-             <h4 class="font-semibold text-cyan-900">🏥 DIALÍZIS DÓZIS (${dialysisName})</h4>
-             <ul class="list-disc list-inside mt-2 space-y-1">
-                 <li><strong>Dózis:</strong> ${dialysisInfo.dose} mg/kg</li>
-                 <li><strong>Számítás:</strong> ${dialysisInfo.dose} mg/kg × ${weight} kg = ${recommendedDose} mg</li>
-                 <li><strong>Dózisköz:</strong> ${dialysisInfo.interval} óra</li>
-             </ul>
-             ${dialysisInfo.postDialysis ? `<div class="mt-2 text-red-600 font-bold">⚠️ FONTOS: Dialízis UTÁN adandó!</div>` : ''}
+         resultHTML += `<div class="text-xs space-y-1">
+             <div class="text-cyan-900 font-medium">🏥 ${dialysisName}</div>
+             <div>Dózis: ${dialysisInfo.dose} mg/kg × ${weight} = ${recommendedDose} mg</div>
+             ${dialysisInfo.postDialysis ? `<div class="text-red-600 font-bold">⚠️ Dialízis UTÁN!</div>` : ''}
          </div>`;
 
-         resultHTML += `<div class="mt-4 bg-blue-100 p-3 rounded-lg">
-             <div class="font-bold">🎯 JAVASOLT DÓZIS:</div>
-             <div class="text-base">${recommendedDose} mg ${dialysisInfo.interval} óránként</div>
+         resultHTML += `<div class="mt-2 bg-white p-2 rounded border border-green-200 shadow-sm text-center">
+             <div class="font-bold text-green-600 uppercase text-[10px]">🎯 Javasolt Dózis:</div>
+             <div class="text-sm font-bold text-green-700">${recommendedDose} mg ${dialysisInfo.interval} óránként</div>
          </div>`;
 
-         resultHTML += `<div class="mt-4">
-             <div class="font-semibold">📋 Speciális utasítás:</div>
-             <div class="text-xs">${dialysisInfo.info}</div>
+         resultHTML += `<div class="mt-2">
+             <div class="font-semibold text-xs">📋 Info:</div>
+             <div class="text-[10px]">${dialysisInfo.info}</div>
          </div>`;
          
      } else {
@@ -211,23 +230,16 @@ function calculateInitialDose() {
              interval = gfr > 60 ? 24 : gfr > 30 ? 36 : 48;
          }
 
-         resultHTML += `<div class="mt-4 pt-4 border-t border-cyan-200">
-             <h4 class="font-semibold text-cyan-900">Számítás</h4>
-             <ul class="list-disc list-inside mt-2 space-y-1">
-                 <li><strong>Alapdózis:</strong> ${baseDosePerKg} mg/kg</li>
-                 <li><strong>Számítás:</strong> ${baseDosePerKg} mg/kg × ${weight} kg = ${baseDose} mg</li>
-                 <li><strong>GFR korrekció (${gfrNote}):</strong> ${baseDose} mg × ${gfrAdjustment} = ${recommendedDose} mg</li>
-             </ul>
+         resultHTML += `<div class="text-xs space-y-0.5">
+             <div>Alap: ${baseDosePerKg} mg/kg</div>
+             <div>Korrekció (GFR ${gfr}): ${(gfrAdjustment * 100).toFixed(0)}%</div>
          </div>`;
 
-         resultHTML += `<div class="mt-4 bg-blue-100 p-3 rounded-lg">
-             <div class="font-bold">🎯 JAVASOLT DÓZIS:</div>
-             <div class="text-base">${recommendedDose} mg ${interval} óránként</div>
+         resultHTML += `<div class="mt-2 bg-white p-2 rounded border border-green-200 shadow-sm text-center">
+             <div class="font-bold text-green-600 uppercase text-[10px]">🎯 Javasolt Dózis:</div>
+             <div class="text-sm font-bold text-green-700">${recommendedDose} mg ${interval} óránként</div>
          </div>`;
 
-         resultHTML += `<div class="mt-4 text-gray-600">
-             <strong>GFR:</strong> ${gfr} mL/min/1.73m² (${(gfrAdjustment * 100).toFixed(0)}% dózis)
-         </div>`;
      }
 
      const resultColumn = document.getElementById('initialDoseResultColumn');
@@ -246,7 +258,7 @@ function calculateTroughBasedTDM() {
     const antibiotic = document.getElementById('antibiotic').value;
     const steadyState = document.getElementById('steadyState').value;
 
-    if (!dose || !troughLevel || !interval || !weight) { alert("Kérlek, töltsd ki a TDM számításhoz szükséges mezőket!"); return; }
+    if (!dose || !troughLevel || !interval || !weight || isNaN(gfr)) { alert("Kérlek, töltsd ki a TDM számításhoz szükséges mezőket (beleértve a GFR-t is)!"); return; }
 
     const drug = tdm_data[antibiotic];
     
@@ -294,12 +306,12 @@ function calculateTroughBasedTDM() {
     if (troughLevel < targetTroughMin) {
         // Increase dose to achieve minimum trough
         newDose = Math.round(dose * (targetTrough / troughLevel));
-        doseModificationReason = `Alacsony völgyszint miatt dózis emelés: ${dose} mg → ${newDose} mg`;
+        doseModificationReason = `Alacsony völgyszint miatt dózis emelés: <strong class="text-green-700">${dose} mg → ${newDose} mg</strong>`;
     } else if (troughLevel > targetTroughMax) {
         if (antibiotic === 'vancomycin' || antibiotic === 'voriconazole') {
             // For vancomycin and voriconazole, prefer dose reduction
             newDose = Math.round(dose * (targetTroughMax / troughLevel));
-            doseModificationReason = `Magas völgyszint miatt dózis csökkentés: ${dose} mg → ${newDose} mg`;
+            doseModificationReason = `Magas völgyszint miatt dózis csökkentés: <strong class="text-green-700">${dose} mg → ${newDose} mg</strong>`;
         } else {
             // For aminoglycosides (gentamicin, amikacin)
             const targetTroughForDelay = targetTroughMax; // Wait until trough drops to max acceptable level
@@ -318,11 +330,11 @@ function calculateTroughBasedTDM() {
             if (calculatedInterval <= 48) {
                 // Extend interval if reasonable
                 newInterval = Math.ceil(calculatedInterval / 12) * 12; // Round to nearest 12 hours
-                doseModificationReason = `Magas völgyszint miatt intervallum hosszabbítás: ${interval}h → ${newInterval}h (dózis: ${dose} mg változatlan)`;
+                doseModificationReason = `Magas völgyszint miatt intervallum hosszabbítás: <strong class="text-green-700">${interval}h → ${newInterval}h</strong> (dózis: ${dose} mg változatlan)`;
             } else {
                 // If interval would be too long, reduce dose instead
                 newDose = Math.round(dose * (targetTroughFuture / troughLevel));
-                doseModificationReason = `Magas völgyszint miatt dózis csökkentés: ${dose} mg → ${newDose} mg (intervallum: ${interval}h változatlan)`;
+                doseModificationReason = `Magas völgyszint miatt dózis csökkentés: <strong class="text-green-700">${dose} mg → ${newDose} mg</strong> (intervallum: ${interval}h változatlan)`;
             }
         }
     }
@@ -337,22 +349,19 @@ function calculateTroughBasedTDM() {
     const clinicalNotes = document.getElementById('clinicalNotes');
 
     pkResults.innerHTML = `
-        <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Becsült eliminációs konstans (k):</span> <span class="font-semibold">${estimatedKe.toFixed(4)} h⁻¹</span></div>
-        <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Becsült felezési idő (t½):</span> <span class="font-semibold">${estimatedHalfLife.toFixed(1)} óra</span></div>
-        <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Becsült eloszlási térfogat (Vd):</span> <span class="font-semibold">${(estimatedVd/weight).toFixed(2)} L/kg</span></div>
-        <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Jelenlegi völgyszint:</span> <span class="font-semibold">${troughLevel.toFixed(1)} mg/L</span></div>
-        <div class="flex justify-between py-1"><span class="text-gray-600">Becsült csúcsszint:</span> <span class="font-semibold">${estimatedPeak.toFixed(1)} mg/L</span></div>
+ <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Becsült eliminációs konstans (k):</span> <span class="font-semibold">${estimatedKe.toFixed(4)} h⁻¹</span></div>
+ <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Becsült felezési idő (t½):</span> <span class="font-semibold">${estimatedHalfLife.toFixed(1)} óra</span></div>
+ <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Becsült eloszlási térfogat (Vd):</span> <span class="font-semibold">${(estimatedVd/weight).toFixed(2)} L/kg</span></div>
+ <div class="flex justify-between py-1 border-b"><span class="text-gray-600">Jelenlegi völgyszint:</span> <span class="font-semibold">${troughLevel.toFixed(1)} mg/L</span></div>
+ <div class="flex justify-between py-1"><span class="text-gray-600">Becsült csúcsszint:</span> <span class="font-semibold">${estimatedPeak.toFixed(1)} mg/L</span></div>
     `;
     
-    let recommendation = `<div><strong>Jelenlegi dózis értékelése:</strong></div>`;
-    
+    let recommendation = `<div class="mb-4">`;
     if (troughLevel >= targetTroughMin && troughLevel <= targetTroughMax) {
-        recommendation += `<div class="text-green-600">✓ Völgyszint megfelelő (${troughLevel.toFixed(1)} mg/L)</div>`;
+        recommendation += `<div class="text-green-600 font-bold text-xl">✓ Jelenlegi völgyszint megfelelő (${troughLevel.toFixed(1)} mg/L)</div>`;
     } else if (troughLevel < targetTroughMin) {
-        recommendation += `<div class="text-red-600">⚠ Völgyszint alacsony (${troughLevel.toFixed(1)} mg/L) - hatástalanság kockázata</div>`;
-    } else {
-        recommendation += `<div class="text-red-600">⚠ Völgyszint magas (${troughLevel.toFixed(1)} mg/L) - toxicitás kockázata</div>`;
-    }
+        recommendation += `<div class="text-orange-600 font-bold text-xl">⚠ Völgyszint alacsony (${troughLevel.toFixed(1)} mg/L) - hatástalanság kockázata</div>`;
+    } else { recommendation += `<div class="text-red-600 font-bold text-xl">⚠ Völgyszint magas (${troughLevel.toFixed(1)} mg/L) - toxicitás kockázata</div>`; }
     
     if (estimatedPeak >= targetPeakMin && estimatedPeak <= targetPeakMax) {
         recommendation += `<div class="text-green-600">✓ Becsült csúcsszint megfelelő (${estimatedPeak.toFixed(1)} mg/L)</div>`;
@@ -362,9 +371,8 @@ function calculateTroughBasedTDM() {
         recommendation += `<div class="text-red-600">⚠ Becsült csúcsszint magas (${estimatedPeak.toFixed(1)} mg/L)</div>`;
     }
     
-    recommendation += `<div class="mt-4"><strong>Javasolt módosítás:</strong></div>`;
+    recommendation += `<div class="mt-4 text-lg"><strong>Javasolt módosítás:</strong></div>`;
     
-    // Special handling for elevated aminoglycoside trough levels
     if ((antibiotic === 'gentamicin' || antibiotic === 'amikacin') && troughLevel > targetTroughMax && nextDoseDelay > 0) {
         recommendation += `
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg mb-4" role="alert">
@@ -372,9 +380,9 @@ function calculateTroughBasedTDM() {
                     <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zM9 9a1 1 0 0 0 2 0V7a1 1 0 1 0-2 0v2zm0 4a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/></svg></div>
                     <div>
                         <p class="font-bold">Azonnali intézkedés szükséges!</p>
-                        <p class="text-sm">
-                            <strong>Következő dózis időzítése:</strong> ${nextDoseRecommendation}.<br>
-                            <strong>Teendő:</strong> A következő dózis beadása előtt ${Math.ceil(nextDoseDelay)} óra múlva völgyszint ellenőrzés.<br>
+                        <p class="text-sm"> 
+                            <strong>Következő dózis időzítése:</strong> ${nextDoseRecommendation}.<br/>
+                            <strong>Teendő:</strong> A következő dózis beadása előtt ${Math.ceil(nextDoseDelay)} óra múlva völgyszint ellenőrzés.<br/>
                             <strong>Cél:</strong> Völgyszint ≤${targetTroughMax} mg/L.
                         </p>
                     </div>
@@ -382,25 +390,20 @@ function calculateTroughBasedTDM() {
             </div>`;
     }
     
-    recommendation += `<div class="bg-blue-100 p-3 rounded-lg mt-2">`;
-    
+    recommendation += `<div class="bg-green-50 p-4 rounded-lg mt-2 border-2 border-green-200">`;
+
     if (doseModificationReason) {
-        recommendation += `<div class="font-medium text-blue-800 mb-2">📊 Dózismódosítás részletei:</div>`;
-        recommendation += `<div class="text-blue-700 mb-3">${doseModificationReason}</div>`;
+        recommendation += `<div class="font-bold text-green-800 mb-2 text-base">📊 Dózismódosítás részletei:</div>`;
+        recommendation += `<div class="text-green-700 mb-3 text-base">${doseModificationReason}</div>`;
     }
-    
-    if (newDose !== dose || newInterval !== interval) {
-        recommendation += `<strong>Új dózisbeállítás:</strong><br>`;
-        recommendation += `<strong>Dózis:</strong> ${newDose} mg<br>`;
-        recommendation += `<strong>Dózisköz:</strong> ${newInterval} óra<br>`;
-        recommendation += `<strong>Várható új völgyszint:</strong> ${newPredictedTrough.toFixed(1)} mg/L<br><br>`;
-        
+    if (newDose !== dose || newInterval !== interval || nextDoseDelay > 0) {
+        recommendation += `<div class="text-green-900 text-lg font-bold">Új dózisbeállítás: ${newDose} mg ${newInterval} óránként</div>`;
         // Calculate dose per kg for reference
         const dosePerKg = (newDose / weight).toFixed(1);
-        recommendation += `<strong>Dózis testsúlyra vetítve:</strong> ${dosePerKg} mg/kg`;
+        recommendation += `<span class="text-sm opacity-80 ml-2">(${dosePerKg} mg/kg)</span></div>`;
     } else if (nextDoseDelay === 0) {
-        recommendation += `<strong>Jelenlegi dózis megtartható</strong><br>`;
-        recommendation += `Következő TDM: 3-5 nap múlva`;
+        recommendation += `<div class="text-green-900 text-xl font-bold">Jelenlegi dózis megtartható<br>
+        <span class="text-base font-normal">Következő TDM: 3-5 nap múlva</span></div>`;
     }
     
     recommendation += `</div>`;
@@ -409,10 +412,8 @@ function calculateTroughBasedTDM() {
     
     // Clinical notes
     const dialysisType = document.getElementById('dialysisType').value;
-    let notes = `<div><strong>${drug.name} specifikus megjegyzések:</strong></div>`;
-    notes += `<div class="mt-2">• Célszintek: Völgy ${targetTroughMin}-${targetTroughMax} mg/L</div>`;
+    let notes = `<div><strong>Klinikai megjegyzések:</strong></div>`;
     
-    // Dialysis-specific notes
     if (dialysisType !== 'none') {
         const dialysisInfo = drug.dialysis[dialysisType];
         const dialysisName = dialysisData[dialysisType].name;
@@ -494,13 +495,19 @@ function calculateTroughBasedTDM() {
     
     clinicalNotes.innerHTML = notes;
     document.getElementById('results').classList.remove('hidden');
+    document.getElementById('pk-details-card').classList.add('hidden'); // Alapértelmezetten elrejtjük
 
     drawTdmChart({ k: estimatedKe, Cmax: newPredictedPeak, interval: newInterval }, { targetPeak, targetTrough });
 }
 
+function togglePkDetails() {
+    const pkCard = document.getElementById('pk-details-card');
+    pkCard.classList.toggle('hidden');
+}
+
 function drawTdmChart(pkParams, targets) {
     const ctx = document.getElementById('tdmChart').getContext('2d');
-    if (tdmChart) {
+    if (tdmChart !== null) {
         tdmChart.destroy();
     }
 
