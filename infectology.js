@@ -1,4 +1,4 @@
-window.infectology[
+window.infectology_hu = [
     {
         "name": "Covid-19",
         "id": "covid-19",
@@ -21,12 +21,12 @@ window.infectology[
             "hasmenés",
             "orrfolyás"
         ],
-        "description": "A COVID-19 egy fertőző betegség, amelyet a SARS-CoV-2 nevű koronavírus okoz. A betegség tünetei széles skálán mozognak, a tünetmentestől a súlyos légzőszervi megbetegedésig terjedhetnek. A leggyakoribb tünetek közé tartozik a láz, köhögés és légszomj. A COVID-19 elsősorban cseppfertőzéssel terjed, amikor egy fertőzött személy köhög, tüsszent vagy beszél. A betegség megelőzésének legjobb módja a higiéniai intézkedések betartása, például a kézmosás és a maszk viselése."
-"therapy": [
+        "description": "A COVID-19 egy fertőző betegség, amelyet a SARS-CoV-2 nevű koronavírus okoz. A betegség tünetei széles skálán mozognak, a tünetmentestől a súlyos légzőszervi megbetegedésig terjedhetnek. A leggyakoribb tünetek közé tartozik a láz, köhögés és légszomj. A COVID-19 elsősorban cseppfertőzéssel terjed, amikor egy fertőzött személy köhög, tüsszent vagy beszél. A betegség megelőzésének legjobb módja a higiéniai intézkedések betartása, például a kézmosás és a maszk viselése.",
+        "therapy": [
             "Pihenés",
             "Folyadékpótlás",
             "Láz- és fájdalomcsillapítók",
-            "Súlyos esetekben kórházi kezelés és oxigénterápia" 
+            "Súlyos esetekben kórházi kezelés és oxigénterápia",
             "remdesivir",
             "dexametazon"  
         ],
@@ -39,8 +39,9 @@ window.infectology[
             "Társadalmi távolságtartás",
             "Kerülje a nagy összejöveteleket",
             "Jó szellőztetés belső terekben",
-            "védőooltás"
-         "vaccines": [
+            "védőoltás"
+        ],
+        "vaccines": [
             "Pfizer-BioNTech",
             "Moderna",
             "AstraZeneca",
@@ -68,7 +69,7 @@ window.infectology[
             "hasmenés",
             "orrfolyás" 
         ],
-        "description": "Az influenza egy fertőző légúti betegség, amelyet az influenza vírusok okoznak. Az influenza tünetei közé tartozik a láz, köhögés, torokfájás, izomfájdalom, fejfájás, fáradtság és néha hányinger vagy hasmenés. Az influenza elsősorban cseppfertőzéssel terjed, amikor egy fertőzött személy köhög, tüsszent vagy beszél. A betegség megelőzésének legjobb módja az éves influenzaoltás és a higiéniai intézkedések betartása."
+        "description": "Az influenza egy fertőző légúti betegség, amelyet az influenza vírusok okoznak. Az influenza tünetei közé tartozik a láz, köhögés, torokfájás, izomfájdalom, fejfájás, fáradtság és néha hányinger vagy hasmenés. Az influenza elsősorban cseppfertőzéssel terjed, amikor egy fertőzött személy köhög, tüsszent vagy beszél. A betegség megelőzésének legjobb módja az éves influenzaoltás és a higiéniai intézkedések betartása.",
         "therapy": [
             "Pihenés",  
             "Folyadékpótlás",
@@ -84,11 +85,10 @@ window.infectology[
             "Társadalmi távolságtartás",
             "Kerülje a nagy összejöveteleket",
             "Jó szellőztetés belső terekben",
-            "védőooltás"
+            "védőoltás"
         ],
         "vaccines": [
             "Éves influenzaoltás"
         ]
-    },
-        ]       
-        ]
+    }
+];

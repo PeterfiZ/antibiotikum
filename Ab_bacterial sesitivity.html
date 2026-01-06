@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antibiotikum Érzékenység Kereső</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #eef2f3;
+            border-radius: 5px;
+            border: 1px solid #dae1e7;
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .filter-group label {
+            cursor: pointer;
+            user-select: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        tr:hover { background-color: #e1e1e1; }
+        .res-R { color: #e74c3c; font-weight: bold; text-align: center; }
+        .res-S { color: #27ae60; font-weight: bold; text-align: center; }
+        .res-M { color: #f39c12; font-weight: bold; text-align: center; }
+        .count { text-align: right; font-size: 0.9em; color: #666; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Antibiotikum Érzékenység Kereső</h1>
+
+    <div class="controls">
+        <input type="text" id="searchInput" class="search-box" placeholder="Keresés baktériumra vagy antibiotikumra..." onkeyup="performSearch()">
+        
+        <div class="filter-group">
+            <strong>Szűrés:</strong>
+            <label><input type="radio" name="filterType" value="all" checked onchange="performSearch()"> Összes</label>
+            <label><input type="radio" name="filterType" value="sensitive" onchange="performSearch()"> Csak Érzékeny (E, É)</label>
+            <label><input type="radio" name="filterType" value="resistant" onchange="performSearch()"> Csak Rezisztens (R)</label>
+        </div>
+    </div>
+
+    <div id="resultCount" class="count"></div>
+
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Baktérium</th>
+                <th>Antibiotikum</th>
+                <th style="width: 120px; text-align: center;">Érzékenység</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="Bakterial sensitivity.js"></script>
+<script>
+    function performSearch() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
+        const filterType = document.querySelector('input[name="filterType"]:checked').value;
+        const tableBody = document.querySelector('#resultsTable tbody');
+        const countDiv = document.getElementById('resultCount');
+
+        tableBody.innerHTML = '';
+
+        if (typeof erzekenysegAdatok === 'undefined') {
+            tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:red;">Hiba: Az adatbázis nem található!</td></tr>';
+            return;
+        }
+
+        let count = 0;
+        erzekenysegAdatok.forEach(adat => {
+            const bakterium = (adat["Baktérium"] || "").toString();
+            const antibiotikum = (adat["Antibiotikum"] || "").toString();
+            const erzekenyseg = (adat["Érzekenység"] || "").toString().trim();
+            const erzekenysegUpper = erzekenyseg.toUpperCase();
+
+            const matchesSearch = bakterium.toLowerCase().includes(searchInput) || antibiotikum.toLowerCase().includes(searchInput);
+            if (!matchesSearch) return;
+
+            let matchesFilter = (filterType === 'all') ||
+                                (filterType === 'resistant' && erzekenysegUpper === 'R') ||
+                                (filterType === 'sensitive' && (erzekenysegUpper.includes('E') || erzekenysegUpper.includes('É')));
+
+            if (matchesFilter) {
+                count++;
+                const row = document.createElement('tr');
+                let sensClass = erzekenysegUpper === 'R' ? 'res-R' : (erzekenysegUpper.includes('E') || erzekenysegUpper.includes('É') ? 'res-S' : 'res-M');
+                
+                row.innerHTML = `<td>${bakterium}</td><td>${antibiotikum}</td><td class="${sensClass}">${erzekenyseg}</td>`;
+                tableBody.appendChild(row);
+            }
+        });
+
+        countDiv.textContent = `Találatok száma: ${count}`;
+        if (count === 0) tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center;">Nincs találat.</td></tr>';
+    }
+    window.onload = performSearch;
+</script>
+</body>
+</html>

@@ -81,8 +81,8 @@
         <!-- Module Selection -->
         <div id="module-selection" class="fade-in max-w-4xl mx-auto">
             <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center" id="select-module">Válasszon modult</h2> 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-blue-300" onclick="showModule('pharmacological')">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-blue-300" onclick="showModule('pharmacological')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,7 +94,7 @@
                     </div>
                 </div>
 
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-green-300" onclick="showModule('clinical')">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-green-300" onclick="showModule('clinical')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-purple-300" onclick="showModule('microbiological')">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-purple-300" onclick="showModule('microbiological')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@
                         <p class="text-gray-600" id="micro-desc">Kórokozók és érzékenységi spektrum</p>
                     </div>
                 </div>
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-orange-300" onclick="showModule('summary')">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-orange-300" onclick="showModule('summary')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,18 +128,7 @@
                         <p class="text-gray-600" id="summary-desc">Antibiotikumok tulajdonságainak áttekintő táblázata</p>
                     </div>
                 </div>
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-yellow-300" onclick="showModule('quiz')">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4c0-1.193.5-2.278 1.28-3.072zM12 18v.01"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="quiz-title">Tudásfelmérő</h3>
-                        <p class="text-gray-600" id="quiz-desc">Tesztelje tudását interaktív kvízekkel</p>
-                    </div>
-                </div>
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-red-300" onclick="showModule('renal')">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-red-300" onclick="showModule('renal')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -150,7 +139,7 @@
                         <p class="text-gray-600" id="renal-desc">Dózismódosítás vesekárosodás esetén</p>
                     </div>
                 </div>
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-cyan-300" onclick="showModule('tdm')">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-cyan-300" onclick="showModule('tdm')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +150,18 @@
                         <p class="text-gray-600" id="tdm-desc">Gentamicin, Amikacin, Vancomycin, Voriconazole TDM</p>
                     </div>
                 </div>
-                <div class="module-card bg-white rounded-xl shadow-lg p-6 cursor-pointer border-2 border-transparent hover:border-pink-300" onclick="showModule('pediatric')">
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-teal-300" onclick="showModule('sensitivity')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="sensitivity-title">Érzékenységi Spektrum</h3>
+                        <p class="text-gray-600" id="sensitivity-desc">Antibiotikum és baktérium érzékenységi adatok</p>
+                    </div>
+                </div>
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-pink-300" onclick="showModule('pediatric')">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -170,6 +170,17 @@
                         </div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-2" id="pediatric-title">Gyermekdózisok</h3>
                         <p class="text-gray-600" id="pediatric-desc">Antibiotikumok dózisai gyermekkorban</p>
+                    </div>
+                </div>
+                <div class="module-card bg-white rounded-xl shadow-lg p-4 md:p-6 cursor-pointer border-2 border-transparent hover:border-yellow-300" onclick="showModule('quiz')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4c0-1.193.5-2.278 1.28-3.072zM12 18v.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="quiz-title">Tudásfelmérő</h3>
+                        <p class="text-gray-600" id="quiz-desc">Tesztelje tudását interaktív kvízekkel</p>
                     </div>
                 </div>
             </div>
@@ -461,8 +472,20 @@
                     <h3 class="text-lg font-semibold text-gray-800" id="renal-table-title">Antibiotikum dózisok vesefunkció szerint</h3>
                     <p class="text-sm text-gray-600 mt-1" id="renal-table-desc">Áttekintés a GFR értékek alapján</p>
                     <div class="mt-4">
-                        <label for="renal-search" class="block text-sm font-medium text-gray-700 mb-2" id="search-renal-antibiotic">Keresés antibiotikum szerint:</label>
-                        <input type="text" id="renal-search" placeholder="Antibiotikum neve..." class="search-input w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="renal-search" class="block text-sm font-medium text-gray-700 mb-2" id="search-renal-antibiotic">Keresés antibiotikum szerint:</label>
+                                <input type="text" id="renal-search" placeholder="Antibiotikum neve..." class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Alkalmazási mód:</label>
+                                <div class="flex space-x-4 mt-2">
+                                    <label class="inline-flex items-center"><input type="radio" class="form-radio text-red-600" name="renal-route-filter" value="all" checked><span class="ml-2">Összes</span></label>
+                                    <label class="inline-flex items-center"><input type="radio" class="form-radio text-blue-600" name="renal-route-filter" value="IV"><span class="ml-2">IV</span></label>
+                                    <label class="inline-flex items-center"><input type="radio" class="form-radio text-yellow-600" name="renal-route-filter" value="PO"><span class="ml-2">PO (Orális)</span></label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -470,13 +493,13 @@
                     <table id="renal-table" class="w-full">
                         <thead class="bg-gray-100 border-b-2 border-gray-300">
                             <tr>
-                                <th id="th-renal-antibiotic" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Antibiotikum</th>
-                                <th id="th-renal-gfr50" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-normal">GFR >50</th>
-                                <th id="th-renal-gfr30-50" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-mild-moderate">GFR 30-50</th>
-                                <th id="th-renal-gfr10-29" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-moderate">GFR 10-29</th>
-                                <th id="th-renal-gfr-lt10" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-severe">GFR &lt;10</th>
-                                <th id="th-renal-hd" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">HD</th>
-                                <th id="th-renal-crrt" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">CRRT</th>
+                                <th id="th-renal-antibiotic" onclick="sortRenalTable('antibiotic_name')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer select-none hover:bg-gray-200">Antibiotikum</th>
+                                <th id="th-renal-gfr50" onclick="sortRenalTable('gfr_gt_50')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-normal cursor-pointer select-none hover:brightness-95">GFR >50</th>
+                                <th id="th-renal-gfr30-50" onclick="sortRenalTable('gfr_30_50')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-mild-moderate cursor-pointer select-none hover:brightness-95">GFR 30-50</th>
+                                <th id="th-renal-gfr10-29" onclick="sortRenalTable('gfr_10_29')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-moderate cursor-pointer select-none hover:brightness-95">GFR 10-29</th>
+                                <th id="th-renal-gfr-lt10" onclick="sortRenalTable('gfr_lt_10')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider gfr-severe cursor-pointer select-none hover:brightness-95">GFR &lt;10</th>
+                                <th id="th-renal-hd" onclick="sortRenalTable('hd')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer select-none hover:bg-gray-200">HD</th>
+                                <th id="th-renal-crrt" onclick="sortRenalTable('crrt')" class="px-2 py-2 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider cursor-pointer select-none hover:bg-gray-200">CRRT</th>
                             </tr>
                         </thead>
                         <tbody id="renal-table-body" class="bg-white divide-y divide-gray-200">
@@ -624,14 +647,14 @@
                 </div>
 
                 <!-- Initial Dose Result (Full Width) -->
-                <div id="initialDoseResultColumn" class="hidden mb-4 animate-fade-in flex justify-center">
+                <div id="initialDoseResultColumn" class="mb-4 animate-fade-in flex justify-center">
                     <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-100 p-4 shadow-sm relative overflow-hidden w-full max-w-lg">
                         <div class="absolute top-0 right-0 p-2 opacity-5 text-4xl">📊</div>
                         <h2 class="text-sm font-bold text-emerald-900 mb-2 flex items-center gap-2 border-b border-emerald-200/50 pb-2">
                             Javasolt kezdő dózis
                         </h2>
                         <div id="initialDoseContent" class="text-slate-700 text-sm">
-                            <!-- Content will be injected here -->
+                            <p class="text-gray-500 italic text-center">Adja meg a beteg adatait és kattintson a számítás gombra.</p>
                         </div>
                     </div>
                 </div>
@@ -733,6 +756,63 @@
         </div>
 
         <!-- Footer -->
+        
+        <!-- Sensitivity Module -->
+        <div id="sensitivity-module" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800" id="sensitivity-module-title">Érzékenységi Spektrum</h2>
+                <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-9">Vissza</button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <div class="grid md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="sensitivity-mode-label">Keresés módja:</label>
+                        <div class="flex space-x-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio text-teal-600" name="sensitivity-mode" value="antibiotic" checked>
+                                <span class="ml-2" id="mode-antibiotic">Antibiotikum alapján</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio text-teal-600" name="sensitivity-mode" value="bacteria">
+                                <span class="ml-2" id="mode-bacteria">Baktérium alapján</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" id="search-sensitivity-label">Keresés:</label>
+                        <input type="text" id="sensitivity-search" placeholder="Írjon be nevet..." class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Szűrés érzékenység szerint:</label>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-teal-600" name="sensitivity-filter" value="all" checked>
+                            <span class="ml-2">Összes</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-green-600" name="sensitivity-filter" value="S">
+                            <span class="ml-2">Érzékeny (S)</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-yellow-600" name="sensitivity-filter" value="I">
+                            <span class="ml-2">M (emelt dózis)</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-red-600" name="sensitivity-filter" value="R">
+                            <span class="ml-2">Rezisztens (R)</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-500 mb-2" id="sensitivity-legend">Jelmagyarázat: S - Érzékeny, I - Emelt dózis, R - Rezisztens</div>
+            </div>
+
+            <div id="sensitivity-results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+
         <footer class="text-center py-6 mt-8">
             <div class="bg-white rounded-xl shadow-lg p-4 max-w-md mx-auto">
                 <p class="text-gray-600 text-sm" id="footer-copyright">
@@ -764,7 +844,10 @@
 <script src="pediatric_doses_en.js"></script>
 <script src="pediatric_doses_de.js"></script>
 <script src="pediatric_doses_hu.js"></script>
+<script src="Bakterial sensitivity.js"></script>
 <script src="tdm_module.js"></script> 
+<script src="sensitivity_data.js"></script>
+<script src="sensitivity_module.js"></script>
 
 <script>
 console.log("antibiotics_hu:", window.antibiotics_hu);
@@ -803,7 +886,14 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'quiz-desc': 'Tesztelje tudását interaktív kvízekkel',
                 'tdm-title': 'TDM Kalkulátor',
                 'tdm-desc': 'Gentamicin, Amikacin, Vancomycin, Voriconazole TDM',
-                'pediatric-table-title': 'Antibiotikum dózisok gyermekkorban',
+                'sensitivity-title': 'Érzékenységi Spektrum',
+                'sensitivity-desc': 'Antibiotikum és baktérium érzékenységi adatok',
+                'sensitivity-module-title': 'Érzékenységi Spektrum',
+                'search-sensitivity-label': 'Keresés:',
+                'sensitivity-mode-label': 'Keresés módja:',
+                'mode-antibiotic': 'Antibiotikum alapján',
+                'mode-bacteria': 'Baktérium alapján',
+                'sensitivity-legend': 'Jelmagyarázat: S - Érzékeny, I - Emelt dózis, R - Rezisztens',
                 'pediatric-table-desc': 'Általános iránymutatások. Mindig orvosi validáció szükséges!',
                 'search-pediatric-antibiotic': 'Keresés antibiotikum szerint:',
                 'pediatric-title': 'Gyermekdózisok',
@@ -830,6 +920,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'back-btn': 'Vissza',
                 'search-name': 'Keresés név szerint:',
                 'search-disease': 'Keresés betegség szerint:',
+                'back-btn-9': 'Vissza',
                 'search-pathogen': 'Keresés kórokozó szerint:',
                 'filter-group': 'Szűrés csoport szerint:',
                 'filter-system': 'Szűrés szervrendszer szerint:',
@@ -946,7 +1037,11 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'child_2y_12y_po': 'Gyermek (2-12 év) PO',
                 'child_3m_17y': 'Gyermek (3hó - 17év)',
                 'liposomal': 'Liposzómás',
-                'deoxycholate': 'Deoxikolát'
+                'deoxycholate': 'Deoxikolát',
+                'tab-sensitivity': 'Érzékeny baktériumok',
+                'no-sensitive-data': 'Nincs adat érzékeny baktériumokról.',
+                'tab-sensitivity-micro': 'Érzékenység',
+                'no-antibiotic-data': 'Nincs adat érzékeny antibiotikumokról.'
             },
             en: {
                 'select-module': 'Select Module',
@@ -965,6 +1060,14 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'tdm-title': 'TDM Calculator',
                 'tdm-desc': 'Gentamicin, Amikacin, Vancomycin, Voriconazole TDM',
                 'renal-module-title': 'Dosage in Renal Impairment',
+                'sensitivity-title': 'Sensitivity Spectrum',
+                'sensitivity-desc': 'Antibiotic and bacterial sensitivity data',
+                'sensitivity-module-title': 'Sensitivity Spectrum',
+                'search-sensitivity-label': 'Search:',
+                'sensitivity-mode-label': 'Search Mode:',
+                'mode-antibiotic': 'By Antibiotic',
+                'mode-bacteria': 'By Bacteria',
+                'sensitivity-legend': 'Legend: S - Sensitive, I - Intermediate, R - Resistant',
                 'pediatric-table-title': 'Antibiotic Dosages in Childhood',
                 'pediatric-table-desc': 'General guidelines. Medical validation is always required!',
                 'search-pediatric-antibiotic': 'Search by antibiotic:',
@@ -991,6 +1094,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'back-btn': 'Back',
                 'search-name': 'Search by name:',
                 'search-disease': 'Search by disease:',
+                'back-btn-9': 'Back',
                 'search-pathogen': 'Search by pathogen:',
                 'filter-group': 'Filter by group:',
                 'filter-system': 'Filter by organ system:',
@@ -1107,7 +1211,11 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'child_2y_12y_po': 'Child (2-12y) PO',
                 'child_3m_17y': 'Child (3m - 17y)',
                 'liposomal': 'Liposomal',
-                'deoxycholate': 'Deoxycholate'
+                'deoxycholate': 'Deoxycholate',
+                'tab-sensitivity': 'Sensitive Bacteria',
+                'no-sensitive-data': 'No data on sensitive bacteria.',
+                'tab-sensitivity-micro': 'Sensitivity',
+                'no-antibiotic-data': 'No data on sensitive antibiotics.'
             },
             de: {
                 'select-module': 'Modul auswählen',
@@ -1128,6 +1236,14 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'tdm-title': 'TDM-Rechner',
                 'tdm-desc': 'Gentamicin, Amikacin, Vancomycin, Voriconazol TDM',
                 'quiz-module-title': 'Quiz',
+                'sensitivity-title': 'Empfindlichkeitsspektrum',
+                'sensitivity-desc': 'Antibiotika- und Bakterienempfindlichkeitsdaten',
+                'sensitivity-module-title': 'Empfindlichkeitsspektrum',
+                'search-sensitivity-label': 'Suche:',
+                'sensitivity-mode-label': 'Suchmodus:',
+                'mode-antibiotic': 'Nach Antibiotikum',
+                'mode-bacteria': 'Nach Bakterien',
+                'sensitivity-legend': 'Legende: S - Empfindlich, I - Mäßig empfindlich, R - Resistent',
                 'quiz-setup-title': 'Quiz-Einstellungen',
                 'quiz-topic-label': 'Thema:',
                 'topic-pharm': 'Pharmakologisch',
@@ -1146,6 +1262,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'back-btn': 'Zurück',
                 'search-name': 'Nach Name suchen:',
                 'search-disease': 'Nach Krankheit suchen:',
+                'back-btn-9': 'Zurück',
                 'search-pathogen': 'Nach Erreger suchen:',
                 'filter-group': 'Nach Gruppe filtern:',
                 'filter-system': 'Nach Organsystem filtern:',
@@ -1262,7 +1379,11 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'child_2y_12y_po': 'Kind (2-12J) p.o.',
                 'child_3m_17y': 'Kind (3M - 17J)',
                 'liposomal': 'Liposomal',
-                'deoxycholate': 'Deoxycholat'
+                'deoxycholate': 'Deoxycholat',
+                'tab-sensitivity': 'Empfindliche Bakterien',
+                'no-sensitive-data': 'Keine Daten zu empfindlichen Bakterien.',
+                'tab-sensitivity-micro': 'Empfindlichkeit',
+                'no-antibiotic-data': 'Keine Daten zu empfindlichen Antibiotika.'
             }
         };
 
@@ -1309,6 +1430,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             document.getElementById('back-btn-5').textContent = translations[lang]['back-btn'];
             document.getElementById('back-btn-6').textContent = translations[lang]['back-btn'];
             document.getElementById('back-btn-8').textContent = translations[lang]['back-btn'];
+            document.getElementById('back-btn-9').textContent = translations[lang]['back-btn'];
             document.getElementById('installPrompt').textContent = translations[lang]['install-prompt'] || '📱 Install';
             document.getElementById('footer-copyright').textContent = translations[lang]['copyright'];
             
@@ -1316,6 +1438,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
         }
 
         function showModule(moduleType) {
+
             document.getElementById('module-selection').classList.add('hidden');
             document.getElementById(`${moduleType}-module`).classList.remove('hidden');
             
@@ -1333,6 +1456,9 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 initRenalModule();
             } else if (moduleType === 'pediatric') {
                 initPediatricModule();
+            }
+            else if (moduleType === 'sensitivity') {
+                initSensitivityModule();
             }
              else if (moduleType === 'tdm') {
                 initTdmModule();
@@ -1490,9 +1616,19 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             if (!list) return;
             list.sort((a, b) => a.name.localeCompare(b.name));
             list.forEach(p => {
+                let dotClass = 'bg-gray-300';
+                const typeEn = p.type && p.type.en ? p.type.en.toLowerCase() : '';
+                const typeHu = p.type && p.type.hu ? p.type.hu.toLowerCase() : '';
+                
+                if (typeEn.includes('gram-positive') || typeHu.includes('gram-pozitív')) {
+                    dotClass = 'bg-purple-700';
+                } else if (typeEn.includes('gram-negative') || typeHu.includes('gram-negatív')) {
+                    dotClass = 'bg-pink-500';
+                }
+
                 const div = document.createElement('div');
-                div.innerHTML = `<i>${p.name}</i>`;
-                div.className = 'p-2 cursor-pointer hover:bg-purple-100 rounded';
+                div.innerHTML = `<span class="w-3 h-3 rounded-full ${dotClass} mr-2 flex-shrink-0" title="${p.type[currentLanguage]}"></span><i>${p.name}</i>`;
+                div.className = 'p-2 cursor-pointer hover:bg-purple-100 rounded flex items-center';
                 div.onclick = () => showMicroDetails(p);
                 microList.appendChild(div);
             });
@@ -1518,12 +1654,18 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                         <nav class="-mb-px flex space-x-8" aria-label="Tabs">
                             <a href="#" onclick="switchPharmTab(event, 'details')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600" id="tab-details">${translations[lang]['tab-details']}</a>
                             <a href="#" onclick="switchPharmTab(event, 'pediatric')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" id="tab-pediatric">${translations[lang]['tab-pediatric']}</a>
+                            <a href="#" onclick="switchPharmTab(event, 'sensitivity')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" id="tab-sensitivity">${translations[lang]['tab-sensitivity']}</a>
                         </nav>
                     </div>
 
                     <div id="pharm-tab-content-pediatric" class="hidden">
                         <h4 class="font-semibold text-pink-800 mb-2">Gyermekdózisok</h4>
                         <div id="pediatric-dose-info" class="bg-pink-50 p-4 rounded-lg"></div>
+                    </div>
+
+                    <div id="pharm-tab-content-sensitivity" class="hidden">
+                        <h4 class="font-semibold text-teal-800 mb-2">${translations[lang]['tab-sensitivity']}</h4>
+                        <div id="sensitivity-info" class="bg-teal-50 p-4 rounded-lg"></div>
                     </div>
                     
                     <div id="pharm-tab-content-details" class="grid md:grid-cols-2 gap-6">
@@ -1590,6 +1732,43 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             } else {
                  pediatricDoseInfo.innerHTML = `<p>${translations[lang]['no-data'] || 'Pediatric dose data not available for this language.'}</p>`;
             }
+
+            // Érzékenységi adatok betöltése
+            const sensitivityInfo = document.getElementById('sensitivity-info');
+            if (typeof antibioticSpectrumData !== 'undefined') {
+                const names = [antibiotic.name.en, antibiotic.name.hu, antibiotic.name.de].filter(Boolean);
+                let foundKey = null;
+                
+                for (const name of names) {
+                    const key = Object.keys(antibioticSpectrumData).find(k => k.toLowerCase() === name.toLowerCase());
+                    if (key) {
+                        foundKey = key;
+                        break;
+                    }
+                }
+
+                if (foundKey) {
+                    const data = antibioticSpectrumData[foundKey];
+                    const sensitiveBacteria = data.filter(item => item.sensitivity === 'S');
+                    
+                    if (sensitiveBacteria.length > 0) {
+                        let html = '<ul class="list-disc list-inside space-y-1">';
+                        sensitiveBacteria.forEach(item => {
+                             let content = `${item.bacteria} <span class="text-xs text-gray-500">(${item.original})</span>`;
+                             if (item.resistance) {
+                                 content += ` <span class="text-xs text-red-600 font-semibold ml-1">R: ${item.resistance}</span>`;
+                             }
+                             html += `<li>${content}</li>`;
+                        });
+                        html += '</ul>';
+                        sensitivityInfo.innerHTML = html;
+                    } else {
+                         sensitivityInfo.innerHTML = `<p>${translations[lang]['no-sensitive-data']}</p>`;
+                    }
+                } else {
+                    sensitivityInfo.innerHTML = `<p>${translations[lang]['no-data'] || 'Nincs elérhető adat.'}</p>`;
+                }
+            }
         }
 
         function switchPharmTab(event, tabName) {
@@ -1597,10 +1776,12 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             // Tabok elrejtése
             document.getElementById('pharm-tab-content-details').classList.add('hidden');
             document.getElementById('pharm-tab-content-pediatric').classList.add('hidden');
+            document.getElementById('pharm-tab-content-sensitivity').classList.add('hidden');
 
             // Linkek stílusának resetelése
             document.getElementById('tab-details').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
             document.getElementById('tab-pediatric').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
+            document.getElementById('tab-sensitivity').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
 
             // Aktív tab és tartalom megjelenítése
             document.getElementById(`pharm-tab-content-${tabName}`).classList.remove('hidden');
@@ -1674,45 +1855,102 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 <div class="text-left">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6 italic">${pathogen.name}</h3>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-4">
-                            <div class="bg-purple-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-purple-800 mb-2">${translations[lang]['identifiers']}</h4>
-                                <p><strong>${translations[lang]['type']}:</strong> ${pathogen.type[lang]}</p>
-                                <p><strong>${translations[lang]['morphology']}:</strong> ${pathogen.morphology[lang]}</p>
-                            </div>
-                            
-                            <div class="bg-indigo-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-indigo-800 mb-2">${translations[lang]['characteristics']}</h4>
-                                <ul class="list-disc list-inside">
-                                    ${pathogen.characteristics[lang].map(c => `<li>${c}</li>`).join('')}
-                                </ul>
-                            </div>
+                    <div class="mb-6 border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                            <a href="#" onclick="switchMicroTab(event, 'details')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-purple-500 text-purple-600" id="micro-tab-details">${translations[lang]['tab-details']}</a>
+                            <a href="#" onclick="switchMicroTab(event, 'sensitivity')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" id="micro-tab-sensitivity">${translations[lang]['tab-sensitivity-micro']}</a>
+                        </nav>
+                    </div>
 
-                            <div class="bg-teal-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-teal-800 mb-2">${translations[lang]['commonInfections']}</h4>
-                                <ul class="list-disc list-inside">
-                                     ${pathogen.commonInfections[lang].map(i => `<li>${i}</li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-green-800 mb-2">${translations[lang]['therapy']}</h4>
-                                <p><strong>${translations[lang]['firstChoice']}:</strong> ${pathogen.firstChoice.join(', ')}</p>
-                                <p class="mt-2"><strong>${translations[lang]['alternative']}:</strong> ${pathogen.alternative.join(', ')}</p>
-                                <p class="mt-2"><strong>${translations[lang]['resistant']}:</strong> ${pathogen.resistant.join(', ')}</p>
+                    <div id="micro-tab-content-sensitivity" class="hidden">
+                        <h4 class="font-semibold text-teal-800 mb-2">${translations[lang]['tab-sensitivity-micro']}</h4>
+                        <div id="micro-sensitivity-info" class="bg-teal-50 p-4 rounded-lg"></div>
+                    </div>
+
+                    <div id="micro-tab-content-details">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800 mb-2">${translations[lang]['identifiers']}</h4>
+                                    <p><strong>${translations[lang]['type']}:</strong> ${pathogen.type[lang]}</p>
+                                    <p><strong>${translations[lang]['morphology']}:</strong> ${pathogen.morphology[lang]}</p>
+                                </div>
+                                
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800 mb-2">${translations[lang]['characteristics']}</h4>
+                                    <ul class="list-disc list-inside">
+                                        ${pathogen.characteristics[lang].map(c => `<li>${c}</li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="bg-teal-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-teal-800 mb-2">${translations[lang]['commonInfections']}</h4>
+                                    <ul class="list-disc list-inside">
+                                         ${pathogen.commonInfections[lang].map(i => `<li>${i}</li>`).join('')}
+                                    </ul>
+                                </div>
                             </div>
                             
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <h4 class="font-semibold text-gray-800 mb-2">${translations[lang]['notes']}</h4>
-                                <p class="text-sm">${pathogen.notes[lang]}</p>
+                            <div class="space-y-4">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-green-800 mb-2">${translations[lang]['therapy']}</h4>
+                                    <p><strong>${translations[lang]['firstChoice']}:</strong> ${pathogen.firstChoice.join(', ')}</p>
+                                    <p class="mt-2"><strong>${translations[lang]['alternative']}:</strong> ${pathogen.alternative.join(', ')}</p>
+                                    <p class="mt-2"><strong>${translations[lang]['resistant']}:</strong> ${pathogen.resistant.join(', ')}</p>
+                                </div>
+                                
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-gray-800 mb-2">${translations[lang]['notes']}</h4>
+                                    <p class="text-sm">${pathogen.notes[lang]}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             `;
+
+            // Sensitivity data loading
+            const sensitivityInfo = document.getElementById('micro-sensitivity-info');
+            if (typeof bacteriaSensitivityData !== 'undefined') {
+                let data = bacteriaSensitivityData[pathogen.name];
+                if (!data) {
+                    const key = Object.keys(bacteriaSensitivityData).find(k => k.toLowerCase() === pathogen.name.toLowerCase());
+                    if (key) data = bacteriaSensitivityData[key];
+                }
+
+                if (data) {
+                    const sensitiveAntibiotics = data.filter(item => item.sensitivity === 'S');
+                    
+                    if (sensitiveAntibiotics.length > 0) {
+                        let html = '<ul class="list-disc list-inside space-y-1">';
+                        sensitiveAntibiotics.forEach(item => {
+                             let content = `${item.antibiotic} <span class="text-xs text-gray-500">(${item.original})</span>`;
+                             if (item.resistance) {
+                                 content += ` <span class="text-xs text-red-600 font-semibold ml-1">R: ${item.resistance}</span>`;
+                             }
+                             html += `<li>${content}</li>`;
+                        });
+                        html += '</ul>';
+                        sensitivityInfo.innerHTML = html;
+                    } else {
+                         sensitivityInfo.innerHTML = `<p>${translations[lang]['no-antibiotic-data']}</p>`;
+                    }
+                } else {
+                    sensitivityInfo.innerHTML = `<p>${translations[lang]['no-data'] || 'Nincs elérhető adat.'}</p>`;
+                }
+            }
+        }
+
+        function switchMicroTab(event, tabName) {
+            event.preventDefault();
+            document.getElementById('micro-tab-content-details').classList.add('hidden');
+            document.getElementById('micro-tab-content-sensitivity').classList.add('hidden');
+
+            document.getElementById('micro-tab-details').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
+            document.getElementById('micro-tab-sensitivity').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
+
+            document.getElementById(`micro-tab-content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`micro-tab-${tabName}`).className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-purple-500 text-purple-600';
         }
 
         function setupPharmSearch() {
@@ -1805,9 +2043,6 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 document.getElementById('pediatric-search').value = '';
                 displayPediatricDoseTable(pediatricDoses);
             }
-             else if (!document.getElementById('tdm-module').classList.contains('hidden')) {
-                initTdmModule();
-            }
         }
 
         function generateSummaryTable() {
@@ -1869,20 +2104,91 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             });
         }
 
+        let currentRenalSort = { column: 'antibiotic_name', direction: 'asc' };
+
+        function sortRenalTable(column) {
+            if (currentRenalSort.column === column) {
+                currentRenalSort.direction = currentRenalSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentRenalSort.column = column;
+                currentRenalSort.direction = 'asc';
+            }
+            if (window.triggerRenalFilter) window.triggerRenalFilter();
+        }
+
+        function updateRenalSortIcons() {
+            const headers = {
+                'antibiotic_name': 'th-renal-antibiotic',
+                'gfr_gt_50': 'th-renal-gfr50',
+                'gfr_30_50': 'th-renal-gfr30-50',
+                'gfr_10_29': 'th-renal-gfr10-29',
+                'gfr_lt_10': 'th-renal-gfr-lt10',
+                'hd': 'th-renal-hd',
+                'crrt': 'th-renal-crrt'
+            };
+
+            for (const [col, id] of Object.entries(headers)) {
+                const th = document.getElementById(id);
+                if (th) {
+                    const existingIcon = th.querySelector('.sort-icon');
+                    if (existingIcon) existingIcon.remove();
+                    if (currentRenalSort.column === col) {
+                        th.innerHTML += `<span class="sort-icon ml-1 text-gray-500">${currentRenalSort.direction === 'asc' ? '▲' : '▼'}</span>`;
+                    }
+                }
+            }
+        }
+
         function setupRenalSearch() {
             const searchInput = document.getElementById('renal-search');
+            const routeRadios = document.getElementsByName('renal-route-filter');
 
             function filterAndDisplay() {
                 const searchTerm = searchInput.value.toLowerCase();
+                let filterRoute = 'all';
+                for (const radio of routeRadios) {
+                    if (radio.checked) {
+                        filterRoute = radio.value;
+                        break;
+                    }
+                }
 
                 const filteredDoses = renalDoses.filter(dose => {
-                    return dose.antibiotic_name.toLowerCase().includes(searchTerm);
+                    const matchesSearch = dose.antibiotic_name.toLowerCase().includes(searchTerm);
+                    let matchesRoute = true;
+                    if (filterRoute !== 'all') {
+                        const route = dose.route || 'IV'; // Ha nincs megadva, IV-nek tekintjük
+                        matchesRoute = route.includes(filterRoute);
+                    }
+                    return matchesSearch && matchesRoute;
+                });
+
+                // Sorting logic
+                filteredDoses.sort((a, b) => {
+                    let valA = a[currentRenalSort.column];
+                    let valB = b[currentRenalSort.column];
+
+                    // Handle objects (dose info)
+                    if (typeof valA === 'object' && valA !== null) valA = valA.dose;
+                    if (typeof valB === 'object' && valB !== null) valB = valB.dose;
+
+                    valA = (valA || '').toString().toLowerCase();
+                    valB = (valB || '').toString().toLowerCase();
+
+                    if (valA < valB) return currentRenalSort.direction === 'asc' ? -1 : 1;
+                    if (valA > valB) return currentRenalSort.direction === 'asc' ? 1 : -1;
+                    return 0;
                 });
 
                 displayRenalDoseTable(filteredDoses);
+                updateRenalSortIcons();
             }
 
             searchInput.addEventListener('input', filterAndDisplay);
+            for (const radio of routeRadios) {
+                radio.addEventListener('change', filterAndDisplay);
+            }
+            window.triggerRenalFilter = filterAndDisplay;
         }
 
         function setupPediatricSearch() {
@@ -1951,6 +2257,11 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
 
             list.forEach(dose => {
                 let nameHtml = `<div class="text-xs font-medium text-gray-900">${dose.antibiotic_name}</div>`;
+                
+                if (dose.route) {
+                    const badgeClass = dose.route.includes('PO') ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800';
+                    nameHtml += `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium ${badgeClass} mt-0.5">${dose.route}</span>`;
+                }
                 
                 const serumLevelText = {
                     'Vancomycin': { hu: 'Völgy: 15-20 mg/L', en: 'Trough: 15-20 mg/L', de: 'Talspiegel: 15-20 mg/L' },
