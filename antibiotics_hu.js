@@ -4889,4 +4889,604 @@ window.antibiotics_hu = [
             "de": "GI-Beschwerden (Durchfall 8%, Erbrechen 4%), QT-Verlängerung (5%), Hepatotoxizität (2%), Phlebitis (IV 3%), Schlaflosigkeit (3%)"
         }
     },
+    {
+        "name": { "hu": "Nafcillin", "en": "Nafcillin", "de": "Nafcillin" },
+        "group": { "abbreviation": "NAF", "hu": "Penicillin", "en": "Penicillin", "de": "Penicillin" },
+        "subgroup": { "hu": "Beta-laktám (Penicillináz-stabil)", "en": "Beta-lactam (Penicillinase-stable)", "de": "Beta-Lactam (Penicillinase-stabil)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "0.5-1 óra", "en": "0.5-1 hours", "de": "0,5-1 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["IV", "IM"],
+        "dosage": {
+            "standard": { "hu": "1-2g IV 4h", "en": "1-2g IV q4h", "de": "1-2g i.v. alle 4h" },
+            "high": { "hu": "2g IV 4h (meningitis, endocarditis)", "en": "2g IV q4h (meningitis, endocarditis)", "de": "2g i.v. alle 4h (Meningitis, Endokarditis)" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": false, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "MSSA, Streptococcus", "en": "MSSA, Streptococcus", "de": "MSSA, Streptococcus" }
+        },
+        "sideEffects": {
+            "hu": "Phlebitis, interstitialis nephritis, neutropenia (nagy dózis), hypokalaemia",
+            "en": "Phlebitis, interstitial nephritis, neutropenia (high dose), hypokalemia",
+            "de": "Phlebitis, interstitielle Nephritis, Neutropenie (hohe Dosis), Hypokaliämie"
+        }
+    },
+    {
+        "name": { "hu": "Dicloxacillin", "en": "Dicloxacillin", "de": "Dicloxacillin" },
+        "group": { "abbreviation": "DCX", "hu": "Penicillin", "en": "Penicillin", "de": "Penicillin" },
+        "subgroup": { "hu": "Beta-laktám (Penicillináz-stabil)", "en": "Beta-lactam (Penicillinase-stable)", "de": "Beta-Lactam (Penicillinase-stabil)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "0.7 óra", "en": "0.7 hours", "de": "0,7 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "250-500mg PO 6h", "en": "250-500mg PO q6h", "de": "250-500mg p.o. alle 6h" },
+            "high": { "hu": "500mg PO 6h", "en": "500mg PO q6h", "de": "500mg p.o. alle 6h" },
+            "oral": { "hu": "250-500mg PO 6h", "en": "250-500mg PO q6h", "de": "250-500mg p.o. alle 6h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": false, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "MSSA (bőrfertőzések)", "en": "MSSA (skin infections)", "de": "MSSA (Hautinfektionen)" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok (hányinger, hasmenés), hasi fájdalom",
+            "en": "GI symptoms (nausea, diarrhea), abdominal pain",
+            "de": "GI-Beschwerden (Übelkeit, Durchfall), Bauchschmerzen"
+        }
+    },
+    {
+        "name": { "hu": "Cefotetan", "en": "Cefotetan", "de": "Cefotetan" },
+        "group": { "abbreviation": "CTT", "hu": "Cefalosporin (2. generáció)", "en": "Cephalosporin (2nd gen)", "de": "Cephalosporin (2. Gen)" },
+        "subgroup": { "hu": "Beta-laktám (Cephamycin)", "en": "Beta-lactam (Cephamycin)", "de": "Beta-Lactam (Cephamycin)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "3-4 óra", "en": "3-4 hours", "de": "3-4 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["IV", "IM"],
+        "dosage": {
+            "standard": { "hu": "1-2g IV 12h", "en": "1-2g IV q12h", "de": "1-2g i.v. alle 12h" },
+            "high": { "hu": "2g IV 12h", "en": "2g IV q12h", "de": "2g i.v. alle 12h" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": true, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Bacteroides fragilis, sebészeti profilaxis", "en": "Bacteroides fragilis, surgical prophylaxis", "de": "Bacteroides fragilis, chirurgische Prophylaxe" }
+        },
+        "sideEffects": {
+            "hu": "Vérzési hajlam (MTT oldallánc), disulfiram-szerű reakció alkohollal",
+            "en": "Bleeding tendency (MTT side chain), disulfiram-like reaction with alcohol",
+            "de": "Blutungsneigung (MTT-Seitenkette), Disulfiram-ähnliche Reaktion mit Alkohol"
+        }
+    },
+    {
+        "name": { "hu": "Cefoperazone", "en": "Cefoperazone", "de": "Cefoperazon" },
+        "group": { "abbreviation": "CFP", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "2 óra", "en": "2 hours", "de": "2 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["IV", "IM"],
+        "dosage": {
+            "standard": { "hu": "1-2g IV 12h", "en": "1-2g IV q12h", "de": "1-2g i.v. alle 12h" },
+            "high": { "hu": "2-3g IV 6-12h", "en": "2-3g IV q6-12h", "de": "2-3g i.v. alle 6-12h" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "Pseudomonas aeruginosa, biliaris kiválasztódás", "en": "Pseudomonas aeruginosa, biliary excretion", "de": "Pseudomonas aeruginosa, biliäre Ausscheidung" }
+        },
+        "sideEffects": {
+            "hu": "Vérzési hajlam (MTT oldallánc), disulfiram-szerű reakció, hasmenés",
+            "en": "Bleeding tendency (MTT side chain), disulfiram-like reaction, diarrhea",
+            "de": "Blutungsneigung (MTT-Seitenkette), Disulfiram-ähnliche Reaktion, Durchfall"
+        }
+    },
+    {
+        "name": { "hu": "Ceftizoxime", "en": "Ceftizoxime", "de": "Ceftizoxim" },
+        "group": { "abbreviation": "CZX", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "1.7 óra", "en": "1.7 hours", "de": "1,7 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["IV", "IM"],
+        "dosage": {
+            "standard": { "hu": "1-2g IV 8-12h", "en": "1-2g IV q8-12h", "de": "1-2g i.v. alle 8-12h" },
+            "high": { "hu": "3-4g IV 8h", "en": "3-4g IV q8h", "de": "3-4g i.v. alle 8h" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": true, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Enterobacteriaceae, anaerobok (részleges)", "en": "Enterobacteriaceae, anaerobes (partial)", "de": "Enterobacteriaceae, Anaerobier (teilweise)" }
+        },
+        "sideEffects": {
+            "hu": "Bőrkiütés, eosinophilia, átmeneti májenzim emelkedés",
+            "en": "Rash, eosinophilia, transient liver enzyme elevation",
+            "de": "Hautausschlag, Eosinophilie, vorübergehender Leberenzymanstieg"
+        }
+    },
+    {
+        "name": { "hu": "Ceftaroline", "en": "Ceftaroline", "de": "Ceftarolin" },
+        "group": { "abbreviation": "CPT", "hu": "Cefalosporin (5. generáció)", "en": "Cephalosporin (5th gen)", "de": "Cephalosporin (5. Gen)" },
+        "subgroup": { "hu": "Beta-laktám (Anti-MRSA)", "en": "Beta-lactam (Anti-MRSA)", "de": "Beta-Lactam (Anti-MRSA)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "2.6 óra", "en": "2.6 hours", "de": "2,6 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP2a kötés)", "en": "Cell wall synthesis inhibitor (PBP2a binding)", "de": "Zellwandsynthese-Hemmer (PBP2a-Bindung)" },
+        "routes": ["IV"],
+        "dosage": {
+            "standard": { "hu": "600mg IV 12h", "en": "600mg IV q12h", "de": "600mg i.v. alle 12h" },
+            "high": { "hu": "600mg IV 8h (S. aureus bacteraemia)", "en": "600mg IV q8h (S. aureus bacteremia)", "de": "600mg i.v. alle 8h (S. aureus Bakteriämie)" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "MRSA, Penicillin-rezisztens Streptococcus", "en": "MRSA, Penicillin-resistant Streptococcus", "de": "MRSA, Penicillin-resistente Streptokokken" }
+        },
+        "sideEffects": {
+            "hu": "Pozitív Coombs teszt, bőrkiütés, hasmenés, hányinger",
+            "en": "Positive Coombs test, rash, diarrhea, nausea",
+            "de": "Positiver Coombs-Test, Hautausschlag, Durchfall, Übelkeit"
+        }
+    },
+    {
+        "name": { "hu": "Cefepime-enmetazobactam", "en": "Cefepime-enmetazobactam", "de": "Cefepim-Enmetazobactam" },
+        "group": { "abbreviation": "FEP-ENM", "hu": "Cefalosporin (4. generáció) + BLI", "en": "Cephalosporin (4th gen) + BLI", "de": "Cephalosporin (4. Gen) + BLI" },
+        "subgroup": { "hu": "Beta-laktám + BLI", "en": "Beta-lactam + BLI", "de": "Beta-Lactam + BLI" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "2 óra", "en": "2 hours", "de": "2 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló + béta-laktamáz gátló", "en": "Cell wall synthesis inhibitor + BLI", "de": "Zellwandsynthese-Hemmer + BLI" },
+        "routes": ["IV"],
+        "dosage": {
+            "standard": { "hu": "2g/0.5g IV 8h", "en": "2g/0.5g IV q8h", "de": "2g/0,5g i.v. alle 8h" },
+            "high": { "hu": "2g/0.5g IV 8h", "en": "2g/0.5g IV q8h", "de": "2g/0,5g i.v. alle 8h" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "ESBL termelő Enterobacterales", "en": "ESBL producing Enterobacterales", "de": "ESBL-produzierende Enterobacterales" }
+        },
+        "sideEffects": {
+            "hu": "Phlebitis, fejfájás, transzamináz emelkedés",
+            "en": "Phlebitis, headache, transaminase elevation",
+            "de": "Phlebitis, Kopfschmerzen, Transaminase-Erhöhung"
+        }
+    },
+    {
+        "name": { "hu": "Ceftobiprole", "en": "Ceftobiprole", "de": "Ceftobiprol" },
+        "group": { "abbreviation": "BPR", "hu": "Cefalosporin (5. generáció)", "en": "Cephalosporin (5th gen)", "de": "Cephalosporin (5. Gen)" },
+        "subgroup": { "hu": "Beta-laktám (Anti-MRSA)", "en": "Beta-lactam (Anti-MRSA)", "de": "Beta-Lactam (Anti-MRSA)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "3 óra", "en": "3 hours", "de": "3 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP2a kötés)", "en": "Cell wall synthesis inhibitor (PBP2a binding)", "de": "Zellwandsynthese-Hemmer (PBP2a-Bindung)" },
+        "routes": ["IV"],
+        "dosage": {
+            "standard": { "hu": "500mg IV 8h", "en": "500mg IV q8h", "de": "500mg i.v. alle 8h" },
+            "high": { "hu": "500mg IV 8h (2 órás infúzió)", "en": "500mg IV q8h (2h infusion)", "de": "500mg i.v. alle 8h (2h Infusion)" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "MRSA, Pseudomonas aeruginosa, Enterococcus faecalis", "en": "MRSA, Pseudomonas aeruginosa, Enterococcus faecalis", "de": "MRSA, Pseudomonas aeruginosa, Enterococcus faecalis" }
+        },
+        "sideEffects": {
+            "hu": "Ízérzészavar (dysgeusia), hányinger, hyponatraemia",
+            "en": "Taste disturbance (dysgeusia), nausea, hyponatremia",
+            "de": "Geschmacksstörung (Dysgeusie), Übelkeit, Hyponatriämie"
+        }
+    },
+    {
+        "name": { "hu": "Cefadroxil", "en": "Cefadroxil", "de": "Cefadroxil" },
+        "group": { "abbreviation": "CDX", "hu": "Cefalosporin (1. generáció)", "en": "Cephalosporin (1st gen)", "de": "Cephalosporin (1. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "1.5 óra", "en": "1.5 hours", "de": "1,5 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "500mg-1g PO 12-24h", "en": "500mg-1g PO q12-24h", "de": "500mg-1g p.o. alle 12-24h" },
+            "high": { "hu": "1g PO 12h", "en": "1g PO q12h", "de": "1g p.o. alle 12h" },
+            "oral": { "hu": "500mg-1g PO 12-24h", "en": "500mg-1g PO q12-24h", "de": "500mg-1g p.o. alle 12-24h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Streptococcus, MSSA, E. coli (húgyúti)", "en": "Streptococcus, MSSA, E. coli (urinary)", "de": "Streptococcus, MSSA, E. coli (Harnwege)" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok, bőrkiütés, allergiás reakciók",
+            "en": "GI symptoms, rash, allergic reactions",
+            "de": "GI-Beschwerden, Hautausschlag, allergische Reaktionen"
+        }
+    },
+    {
+        "name": { "hu": "Cefixime", "en": "Cefixime", "de": "Cefixim" },
+        "group": { "abbreviation": "CFM", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "3-4 óra", "en": "3-4 hours", "de": "3-4 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "400mg PO 24h", "en": "400mg PO q24h", "de": "400mg p.o. alle 24h" },
+            "high": { "hu": "400mg PO 24h", "en": "400mg PO q24h", "de": "400mg p.o. alle 24h" },
+            "oral": { "hu": "400mg PO 24h", "en": "400mg PO q24h", "de": "400mg p.o. alle 24h" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Gonorrhoea, Enterobacteriaceae", "en": "Gonorrhea, Enterobacteriaceae", "de": "Gonorrhoe, Enterobacteriaceae" }
+        },
+        "sideEffects": {
+            "hu": "Hasmenés (15%), hányinger, fejfájás",
+            "en": "Diarrhea (15%), nausea, headache",
+            "de": "Durchfall (15%), Übelkeit, Kopfschmerzen"
+        }
+    },
+    {
+        "name": { "hu": "Cefprozil", "en": "Cefprozil", "de": "Cefprozil" },
+        "group": { "abbreviation": "CPR", "hu": "Cefalosporin (2. generáció)", "en": "Cephalosporin (2nd gen)", "de": "Cephalosporin (2. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "1.3 óra", "en": "1.3 hours", "de": "1,3 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "250-500mg PO 12h", "en": "250-500mg PO q12h", "de": "250-500mg p.o. alle 12h" },
+            "high": { "hu": "500mg PO 12h", "en": "500mg PO q12h", "de": "500mg p.o. alle 12h" },
+            "oral": { "hu": "250-500mg PO 12h", "en": "250-500mg PO q12h", "de": "250-500mg p.o. alle 12h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "H. influenzae, M. catarrhalis, MSSA", "en": "H. influenzae, M. catarrhalis, MSSA", "de": "H. influenzae, M. catarrhalis, MSSA" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok, szédülés, bőrkiütés",
+            "en": "GI symptoms, dizziness, rash",
+            "de": "GI-Beschwerden, Schwindel, Hautausschlag"
+        }
+    },
+    {
+        "name": { "hu": "Cefdinir", "en": "Cefdinir", "de": "Cefdinir" },
+        "group": { "abbreviation": "CDR", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "1.7 óra", "en": "1.7 hours", "de": "1,7 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "300mg PO 12h vagy 600mg PO 24h", "en": "300mg PO q12h or 600mg PO q24h", "de": "300mg p.o. alle 12h oder 600mg p.o. alle 24h" },
+            "high": { "hu": "600mg PO 24h", "en": "600mg PO q24h", "de": "600mg p.o. alle 24h" },
+            "oral": { "hu": "300-600mg PO 12-24h", "en": "300-600mg PO q12-24h", "de": "300-600mg p.o. alle 12-24h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Légúti patogének, vörös széklet (vassal)", "en": "Respiratory pathogens, red stools (with iron)", "de": "Atemwegserreger, roter Stuhl (mit Eisen)" }
+        },
+        "sideEffects": {
+            "hu": "Hasmenés (16%), vörös széklet (vaskészítménnyel), hányinger",
+            "en": "Diarrhea (16%), red stools (with iron), nausea",
+            "de": "Durchfall (16%), roter Stuhl (mit Eisen), Übelkeit"
+        }
+    },
+    {
+        "name": { "hu": "Ceftibuten", "en": "Ceftibuten", "de": "Ceftibuten" },
+        "group": { "abbreviation": "CTB", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "2.5 óra", "en": "2.5 hours", "de": "2,5 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "400mg PO 24h", "en": "400mg PO q24h", "de": "400mg p.o. alle 24h" },
+            "high": { "hu": "400mg PO 24h", "en": "400mg PO q24h", "de": "400mg p.o. alle 24h" },
+            "oral": { "hu": "400mg PO 24h", "en": "400mg PO q24h", "de": "400mg p.o. alle 24h" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Enterobacteriaceae, gyenge Gram-pozitív aktivitás", "en": "Enterobacteriaceae, weak Gram-positive activity", "de": "Enterobacteriaceae, schwache Gram-positive Aktivität" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok, fejfájás, szédülés",
+            "en": "GI symptoms, headache, dizziness",
+            "de": "GI-Beschwerden, Kopfschmerzen, Schwindel"
+        }
+    },
+    {
+        "name": { "hu": "Cefpodoxime", "en": "Cefpodoxime", "de": "Cefpodoxim" },
+        "group": { "abbreviation": "CPD", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "2-3 óra", "en": "2-3 hours", "de": "2-3 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "100-200mg PO 12h", "en": "100-200mg PO q12h", "de": "100-200mg p.o. alle 12h" },
+            "high": { "hu": "200mg PO 12h", "en": "200mg PO q12h", "de": "200mg p.o. alle 12h" },
+            "oral": { "hu": "100-200mg PO 12h", "en": "100-200mg PO q12h", "de": "100-200mg p.o. alle 12h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "Légúti és húgyúti fertőzések", "en": "Respiratory and urinary tract infections", "de": "Atemwegs- und Harnwegsinfektionen" }
+        },
+        "sideEffects": {
+            "hu": "Hasmenés, hányinger, hüvelyi gombásodás",
+            "en": "Diarrhea, nausea, vaginal candidiasis",
+            "de": "Durchfall, Übelkeit, vaginale Candidose"
+        }
+    },
+    {
+        "name": { "hu": "Tobramycin", "en": "Tobramycin", "de": "Tobramycin" },
+        "group": { "abbreviation": "TOB", "hu": "Aminoglikozid", "en": "Aminoglycoside", "de": "Aminoglykosid" },
+        "subgroup": { "hu": "Aminoglikozid", "en": "Aminoglycoside", "de": "Aminoglykosid" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "2-3 óra", "en": "2-3 hours", "de": "2-3 Stunden" },
+        "pae": { "hu": "Hosszú", "en": "Long", "de": "Lang" },
+        "mechanism": { "hu": "Protein szintézis gátló (30S riboszóma)", "en": "Protein synthesis inhibitor (30S ribosome)", "de": "Proteinsynthese-Hemmer (30S-Ribosom)" },
+        "routes": ["IV", "IM", "Inhalation"],
+        "dosage": {
+            "standard": { "hu": "5-7 mg/kg IV 24h", "en": "5-7 mg/kg IV q24h", "de": "5-7 mg/kg i.v. alle 24h" },
+            "high": { "hu": "7-10 mg/kg IV 24h (CF)", "en": "7-10 mg/kg IV q24h (CF)", "de": "7-10 mg/kg i.v. alle 24h (CF)" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "Pseudomonas aeruginosa (jobb mint gentamicin)", "en": "Pseudomonas aeruginosa (better than gentamicin)", "de": "Pseudomonas aeruginosa (besser als Gentamicin)" }
+        },
+        "sideEffects": {
+            "hu": "Nephrotoxicitás, ototoxicitás (vestibularis és cochlearis), neuromuszkuláris blokád",
+            "en": "Nephrotoxicity, ototoxicity (vestibular and cochlear), neuromuscular blockade",
+            "de": "Nephrotoxizität, Ototoxizität (vestibulär und cochleär), neuromuskuläre Blockade"
+        }
+    },
+    {
+        "name": { "hu": "Cefditoren", "en": "Cefditoren", "de": "Cefditoren" },
+        "group": { "abbreviation": "CDN", "hu": "Cefalosporin (3. generáció)", "en": "Cephalosporin (3rd gen)", "de": "Cephalosporin (3. Gen)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "1.6 óra", "en": "1.6 hours", "de": "1,6 Stunden" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP kötés)", "en": "Cell wall synthesis inhibitor (PBP binding)", "de": "Zellwandsynthese-Hemmer (PBP-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "200-400mg PO 12h", "en": "200-400mg PO q12h", "de": "200-400mg p.o. alle 12h" },
+            "high": { "hu": "400mg PO 12h", "en": "400mg PO q12h", "de": "400mg p.o. alle 12h" },
+            "oral": { "hu": "200-400mg PO 12h", "en": "200-400mg PO q12h", "de": "200-400mg p.o. alle 12h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "S. pneumoniae (penicillin-rezisztens is), H. influenzae", "en": "S. pneumoniae (incl. penicillin-resistant), H. influenzae", "de": "S. pneumoniae (inkl. Penicillin-resistent), H. influenzae" }
+        },
+        "sideEffects": {
+            "hu": "Hasmenés, hányinger, carnitine hiány (hosszú távon)",
+            "en": "Diarrhea, nausea, carnitine deficiency (long term)",
+            "de": "Durchfall, Übelkeit, Carnitinmangel (langfristig)"
+        }
+    },
+    {
+        "name": { "hu": "Telithromycin", "en": "Telithromycin", "de": "Telithromycin" },
+        "group": { "abbreviation": "TEL", "hu": "Ketolid", "en": "Ketolide", "de": "Ketolid" },
+        "subgroup": { "hu": "Makrolid-származék", "en": "Macrolide derivative", "de": "Makrolid-Derivat" },
+        "effect": { "hu": "Bacteriostatikus", "en": "Bacteriostatic", "de": "Bakteriostatisch" },
+        "halfLife": { "hu": "10 óra", "en": "10 hours", "de": "10 Stunden" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "Protein szintézis gátló (50S riboszóma)", "en": "Protein synthesis inhibitor (50S ribosome)", "de": "Proteinsynthese-Hemmer (50S-Ribosom)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "800mg PO 24h", "en": "800mg PO q24h", "de": "800mg p.o. alle 24h" },
+            "high": { "hu": "800mg PO 24h", "en": "800mg PO q24h", "de": "800mg p.o. alle 24h" },
+            "oral": { "hu": "800mg PO 24h", "en": "800mg PO q24h", "de": "800mg p.o. alle 24h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": false, "anaerob": false, "atypical": true, "pseudomonas": false,
+            "other": { "hu": "Makrolid-rezisztens S. pneumoniae, CAP patogének", "en": "Macrolide-resistant S. pneumoniae, CAP pathogens", "de": "Makrolid-resistente S. pneumoniae, CAP-Erreger" }
+        },
+        "sideEffects": {
+            "hu": "Hepatotoxicitás (súlyos lehet), látászavarok, myasthenia gravis exacerbáció (kontraindikált)",
+            "en": "Hepatotoxicity (can be severe), visual disturbances, myasthenia gravis exacerbation (contraindicated)",
+            "de": "Hepatotoxizität (kann schwerwiegend sein), Sehstörungen, Myasthenia gravis Exazerbation (kontraindiziert)"
+        }
+    },
+    {
+        "name": { "hu": "Tetracycline", "en": "Tetracycline", "de": "Tetracyclin" },
+        "group": { "abbreviation": "TET", "hu": "Tetracyclin", "en": "Tetracycline", "de": "Tetracyclin" },
+        "subgroup": { "hu": "Tetracyclin", "en": "Tetracycline", "de": "Tetracyclin" },
+        "effect": { "hu": "Bacteriostatikus", "en": "Bacteriostatic", "de": "Bakteriostatisch" },
+        "halfLife": { "hu": "6-11 óra", "en": "6-11 hours", "de": "6-11 Stunden" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "Protein szintézis gátló (30S riboszóma)", "en": "Protein synthesis inhibitor (30S ribosome)", "de": "Proteinsynthese-Hemmer (30S-Ribosom)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "250-500mg PO 6h", "en": "250-500mg PO q6h", "de": "250-500mg p.o. alle 6h" },
+            "high": { "hu": "500mg PO 6h", "en": "500mg PO q6h", "de": "500mg p.o. alle 6h" },
+            "oral": { "hu": "250-500mg PO 6h", "en": "250-500mg PO q6h", "de": "250-500mg p.o. alle 6h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": true, "atypical": true, "pseudomonas": false,
+            "other": { "hu": "Rickettsia, Chlamydia, Mycoplasma, Acne", "en": "Rickettsia, Chlamydia, Mycoplasma, Acne", "de": "Rickettsia, Chlamydia, Mycoplasma, Akne" }
+        },
+        "sideEffects": {
+            "hu": "Fotoszenzitivitás, fogelszíneződés (gyerekeknél), GI panaszok, hepatotoxicitás",
+            "en": "Photosensitivity, tooth discoloration (in children), GI symptoms, hepatotoxicity",
+            "de": "Lichtempfindlichkeit, Zahnverfärbung (bei Kindern), GI-Beschwerden, Hepatotoxizität"
+        }
+    },
+    {
+        "name": { "hu": "Pristinamycin", "en": "Pristinamycin", "de": "Pristinamycin" },
+        "group": { "abbreviation": "PRI", "hu": "Streptogramin", "en": "Streptogramin", "de": "Streptogramin" },
+        "subgroup": { "hu": "Streptogramin", "en": "Streptogramin", "de": "Streptogramin" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "Protein szintézis gátló (50S riboszóma)", "en": "Protein synthesis inhibitor (50S ribosome)", "de": "Proteinsynthese-Hemmer (50S-Ribosom)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "1g PO 8h", "en": "1g PO q8h", "de": "1g p.o. alle 8h" },
+            "high": { "hu": "1g PO 8h", "en": "1g PO q8h", "de": "1g p.o. alle 8h" },
+            "oral": { "hu": "1g PO 8h", "en": "1g PO q8h", "de": "1g p.o. alle 8h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": false, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "MRSA, VRE (E. faecium)", "en": "MRSA, VRE (E. faecium)", "de": "MRSA, VRE (E. faecium)" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok, arthralgia, myalgia",
+            "en": "GI symptoms, arthralgia, myalgia",
+            "de": "GI-Beschwerden, Arthralgie, Myalgie"
+        }
+    },
+    {
+        "name": { "hu": "Pivmecillinam", "en": "Pivmecillinam", "de": "Pivmecillinam" },
+        "group": { "abbreviation": "PIV", "hu": "Penicillin (Amidinopenicillin)", "en": "Penicillin (Amidinopenicillin)", "de": "Penicillin (Amidinopenicillin)" },
+        "subgroup": { "hu": "Beta-laktám", "en": "Beta-lactam", "de": "Beta-Lactam" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "1 óra", "en": "1 hour", "de": "1 Stunde" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló (PBP2 kötés)", "en": "Cell wall synthesis inhibitor (PBP2 binding)", "de": "Zellwandsynthese-Hemmer (PBP2-Bindung)" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "200-400mg PO 8h", "en": "200-400mg PO q8h", "de": "200-400mg p.o. alle 8h" },
+            "high": { "hu": "400mg PO 8h", "en": "400mg PO q8h", "de": "400mg p.o. alle 8h" },
+            "oral": { "hu": "200-400mg PO 8h", "en": "200-400mg PO q8h", "de": "200-400mg p.o. alle 8h" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": false,
+            "other": { "hu": "E. coli (ESBL stabil), húgyúti fertőzések", "en": "E. coli (ESBL stable), urinary tract infections", "de": "E. coli (ESBL-stabil), Harnwegsinfektionen" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok, carnitine hiány (hosszú távú szedésnél)",
+            "en": "GI symptoms, carnitine deficiency (long-term use)",
+            "de": "GI-Beschwerden, Carnitinmangel (Langzeitanwendung)"
+        }
+    },
+    {
+        "name": { "hu": "Norfloxacin", "en": "Norfloxacin", "de": "Norfloxacin" },
+        "group": { "abbreviation": "NOR", "hu": "Fluorokinolon", "en": "Fluoroquinolone", "de": "Fluorchinolon" },
+        "subgroup": { "hu": "Kinolon (2. generáció)", "en": "Quinolone (2nd gen)", "de": "Chinolon (2. Gen)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "3-4 óra", "en": "3-4 hours", "de": "3-4 Stunden" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "DNS giráz és topoizomeráz IV gátló", "en": "DNA gyrase and topoisomerase IV inhibitor", "de": "DNA-Gyrase- und Topoisomerase-IV-Inhibitor" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "400mg PO 12h", "en": "400mg PO q12h", "de": "400mg p.o. alle 12h" },
+            "high": { "hu": "400mg PO 12h", "en": "400mg PO q12h", "de": "400mg p.o. alle 12h" },
+            "oral": { "hu": "400mg PO 12h", "en": "400mg PO q12h", "de": "400mg p.o. alle 12h" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "Húgyúti fertőzések (rossz szöveti penetráció)", "en": "Urinary tract infections (poor tissue penetration)", "de": "Harnwegsinfektionen (schlechte Gewebepenetration)" }
+        },
+        "sideEffects": {
+            "hu": "Íngyulladás/szakadás, CNS toxicitás, fotoszenzitivitás",
+            "en": "Tendinitis/rupture, CNS toxicity, photosensitivity",
+            "de": "Sehnenentzündung/-riss, ZNS-Toxizität, Lichtempfindlichkeit"
+        }
+    },
+    {
+        "name": { "hu": "Prulifloxacin", "en": "Prulifloxacin", "de": "Prulifloxacin" },
+        "group": { "abbreviation": "PRU", "hu": "Fluorokinolon", "en": "Fluoroquinolone", "de": "Fluorchinolon" },
+        "subgroup": { "hu": "Kinolon", "en": "Quinolone", "de": "Chinolon" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "10-12 óra", "en": "10-12 hours", "de": "10-12 Stunden" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "DNS giráz gátló", "en": "DNA gyrase inhibitor", "de": "DNA-Gyrase-Hemmer" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "600mg PO 24h", "en": "600mg PO q24h", "de": "600mg p.o. alle 24h" },
+            "high": { "hu": "600mg PO 24h", "en": "600mg PO q24h", "de": "600mg p.o. alle 24h" },
+            "oral": { "hu": "600mg PO 24h", "en": "600mg PO q24h", "de": "600mg p.o. alle 24h" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "Húgyúti fertőzések", "en": "Urinary tract infections", "de": "Harnwegsinfektionen" }
+        },
+        "sideEffects": {
+            "hu": "GI panaszok, fotoszenzitivitás",
+            "en": "GI symptoms, photosensitivity",
+            "de": "GI-Beschwerden, Lichtempfindlichkeit"
+        }
+    },
+    {
+        "name": { "hu": "Gemifloxacin", "en": "Gemifloxacin", "de": "Gemifloxacin" },
+        "group": { "abbreviation": "GEM", "hu": "Fluorokinolon", "en": "Fluoroquinolone", "de": "Fluorchinolon" },
+        "subgroup": { "hu": "Kinolon (4. generáció)", "en": "Quinolone (4th gen)", "de": "Chinolon (4. Gen)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "7 óra", "en": "7 hours", "de": "7 Stunden" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "DNS giráz és topoizomeráz IV gátló", "en": "DNA gyrase and topoisomerase IV inhibitor", "de": "DNA-Gyrase- und Topoisomerase-IV-Inhibitor" },
+        "routes": ["PO"],
+        "dosage": {
+            "standard": { "hu": "320mg PO 24h", "en": "320mg PO q24h", "de": "320mg p.o. alle 24h" },
+            "high": { "hu": "320mg PO 24h", "en": "320mg PO q24h", "de": "320mg p.o. alle 24h" },
+            "oral": { "hu": "320mg PO 24h", "en": "320mg PO q24h", "de": "320mg p.o. alle 24h" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": true, "pseudomonas": false,
+            "other": { "hu": "Légúti patogének (S. pneumoniae)", "en": "Respiratory pathogens (S. pneumoniae)", "de": "Atemwegserreger (S. pneumoniae)" }
+        },
+        "sideEffects": {
+            "hu": "Bőrkiütés (gyakori, főleg nők <40 év), GI panaszok",
+            "en": "Rash (common, esp. women <40y), GI symptoms",
+            "de": "Hautausschlag (häufig, bes. Frauen <40J), GI-Beschwerden"
+        }
+    },
+    {
+        "name": { "hu": "Gatifloxacin", "en": "Gatifloxacin", "de": "Gatifloxacin" },
+        "group": { "abbreviation": "GAT", "hu": "Fluorokinolon", "en": "Fluoroquinolone", "de": "Fluorchinolon" },
+        "subgroup": { "hu": "Kinolon (4. generáció)", "en": "Quinolone (4th gen)", "de": "Chinolon (4. Gen)" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "7-14 óra", "en": "7-14 hours", "de": "7-14 Stunden" },
+        "pae": { "hu": "Közepes", "en": "Moderate", "de": "Mittel" },
+        "mechanism": { "hu": "DNS giráz és topoizomeráz IV gátló", "en": "DNA gyrase and topoisomerase IV inhibitor", "de": "DNA-Gyrase- und Topoisomerase-IV-Inhibitor" },
+        "routes": ["Ophthalmic"],
+        "dosage": {
+            "standard": { "hu": "Szemcsepp", "en": "Eye drops", "de": "Augentropfen" },
+            "high": { "hu": "Szemcsepp", "en": "Eye drops", "de": "Augentropfen" },
+            "oral": { "hu": "Visszavonva (dysglycaemia)", "en": "Withdrawn (dysglycemia)", "de": "Zurückgezogen (Dysglykämie)" }
+        },
+        "spectrum": {
+            "gramPos": true, "gramNeg": true, "anaerob": false, "atypical": true, "pseudomonas": false,
+            "other": { "hu": "Szemészeti fertőzések", "en": "Ophthalmic infections", "de": "Augeninfektionen" }
+        },
+        "sideEffects": {
+            "hu": "Dysglycaemia (szisztémásan), lokális irritáció",
+            "en": "Dysglycemia (systemic), local irritation",
+            "de": "Dysglykämie (systemisch), lokale Reizung"
+        }
+    },
+    {
+        "name": { "hu": "Aztreonam-Avibactam", "en": "Aztreonam-Avibactam", "de": "Aztreonam-Avibactam" },
+        "group": { "abbreviation": "ATM-AVI", "hu": "Monobaktám + BLI", "en": "Monobactam + BLI", "de": "Monobactam + BLI" },
+        "subgroup": { "hu": "Beta-laktám + BLI", "en": "Beta-lactam + BLI", "de": "Beta-Lactam + BLI" },
+        "effect": { "hu": "Bactericid", "en": "Bactericidal", "de": "Bakterizid" },
+        "halfLife": { "hu": "Ismeretlen", "en": "Unknown", "de": "Unbekannt" },
+        "pae": { "hu": "Rövid", "en": "Short", "de": "Kurz" },
+        "mechanism": { "hu": "Sejtfal szintézis gátló + béta-laktamáz gátló", "en": "Cell wall synthesis inhibitor + BLI", "de": "Zellwandsynthese-Hemmer + BLI" },
+        "routes": ["IV"],
+        "dosage": {
+            "standard": { "hu": "Vizsgálat alatt", "en": "Investigational", "de": "In Untersuchung" },
+            "high": { "hu": "Vizsgálat alatt", "en": "Investigational", "de": "In Untersuchung" },
+            "oral": { "hu": "Nem elérhető", "en": "Not available", "de": "Nicht verfügbar" }
+        },
+        "spectrum": {
+            "gramPos": false, "gramNeg": true, "anaerob": false, "atypical": false, "pseudomonas": true,
+            "other": { "hu": "Metallo-béta-laktamáz termelők (MBL)", "en": "Metallo-beta-lactamase producers (MBL)", "de": "Metallo-Beta-Lactamase-Produzenten (MBL)" }
+        },
+        "sideEffects": {
+            "hu": "Hasonló az aztreonamhoz, plusz BLI hatások",
+            "en": "Similar to aztreonam, plus BLI effects",
+            "de": "Ähnlich wie Aztreonam, plus BLI-Effekte"
+        }
+    }
 ]

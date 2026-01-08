@@ -1,4 +1,5 @@
 let tdmChart = null;
+let tdmValidationInitialized = false;
 
 function fillTdmWithTestData() {
     document.getElementById('birthYear').value = 1975;
@@ -22,50 +23,87 @@ function fillTdmWithTestData() {
 }
 
 function setupTdmInputValidation() {
-    const inputs = document.querySelectorAll('.tdm-input');
-    inputs.forEach(input => {
-        input.addEventListener('input', validateTdmInputs);
-    });
+    if (!tdmValidationInitialized) {
+        const inputs = document.querySelectorAll('.tdm-input');
+        inputs.forEach(input => {
+            input.addEventListener('input', validateTdmInputs);
+        });
+        tdmValidationInitialized = true;
+    }
     validateTdmInputs(); // Initial check
 }
 
 function validateTdmInputs() {
+    validateAndCalculateGFR();
+    validateAndCalculateInitialDose();
+    validateAndCalculateTDM();
+}
+
+function validateAndCalculateGFR() {
     let isGfrFormValid = true;
     ['birthYear', 'weight', 'height', 'creatinine'].forEach(id => {
         const input = document.getElementById(id);
         if (!validateInput(input, 0)) isGfrFormValid = false;
     });
-    document.getElementById('gfr-calc-btn').disabled = !isGfrFormValid;
+    
+    if (isGfrFormValid) {
+        // Csak akkor számolunk GFR-t, ha az input mezők nincsenek letiltva (pl. dialízis mód miatt)
+        if (!document.getElementById('birthYear').disabled) {
+            calculateGFR();
+        }
+    }
+}
 
+function validateAndCalculateInitialDose() {
     let isInitialDoseFormValid = true;
     if (!validateInput(document.getElementById('weight'), 0)) isInitialDoseFormValid = false;
     
     const manualGfrInput = document.getElementById('manualGFR');
-    const gfrResultDiv = document.getElementById('gfrResult');
-    if (!manualGfrInput.value && gfrResultDiv.classList.contains('hidden')) {
+    const dialysisType = document.getElementById('dialysisType') ? document.getElementById('dialysisType').value : 'none';
+    
+    // GFR csak akkor kell, ha nincs dialízis
+    if (dialysisType === 'none' && !manualGfrInput.value) {
         isInitialDoseFormValid = false;
     }
     validateInput(manualGfrInput, 0, false); // Validate but don't require
 
-    document.getElementById('initial-dose-btn').disabled = !isInitialDoseFormValid;
+    // Automatikus számítás, ha az adatok érvényesek
+    if (isInitialDoseFormValid) {
+        calculateInitialDose();
+    } else {
+        document.getElementById('initialDoseResultColumn').classList.add('hidden');
+    }
+}
 
+function validateAndCalculateTDM() {
     let isTdmFormValid = true;
     ['dose', 'troughLevel', 'interval', 'weight'].forEach(id => {
         if (!validateInput(document.getElementById(id), 0)) isTdmFormValid = false;
     });
 
     const manualGfrInputTdm = document.getElementById('manualGFR');
-    const gfrResultDivTdm = document.getElementById('gfrResult');
      if (!manualGfrInputTdm.value) {
         isTdmFormValid = false;
     }
 
-    document.getElementById('tdm-calc-btn').disabled = !isTdmFormValid;
+    if (isTdmFormValid) {
+        calculateTroughBasedTDM();
+    } else {
+        document.getElementById('results').classList.add('hidden');
+    }
 }
 
 
 function validateInput(input, minValue, isRequired = true) {
     if (!input) return false;
+
+    if (input.disabled) {
+        input.classList.remove('border-red-500');
+        const errorEl = input.nextElementSibling;
+        if (errorEl && errorEl.classList.contains('error-message')) errorEl.classList.add('hidden');
+        return true;
+    }
+
     const value = parseFloat(input.value);
     const errorEl = input.nextElementSibling;
     let isValid = true;
@@ -102,7 +140,6 @@ function calculateGFR() {
     const gender = document.getElementById('gender').value;
     const creatinine = parseFloat(document.getElementById('creatinine').value);
 
-    if (!birthYear || !weight || !height || !creatinine) { alert("Kérlek, tölts ki minden mezőt a GFR számításhoz!"); return; }
 
     const age = calculateAge(birthYear);
     const creatinineMgDl = creatinine / 88.4; // Convert μmol/L to mg/dL
@@ -129,7 +166,6 @@ function calculateGFR() {
     document.getElementById('gfrResult').classList.remove('hidden');
     document.getElementById('gfrValue').textContent = `${gfr.toFixed(1)} mL/min/1.73m²`;
     document.getElementById('manualGFR').value = gfr.toFixed(1);
-    validateTdmInputs();
 }
 
 function updateDrugInfo() {
@@ -145,8 +181,14 @@ function updateDialysisInfo() {
     const dialysisType = document.getElementById('dialysisType').value;
     const dialysisInfoDiv = document.getElementById('dialysisInfo');
     
+    const gfrInputs = ['birthYear', 'gender', 'height', 'creatinine', 'manualGFR'];
+
     if (dialysisType === 'none') {
         dialysisInfoDiv.classList.add('hidden');
+        gfrInputs.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.disabled = false;
+        });
     } else {
         const dialysis = dialysisData[dialysisType];
         dialysisInfoDiv.classList.remove('hidden');
@@ -154,7 +196,12 @@ function updateDialysisInfo() {
             <div class="text-sm font-medium text-orange-800 mb-2">${dialysis.name}</div>
             <div class="text-xs text-orange-700">${dialysis.info}</div>
         `;
+        gfrInputs.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.disabled = true;
+        });
     }
+    validateTdmInputs();
 }
 
 function calculateInitialDose() {
@@ -164,7 +211,7 @@ function calculateInitialDose() {
      const gfr = parseFloat(document.getElementById('manualGFR').value);
      const dialysisType = document.getElementById('dialysisType').value;
 
-     if (!weight) { alert("Kérlek, add meg a testsúlyt!"); return; }
+     if (!weight) return;
 
      const drug = tdm_data[antibiotic];
      let resultHTML = '';
@@ -198,9 +245,7 @@ function calculateInitialDose() {
          
      } else {
          // Normal GFR-based dosing
-         if (!gfr) {
-            alert("Kérlek, számítsd ki vagy add meg a GFR értéket!"); return;
-         }
+         if (!gfr) return;
          
          let baseDosePerKg = drug.dosing[severity];
          const baseDose = baseDosePerKg * weight;
@@ -258,7 +303,7 @@ function calculateTroughBasedTDM() {
     const antibiotic = document.getElementById('antibiotic').value;
     const steadyState = document.getElementById('steadyState').value;
 
-    if (!dose || !troughLevel || !interval || !weight || isNaN(gfr)) { alert("Kérlek, töltsd ki a TDM számításhoz szükséges mezőket (beleértve a GFR-t is)!"); return; }
+    if (!dose || !troughLevel || !interval || !weight || isNaN(gfr)) return;
 
     const drug = tdm_data[antibiotic];
     

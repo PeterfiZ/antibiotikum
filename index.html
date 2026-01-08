@@ -218,7 +218,7 @@
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-xl shadow-lg p-4">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4" id="antibiotic-list">Antibiotikumok listája</h3>
-                        <div id="pharm-list" class="space-y-2 max-h-96 overflow-y-auto">
+                        <div id="pharm-list" class="space-y-1 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
                             <!-- Antibiotics will be populated here -->
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-xl shadow-lg p-4">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4" id="disease-list">Betegségek listája</h3>
-                        <div id="clin-list" class="space-y-2 max-h-96 overflow-y-auto">
+                        <div id="clin-list" class="space-y-1 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
                             <!-- Diseases will be populated here -->
                         </div>
                     </div>
@@ -464,7 +464,13 @@
         <div id="renal-module" class="hidden fade-in">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-2xl font-bold text-gray-800" id="renal-module-title">Dózismódosítás vesekárosodás esetén</h2>
-                <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-6">Vissza</button>
+                <div class="flex items-center space-x-3">
+                    <button onclick="exportRenalDosesToPDF()" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center space-x-2" id="export-renal-pdf-btn">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <span id="export-renal-pdf-btn-text">PDF Mentés</span>
+                    </button>
+                    <button onclick="showModuleSelection()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors" id="back-btn-6">Vissza</button>
+                </div>
             </div>
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -565,14 +571,9 @@
                                 <div class="bg-blue-50 rounded-xl p-3 border border-blue-100">
                                     <label class="block text-[10px] font-semibold text-blue-800 uppercase tracking-wider mb-1">Vesefunkció</label>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 items-end">
-                                        <div class="flex gap-2 items-end">
-                                            <div class="flex-1">
-                                                <label class="block text-[10px] text-blue-600 mb-0.5">Se-Kreatinin (μmol/L)</label>
-                                                <input type="number" id="creatinine" placeholder="88" class="tdm-input w-full px-3 py-1.5 text-sm bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-                                            </div>
-                                            <button id="gfr-calc-btn" onclick="calculateGFR()" class="bg-blue-600 text-white py-1.5 px-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-xs shadow-sm h-[34px]">
-                                                GFR Számítás
-                                            </button>
+                                        <div>
+                                            <label class="block text-[10px] text-blue-600 mb-0.5">Se-Kreatinin (μmol/L)</label>
+                                            <input type="number" id="creatinine" placeholder="88" class="tdm-input w-full px-3 py-1.5 text-sm bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
                                         </div>
                                         <div>
                                              <label class="block text-[10px] text-blue-600 mb-0.5">Vagy ismert GFR (mL/min/1.73m²)</label>
@@ -637,28 +638,20 @@
                                 </div>
                             </div>
                             
-                            <div class="mt-auto pt-2">
-                                <button id="initial-dose-btn" onclick="calculateInitialDose()" class="w-full bg-emerald-600 text-white py-2 px-4 rounded-xl hover:bg-emerald-700 transition-all font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm">
-                                    <span>🚀</span> Kezdő Dózis Számítása
-                                </button>
+                            <div id="initialDoseResultColumn" class="hidden mt-auto pt-2 animate-fade-in">
+                                <div class="bg-emerald-50 rounded-xl border border-emerald-100 p-3 shadow-sm">
+                                    <h2 class="text-xs font-bold text-emerald-900 mb-2 flex items-center gap-2 border-b border-emerald-200/50 pb-1">
+                                        📊 Javasolt kezdő dózis
+                                    </h2>
+                                    <div id="initialDoseContent" class="text-slate-700 text-sm">
+                                        <!-- Content will be injected here -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Initial Dose Result (Full Width) -->
-                <div id="initialDoseResultColumn" class="mb-4 animate-fade-in flex justify-center">
-                    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-100 p-4 shadow-sm relative overflow-hidden w-full max-w-lg">
-                        <div class="absolute top-0 right-0 p-2 opacity-5 text-4xl">📊</div>
-                        <h2 class="text-sm font-bold text-emerald-900 mb-2 flex items-center gap-2 border-b border-emerald-200/50 pb-2">
-                            Javasolt kezdő dózis
-                        </h2>
-                        <div id="initialDoseContent" class="text-slate-700 text-sm">
-                            <p class="text-gray-500 italic text-center">Adja meg a beteg adatait és kattintson a számítás gombra.</p>
-                        </div>
-                    </div>
-                </div>
-                
                 <!-- TDM Section -->
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-8">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center gap-2">
@@ -704,10 +697,6 @@
                                     <li><strong>Voriconazole:</strong> 5-7. napon, dózis előtt.</li>
                                 </ul>
                             </div>
-                            
-                            <button id="tdm-calc-btn" onclick="calculateTroughBasedTDM()" class="w-full md:w-auto bg-purple-600 text-white py-3 px-8 rounded-xl hover:bg-purple-700 transition-all font-bold shadow-md hover:shadow-lg whitespace-nowrap">
-                                Számítás és Korrekció
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -837,6 +826,7 @@
 <script src="test_hu.js"></script>
 <script src="test_en.js"></script>
 <script src="test_de.js"></script>
+<script src="test_new.js"></script>
 <script src="renal_dose_hu.js"></script>
 <script src="renal_dose_en.js"></script> 
 <script src="renal_dose_de.js"></script> 
@@ -951,6 +941,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'th-renal-hd': 'HD',
                 'search-renal-antibiotic': 'Keresés antibiotikum szerint:',
                 'th-renal-crrt': 'CRRT',
+                'export-renal-pdf-btn-text': 'PDF Mentés',
                 'export-summary-pdf-btn-text': 'Összefoglaló PDF',
                 'export-detailed-pdf-btn-text': 'Részletes PDF',
                 'export-diseases-pdf-btn-text': 'Részletes PDF',
@@ -1041,7 +1032,8 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'tab-sensitivity': 'Érzékeny baktériumok',
                 'no-sensitive-data': 'Nincs adat érzékeny baktériumokról.',
                 'tab-sensitivity-micro': 'Érzékenység',
-                'no-antibiotic-data': 'Nincs adat érzékeny antibiotikumokról.'
+                'no-antibiotic-data': 'Nincs adat érzékeny antibiotikumokról.',
+                'relevantAntibioticsInfo': 'Releváns antibiotikum információk'
             },
             en: {
                 'select-module': 'Select Module',
@@ -1125,6 +1117,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'th-renal-hd': 'HD',
                 'search-renal-antibiotic': 'Search by antibiotic:',
                 'th-renal-crrt': 'CRRT',
+                'export-renal-pdf-btn-text': 'Save PDF',
                 'export-summary-pdf-btn-text': 'Summary PDF',
                 'export-detailed-pdf-btn-text': 'Detailed PDF',
                 'export-diseases-pdf-btn-text': 'Detailed PDF',
@@ -1215,7 +1208,8 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'tab-sensitivity': 'Sensitive Bacteria',
                 'no-sensitive-data': 'No data on sensitive bacteria.',
                 'tab-sensitivity-micro': 'Sensitivity',
-                'no-antibiotic-data': 'No data on sensitive antibiotics.'
+                'no-antibiotic-data': 'No data on sensitive antibiotics.',
+                'relevantAntibioticsInfo': 'Relevant Antibiotic Information'
             },
             de: {
                 'select-module': 'Modul auswählen',
@@ -1293,6 +1287,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'th-renal-hd': 'HD',
                 'search-renal-antibiotic': 'Nach Antibiotikum suchen:',
                 'th-renal-crrt': 'CRRT',
+                'export-renal-pdf-btn-text': 'PDF Speichern',
                 'export-summary-pdf-btn-text': 'Zusammenfassungs-PDF',
                 'export-detailed-pdf-btn-text': 'Detailliertes PDF',
                 'export-diseases-pdf-btn-text': 'Detailliertes PDF',
@@ -1383,7 +1378,8 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'tab-sensitivity': 'Empfindliche Bakterien',
                 'no-sensitive-data': 'Keine Daten zu empfindlichen Bakterien.',
                 'tab-sensitivity-micro': 'Empfindlichkeit',
-                'no-antibiotic-data': 'Keine Daten zu empfindlichen Antibiotika.'
+                'no-antibiotic-data': 'Keine Daten zu empfindlichen Antibiotika.',
+                'relevantAntibioticsInfo': 'Relevante Antibiotika-Informationen'
             }
         };
 
@@ -1405,7 +1401,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
         antibiotics = window.antibiotics_hu || [];
         diseases = window.diseases_hu || [];
         pathogens = window.pathogens_hu || [];
-        testQuestions = window.test_hu || [];
+        testQuestions = (window.test_hu || []).concat(window.test_new || []);
         renalDoses = window.renal_dose_hu || []; 
         pediatricDoses = window.pediatric_doses_hu || [];
     } else if (lang === 'en') {
@@ -1511,6 +1507,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
         function initTdmModule() {
             // The HTML is now embedded, so just initialize the state
             updateDrugInfo();
+            setupTdmInputValidation();
         }
 
 
@@ -1576,9 +1573,8 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             list.sort((a, b) => a.name[currentLanguage].localeCompare(b.name[currentLanguage]));
             list.forEach(ab => {
                 const div = document.createElement('div');
-                const abbreviation = ab.group.abbreviation ? ` (${ab.group.abbreviation})` : '';
-                div.textContent = `${ab.name[currentLanguage]}${abbreviation}`;
-                div.className = 'p-2 cursor-pointer hover:bg-blue-100 rounded';
+                div.innerHTML = `<span class="font-medium">${ab.name[currentLanguage]}</span>${ab.group.abbreviation ? `<span class="text-xs text-gray-400 ml-2">${ab.group.abbreviation}</span>` : ''}`;
+                div.className = 'px-3 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-700 rounded-md text-sm transition-colors duration-150 flex items-center justify-between border border-transparent hover:border-blue-100';
                 div.onclick = () => showPharmDetails(ab);
                 pharmList.appendChild(div);
             });
@@ -1603,8 +1599,8 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 const icon = severityIcons[disease.severity] ? `<span class="text-lg mr-2" title="${severityTooltips[disease.severity] ? severityTooltips[disease.severity][currentLanguage] : ''}">${severityIcons[disease.severity]}</span>` : '<span class="inline-block w-6 mr-2"></span>';
 
                 const div = document.createElement('div');
-                div.innerHTML = `${icon}<span>${disease.name[currentLanguage]}</span>`;
-                div.className = 'p-2 cursor-pointer hover:bg-green-100 rounded flex items-center';
+                div.innerHTML = `<div class="flex items-center">${icon}<span class="font-medium">${disease.name[currentLanguage]}</span></div>`;
+                div.className = 'px-3 py-2 cursor-pointer hover:bg-green-50 hover:text-green-700 rounded-md text-sm transition-colors duration-150 flex items-center justify-between border border-transparent hover:border-green-100';
                 div.onclick = () => showClinDetails(disease);
                 clinList.appendChild(div);
             });
@@ -1639,76 +1635,153 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             const lang = currentLanguage;
             
             const spectrumIcons = {
-                gramPos: antibiotic.spectrum.gramPos ? '✅' : '❌',
-                gramNeg: antibiotic.spectrum.gramNeg ? '✅' : '❌',
-                anaerob: antibiotic.spectrum.anaerob ? '✅' : '❌',
-                atypical: antibiotic.spectrum.atypical ? '✅' : '❌',
-                pseudomonas: antibiotic.spectrum.pseudomonas ? '✅' : '❌'
+                gramPos: antibiotic.spectrum.gramPos ? '<span class="text-green-600">✅</span>' : '<span class="text-gray-300">❌</span>',
+                gramNeg: antibiotic.spectrum.gramNeg ? '<span class="text-green-600">✅</span>' : '<span class="text-gray-300">❌</span>',
+                anaerob: antibiotic.spectrum.anaerob ? '<span class="text-green-600">✅</span>' : '<span class="text-gray-300">❌</span>',
+                atypical: antibiotic.spectrum.atypical ? '<span class="text-green-600">✅</span>' : '<span class="text-gray-300">❌</span>',
+                pseudomonas: antibiotic.spectrum.pseudomonas ? '<span class="text-green-600">✅</span>' : '<span class="text-gray-300">❌</span>'
             };
             
-            details.innerHTML = `
-                <div class="text-left">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">${antibiotic.name[lang]} ${antibiotic.group.abbreviation ? `(${antibiotic.group.abbreviation})` : ''}</h3>
+            const effectColor = (antibiotic.effect[lang] || '').toLowerCase().includes('bactericid') || (antibiotic.effect[lang] || '').toLowerCase().includes('bakterizid') ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800';
 
-                    <div class="mb-6 border-b border-gray-200">
-                        <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-                            <a href="#" onclick="switchPharmTab(event, 'details')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600" id="tab-details">${translations[lang]['tab-details']}</a>
-                            <a href="#" onclick="switchPharmTab(event, 'pediatric')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" id="tab-pediatric">${translations[lang]['tab-pediatric']}</a>
-                            <a href="#" onclick="switchPharmTab(event, 'sensitivity')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" id="tab-sensitivity">${translations[lang]['tab-sensitivity']}</a>
+            details.innerHTML = `
+                <div class="text-left h-full flex flex-col">
+                    <!-- Header Section -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                                ${antibiotic.name[lang]} 
+                                <span class="text-lg font-normal text-gray-500">${antibiotic.group.abbreviation ? `(${antibiotic.group.abbreviation})` : ''}</span>
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200">${antibiotic.group[lang]}</span>
+                                ${antibiotic.subgroup ? `<span class="px-2 py-0.5 rounded text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200">${antibiotic.subgroup[lang]}</span>` : ''}
+                                <span class="px-2 py-0.5 rounded text-xs font-medium ${effectColor}">${antibiotic.effect[lang]}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="mb-4 border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                            <a href="#" onclick="switchPharmTab(event, 'details')" class="whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600 transition-colors" id="tab-details">${translations[lang]['tab-details']}</a>
+                            <a href="#" onclick="switchPharmTab(event, 'pediatric')" class="whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors" id="tab-pediatric">${translations[lang]['tab-pediatric']}</a>
+                            <a href="#" onclick="switchPharmTab(event, 'sensitivity')" class="whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors" id="tab-sensitivity">${translations[lang]['tab-sensitivity']}</a>
                         </nav>
                     </div>
 
-                    <div id="pharm-tab-content-pediatric" class="hidden">
-                        <h4 class="font-semibold text-pink-800 mb-2">Gyermekdózisok</h4>
-                        <div id="pediatric-dose-info" class="bg-pink-50 p-4 rounded-lg"></div>
-                    </div>
+                    <!-- Content Area -->
+                    <div class="flex-grow overflow-y-auto pr-1 custom-scrollbar">
+                        
+                        <!-- Pediatric Tab -->
+                        <div id="pharm-tab-content-pediatric" class="hidden animate-fade-in">
+                            <div class="bg-pink-50 border border-pink-100 p-4 rounded-lg shadow-sm">
+                                <h4 class="font-semibold text-pink-800 mb-3 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Gyermekdózisok
+                                </h4>
+                                <div id="pediatric-dose-info" class="text-sm text-gray-700"></div>
+                            </div>
+                        </div>
 
-                    <div id="pharm-tab-content-sensitivity" class="hidden">
-                        <h4 class="font-semibold text-teal-800 mb-2">${translations[lang]['tab-sensitivity']}</h4>
-                        <div id="sensitivity-info" class="bg-teal-50 p-4 rounded-lg"></div>
-                    </div>
-                    
-                    <div id="pharm-tab-content-details" class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-4">
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-blue-800 mb-2">${translations[lang]['basicData']}</h4>
-                                <p><strong>${translations[lang]['group']}:</strong> ${antibiotic.group[lang]}</p>
-                                <p><strong>${translations[lang]['subgroup']}:</strong> ${antibiotic.subgroup ? antibiotic.subgroup[lang] : ''}</p>
-                                <p><strong>${translations[lang]['effect']}:</strong> ${antibiotic.effect[lang]}</p>
-                                <p><strong>${translations[lang]['halfLife']}:</strong> ${antibiotic.halfLife[lang]}</p>
-                                <p><strong>${translations[lang]['pae']}:</strong> ${antibiotic.pae[lang]}</p>
-                            </div>
-                            
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-green-800 mb-2">${translations[lang]['mechanism']}</h4>
-                                <p>${antibiotic.mechanism[lang]}</p>
-                            </div>
-                            
-                            <div class="bg-purple-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-purple-800 mb-2">${translations[lang]['dosage']}</h4>
-                                <p><strong>${translations[lang]['standard']}:</strong> ${antibiotic.dosage.standard[lang]}</p>
-                                <p><strong>${translations[lang]['high']}:</strong> ${antibiotic.dosage.high[lang]}</p>
-                                <p><strong>${translations[lang]['oral']}:</strong> ${antibiotic.dosage.oral[lang]}</p>
-                                <p><strong>${translations[lang]['routes']}:</strong> ${antibiotic.routes.join(', ')}</p>
+                        <!-- Sensitivity Tab -->
+                        <div id="pharm-tab-content-sensitivity" class="hidden animate-fade-in">
+                            <div class="bg-teal-50 border border-teal-100 p-4 rounded-lg shadow-sm">
+                                <h4 class="font-semibold text-teal-800 mb-3 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    ${translations[lang]['tab-sensitivity']}
+                                </h4>
+                                <div id="sensitivity-info" class="text-sm text-gray-700"></div>
                             </div>
                         </div>
                         
-                        <div class="space-y-4">
-                            <div class="bg-yellow-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-yellow-800 mb-2">${translations[lang]['spectrum']}</h4>
-                                <div class="space-y-2">
-                                    <p>${spectrumIcons.gramPos} ${translations[lang]['gramPositive']}</p>
-                                    <p>${spectrumIcons.gramNeg} ${translations[lang]['gramNegative']}</p>
-                                    <p>${spectrumIcons.anaerob} ${translations[lang]['anaerobe']}</p>
-                                    <p>${spectrumIcons.atypical} ${translations[lang]['atypical']}</p>
-                                    <p>${spectrumIcons.pseudomonas} ${translations[lang]['pseudomonas']}</p>
-                                    <p><strong>${translations[lang]['other']}:</strong> ${antibiotic.spectrum.other[lang]}</p>
+                        <!-- Details Tab (Main) -->
+                        <div id="pharm-tab-content-details" class="grid lg:grid-cols-2 gap-4 animate-fade-in">
+                            
+                            <!-- Left Column: PK & Dosage -->
+                            <div class="space-y-4">
+                                <!-- PK Card -->
+                                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 border-b border-gray-100 pb-1">${translations[lang]['basicData']}</h4>
+                                    <div class="grid grid-cols-2 gap-y-3 gap-x-2 text-sm">
+                                        <div>
+                                            <span class="block text-xs text-gray-500">${translations[lang]['halfLife']}</span>
+                                            <span class="font-medium text-gray-800">${antibiotic.halfLife[lang]}</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-xs text-gray-500">${translations[lang]['pae']}</span>
+                                            <span class="font-medium text-gray-800">${antibiotic.pae[lang]}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Dosage Card -->
+                                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 border-b border-gray-100 pb-1">${translations[lang]['dosage']}</h4>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex justify-between items-baseline border-b border-gray-50 pb-1">
+                                            <span class="text-gray-500 w-1/3">${translations[lang]['standard']}</span>
+                                            <span class="font-medium text-gray-800 w-2/3 text-right">${antibiotic.dosage.standard[lang]}</span>
+                                        </div>
+                                        <div class="flex justify-between items-baseline border-b border-gray-50 pb-1">
+                                            <span class="text-gray-500 w-1/3">${translations[lang]['high']}</span>
+                                            <span class="font-medium text-gray-800 w-2/3 text-right">${antibiotic.dosage.high[lang]}</span>
+                                        </div>
+                                        <div class="flex justify-between items-baseline border-b border-gray-50 pb-1">
+                                            <span class="text-gray-500 w-1/3">${translations[lang]['oral']}</span>
+                                            <span class="font-medium text-gray-800 w-2/3 text-right">${antibiotic.dosage.oral[lang]}</span>
+                                        </div>
+                                        <div class="pt-1">
+                                            <span class="block text-xs text-gray-500 mb-1">${translations[lang]['routes']}</span>
+                                            <div class="flex flex-wrap gap-1">
+                                                ${antibiotic.routes.map(r => `<span class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs border border-gray-200">${r}</span>`).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="bg-red-50 p-4 rounded-lg">
-                                <h4 class="font-semibold text-red-800 mb-2">${translations[lang]['sideEffects']}</h4>
-                                <p class="text-sm">${antibiotic.sideEffects[lang]}</p>
+                            <!-- Right Column: Mechanism, Spectrum, Side Effects -->
+                            <div class="space-y-4">
+                                <!-- Mechanism -->
+                                <div class="bg-green-50 border border-green-100 rounded-lg p-3 shadow-sm">
+                                    <h4 class="text-xs font-bold text-green-800 uppercase tracking-wider mb-1">${translations[lang]['mechanism']}</h4>
+                                    <p class="text-sm text-green-900 leading-relaxed">${antibiotic.mechanism[lang]}</p>
+                                </div>
+
+                                <!-- Spectrum -->
+                                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 border-b border-gray-100 pb-1">${translations[lang]['spectrum']}</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <div class="flex items-center justify-between p-1.5 bg-gray-50 rounded">
+                                            <span class="text-gray-600">${translations[lang]['gramPositive']}</span>
+                                            ${spectrumIcons.gramPos}
+                                        </div>
+                                        <div class="flex items-center justify-between p-1.5 bg-gray-50 rounded">
+                                            <span class="text-gray-600">${translations[lang]['gramNegative']}</span>
+                                            ${spectrumIcons.gramNeg}
+                                        </div>
+                                        <div class="flex items-center justify-between p-1.5 bg-gray-50 rounded">
+                                            <span class="text-gray-600">${translations[lang]['anaerobe']}</span>
+                                            ${spectrumIcons.anaerob}
+                                        </div>
+                                        <div class="flex items-center justify-between p-1.5 bg-gray-50 rounded">
+                                            <span class="text-gray-600">${translations[lang]['atypical']}</span>
+                                            ${spectrumIcons.atypical}
+                                        </div>
+                                        <div class="flex items-center justify-between p-1.5 bg-gray-50 rounded col-span-2">
+                                            <span class="text-gray-600">${translations[lang]['pseudomonas']}</span>
+                                            ${spectrumIcons.pseudomonas}
+                                        </div>
+                                    </div>
+                                    ${antibiotic.spectrum.other[lang] ? `<div class="mt-2 text-xs text-gray-500 border-t border-gray-100 pt-2"><strong>${translations[lang]['other']}:</strong> ${antibiotic.spectrum.other[lang]}</div>` : ''}
+                                </div>
+                                
+                                <!-- Side Effects -->
+                                <div class="bg-red-50 border border-red-100 rounded-lg p-3 shadow-sm">
+                                    <h4 class="text-xs font-bold text-red-800 uppercase tracking-wider mb-1">${translations[lang]['sideEffects']}</h4>
+                                    <p class="text-sm text-red-900 leading-relaxed">${antibiotic.sideEffects[lang]}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1779,13 +1852,13 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             document.getElementById('pharm-tab-content-sensitivity').classList.add('hidden');
 
             // Linkek stílusának resetelése
-            document.getElementById('tab-details').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
-            document.getElementById('tab-pediatric').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
-            document.getElementById('tab-sensitivity').className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300';
+            document.getElementById('tab-details').className = 'whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors';
+            document.getElementById('tab-pediatric').className = 'whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors';
+            document.getElementById('tab-sensitivity').className = 'whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors';
 
             // Aktív tab és tartalom megjelenítése
             document.getElementById(`pharm-tab-content-${tabName}`).classList.remove('hidden');
-            document.getElementById(`tab-${tabName}`).className = 'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600';
+            document.getElementById(`tab-${tabName}`).className = 'whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm border-indigo-500 text-indigo-600 transition-colors';
         }
 
         function showClinDetails(disease) {
@@ -1806,41 +1879,138 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
 
             const getCategoryName = (category) => categoryTranslations[category] ? categoryTranslations[category][lang] : category;
 
+            // Collect all therapy texts to search for antibiotics
+            let allTherapyText = (disease.empiricalTherapy.firstLine[lang] || "") + " " + (disease.empiricalTherapy.alternative[lang] || "");
+            if (disease.targetedTherapy) {
+                Object.values(disease.targetedTherapy).forEach(val => {
+                    if (val && val[lang]) {
+                        allTherapyText += " " + val[lang];
+                    }
+                });
+            }
+
+            // Find relevant antibiotics
+            const relevantAntibiotics = [];
+            if (antibiotics) {
+                antibiotics.forEach(ab => {
+                    const name = ab.name[lang];
+                    if (name) {
+                        // Escape special regex chars
+                        const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        // Match whole words, case insensitive
+                        const regex = new RegExp(`\\b${escapedName}\\b`, 'i');
+                        if (regex.test(allTherapyText)) {
+                            relevantAntibiotics.push(ab);
+                        }
+                    }
+                });
+            }
+
+            // Generate HTML for relevant antibiotics
+            let antibioticsHtml = '';
+            if (relevantAntibiotics.length > 0) {
+                antibioticsHtml = `
+                    <div class="lg:col-span-2 mt-2">
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                            <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">${translations[lang]['relevantAntibioticsInfo'] || 'Relevant Antibiotic Information'}</h4>
+                            <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                `;
+                
+                relevantAntibiotics.forEach(ab => {
+                    antibioticsHtml += `
+                        <div class="bg-white p-3 rounded border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="showModule('pharmacological'); setTimeout(() => { document.getElementById('pharm-search').value = '${ab.name[lang]}'; document.getElementById('pharm-search').dispatchEvent(new Event('input')); }, 100);">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-bold text-blue-700 text-sm">${ab.name[lang]}</span>
+                                <span class="text-[10px] px-1.5 py-0.5 bg-gray-100 rounded text-gray-500">${ab.group.abbreviation || 'AB'}</span>
+                            </div>
+                            <div class="space-y-1 text-xs text-gray-600">
+                                <div class="flex justify-between"><span class="text-gray-400">${translations[lang]['dosage']}:</span> <span class="font-medium text-right ml-2">${ab.dosage.standard[lang]}</span></div>
+                                <div class="border-t border-gray-50 pt-1 mt-1 text-gray-500 truncate" title="${ab.sideEffects[lang]}">⚠️ ${ab.sideEffects[lang]}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                antibioticsHtml += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             let detailsHtml = `
-                <div class="fade-in text-left">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">${disease.name[lang]}</h3>
-                    <p class="text-sm text-gray-600 mb-4"><strong>${translations[lang]['category'] || 'Category'}:</strong> ${getCategoryName(disease.category)}</p>
-
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-semibold text-gray-700 text-lg mb-2">${translations[lang]['commonPathogens'] || 'Common Pathogens'}:</h4>
-                            <ul class="list-disc list-inside text-gray-600 italic">
-                                ${disease.commonPathogens.map(p => `<li>${p}</li>`).join('')}
-                            </ul>
+                <div class="h-full flex flex-col animate-fade-in">
+                    <!-- Header -->
+                    <div class="mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                            ${disease.name[lang]}
+                        </h3>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200">${getCategoryName(disease.category)}</span>
                         </div>
+                    </div>
 
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <h4 class="font-semibold text-green-800 text-lg mb-2">${translations[lang]['empiricalTherapy'] || 'Empirical Therapy'}:</h4>
-                            <div>
-                                <p><strong>${translations[lang]['firstLine'] || 'First Line'}:</strong> ${disease.empiricalTherapy.firstLine[lang]}</p>
-                                <p><strong>${translations[lang]['alternative'] || 'Alternative'}:</strong> ${disease.empiricalTherapy.alternative[lang]}</p>
-                                <p><strong>${translations[lang]['duration'] || 'Duration'}:</strong> ${disease.empiricalTherapy.duration[lang]}</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-semibold text-blue-800 text-lg mb-2">${translations[lang]['targetedTherapy'] || 'Targeted Therapy'}:</h4>
-                            <div class="space-y-1">
-                                ${Object.entries(disease.targetedTherapy).map(([key, value]) => `<p><strong class="italic">${key}:</strong> ${value[lang]}</p>`).join('')}
-                            </div>
-                        </div>
+                    <!-- Content Grid -->
+                    <div class="grid lg:grid-cols-2 gap-4 overflow-y-auto pr-1 custom-scrollbar flex-grow">
                         
-                        ${disease.notes && disease.notes[lang] ? `
-                        <div>
-                            <h4 class="font-semibold text-gray-700 text-lg mb-2">${translations[lang]['notes'] || 'Notes'}:</h4>
-                            <p class="text-gray-600 italic">${disease.notes[lang]}</p>
+                        <!-- Left Column -->
+                        <div class="space-y-4">
+                            <!-- Pathogens -->
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 border-b border-gray-100 pb-1">${translations[lang]['commonPathogens'] || 'Common Pathogens'}</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    ${disease.commonPathogens.map(p => `<li>${p}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <!-- Empirical Therapy -->
+                            <div class="bg-green-50 border border-green-100 rounded-lg p-4 shadow-sm">
+                                <h4 class="text-xs font-bold text-green-800 uppercase tracking-wider mb-3 border-b border-green-200 pb-1">${translations[lang]['empiricalTherapy'] || 'Empirical Therapy'}</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-xs text-green-700 font-semibold">${translations[lang]['firstLine'] || 'First Line'}:</span>
+                                        <span class="text-gray-800 bg-white/50 p-2 rounded border border-green-100">${disease.empiricalTherapy.firstLine[lang]}</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-xs text-green-700 font-semibold">${translations[lang]['alternative'] || 'Alternative'}:</span>
+                                        <span class="text-gray-800 bg-white/50 p-2 rounded border border-green-100">${disease.empiricalTherapy.alternative[lang]}</span>
+                                    </div>
+                                    <div class="flex items-baseline gap-2 pt-1">
+                                        <span class="text-xs text-green-700 font-semibold">${translations[lang]['duration'] || 'Duration'}:</span>
+                                        <span class="text-gray-800 font-medium">${disease.empiricalTherapy.duration[lang]}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        ` : ''}
+
+                        <!-- Right Column -->
+                        <div class="space-y-4">
+                            <!-- Targeted Therapy -->
+                            <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 shadow-sm">
+                                <h4 class="text-xs font-bold text-blue-800 uppercase tracking-wider mb-3 border-b border-blue-200 pb-1">${translations[lang]['targetedTherapy'] || 'Targeted Therapy'}</h4>
+                                <div class="space-y-2 text-sm">
+                                    ${Object.entries(disease.targetedTherapy).map(([key, value]) => `
+                                        <div class="bg-white/50 p-2 rounded border border-blue-100">
+                                            <strong class="block text-blue-700 text-xs mb-1">${key}</strong>
+                                            <span class="text-gray-800">${value[lang]}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <!-- Notes -->
+                            ${disease.notes && disease.notes[lang] ? `
+                            <div class="bg-amber-50 border border-amber-100 rounded-lg p-4 shadow-sm">
+                                <h4 class="text-xs font-bold text-amber-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    ${translations[lang]['notes'] || 'Notes'}
+                                </h4>
+                                <p class="text-sm text-amber-900 italic leading-relaxed">${disease.notes[lang]}</p>
+                            </div>
+                            ` : ''}
+                        </div>
+
+                        ${antibioticsHtml}
                     </div>
                 </div>
             `;
@@ -2575,6 +2745,65 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             setTimeout(() => { printWindow.print(); }, 500);
         }
 
+        function exportRenalDosesToPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('l', 'mm', 'a4');
+            const lang = currentLanguage;
+
+            doc.setFontSize(16);
+            doc.text(translations[lang]['renal-table-title'], 14, 15);
+            
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text(`© 2025, Dr. Péterfi Zoltán | ${lang === 'hu' ? 'Verzió' : 'Version'}: 4.3.6`, 14, 22);
+
+            const head = [[
+                translations[lang]['th-renal-antibiotic'],
+                translations[lang]['th-renal-gfr50'],
+                translations[lang]['th-renal-gfr30-50'],
+                translations[lang]['th-renal-gfr10-29'],
+                translations[lang]['th-renal-gfr-lt10'],
+                translations[lang]['th-renal-hd'],
+                translations[lang]['th-renal-crrt']
+            ]];
+
+            const formatVal = (val) => {
+                if (!val) return '-';
+                if (typeof val === 'string') return val;
+                if (typeof val === 'object') {
+                    let str = val.dose;
+                    if (val.interval) str += ` ${val.interval}`;
+                    if (val.notes) str += `\n(${val.notes})`;
+                    return str;
+                }
+                return '-';
+            };
+
+            const sortedDoses = [...renalDoses].sort((a, b) => a.antibiotic_name.localeCompare(b.antibiotic_name));
+            
+            const body = sortedDoses.map(item => [
+                item.antibiotic_name + (item.route ? ` [${item.route}]` : ''),
+                formatVal(item.gfr_gt_50),
+                formatVal(item.gfr_30_50),
+                formatVal(item.gfr_10_29),
+                formatVal(item.gfr_lt_10),
+                formatVal(item.hd),
+                formatVal(item.crrt)
+            ]);
+
+            doc.autoTable({
+                head: head,
+                body: body,
+                startY: 25,
+                theme: 'grid',
+                styles: { fontSize: 8, cellPadding: 2, overflow: 'linebreak' },
+                headStyles: { fillColor: [220, 38, 38], textColor: 255, fontStyle: 'bold' },
+                columnStyles: { 0: { fontStyle: 'bold', cellWidth: 35 } }
+            });
+
+            doc.save('vesekarocodas_dozisok.pdf');
+        }
+
         function exportPathogensToPDF() {
             const printWindow = window.open('', '_blank');
             const lang = currentLanguage;
@@ -2780,7 +3009,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             antibiotics = window.antibiotics_hu || [];
             diseases = window.diseases_hu || [];
             pathogens = window.pathogens_hu || [];
-            testQuestions = window.test_hu || [];
+            testQuestions = (window.test_hu || []).concat(window.test_new || []);
             renalDoses = window.renal_dose_hu || [];
             pediatricDoses = window.pediatric_doses_hu || [];
             changeLanguage('hu');
