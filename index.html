@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4f46e5"/>
-    <title>Antibiotikum Oktató Program</title>
+    <title>Antibiotikum alkalmazási segédlet</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
@@ -62,7 +62,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-800">Antibiotikum Oktató Program</h1>
+                    <h1 class="text-3xl font-bold text-gray-800">Antibiotikum alkalmazási segédlet</h1>
                 </div>
                 <div class="flex space-x-2">
                     <button onclick="changeLanguage('hu')" class="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" id="lang-hu">HU</button>
@@ -794,7 +794,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="text-sm text-gray-500 mb-2" id="sensitivity-legend">Jelmagyarázat: S - Érzékeny, I - Emelt dózis, R - Rezisztens</div>
+                <div class="text-sm text-gray-500 mb-2" id="sensitivity-legend">Jelmagyarázat: S - Érzékeny, M - Emelt dózis, R - Rezisztens</div>
             </div>
 
             <div id="sensitivity-results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -971,7 +971,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'mechanism': 'Hatásmechanizmus',
                 'dosage': 'Adagolás',
                 'standard': 'Standard',
-                'high': 'Magas dózis',
+                'high': 'Emelt dózis',
                 'oral': 'Orális',
                 'routes': 'Alkalmazási módok',
                 'spectrum': 'Spektrum',
@@ -1001,7 +1001,7 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
                 'max_dose': 'Max. dózis',
                 'special': 'Speciális',
                 'notes': 'Megjegyzés',
-                'high_dose': 'Magas dózis',
+                'high_dose': 'Emelt dózis',
                 'meningitis': 'Meningitis',
                 'child_po': 'Gyermek (PO)',
                 'child_iv': 'Gyermek (IV)',
@@ -1587,12 +1587,12 @@ console.log("pediatric_doses_de:", window.pediatric_doses_de);
             list.sort((a, b) => a.name[currentLanguage].localeCompare(b.name[currentLanguage]));
             list.forEach(disease => {
                 const severityIcons = {
-                    'high': '<span class="text-red-500" title="Magas súlyosság">🔴</span>',
+                    'high': '<span class="text-red-500" title="Emelt súlyosság">🔴</span>',
                     'medium': '<span class="text-yellow-500" title="Közepes súlyosság">🟡</span>',
                     'low': '<span class="text-green-500" title="Alacsony súlyosság">🟢</span>'
                 };
                 const severityTooltips = {
-                    'high': { hu: 'Magas súlyosság', en: 'High Severity', de: 'Hohe Schweregrad' },
+                    'high': { hu: 'Emelt súlyosság', en: 'High Severity', de: 'Hohe Schweregrad' },
                     'medium': { hu: 'Közepes súlyosság', en: 'Medium Severity', de: 'Mittlerer Schweregrad' },
                     'low': { hu: 'Alacsony súlyosság', en: 'Low Severity', de: 'Niedriger Schweregrad' }
                 };
